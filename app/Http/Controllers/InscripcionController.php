@@ -24,12 +24,12 @@ class InscripcionController extends Controller
     public function create(): Response
     {
         return Inertia::render('Inscripciones/Create', [
-            // Aquí puedes pasar datos iniciales que necesite el formulario
-            // Por ejemplo: cursos, niveles, provincias, etc.
-            // 'cursos' => Curso::all(),
-            // 'niveles' => Nivel::all(),
-            // 'provincias' => Provincia::all(),
-        ]);
+        'cursos' => \App\Models\Curso::all(),
+        'niveles' => \App\Models\Nivel::all(),
+        'provincias' => \App\Models\Provincia::all(),
+        'departamentos' => \App\Models\Departamento::all(),
+        'localidades' => \App\Models\Localidad::all(),
+    ]);
     }
 
     /**
