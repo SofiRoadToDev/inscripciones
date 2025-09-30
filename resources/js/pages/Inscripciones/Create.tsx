@@ -2,10 +2,7 @@ import { useForm } from '@inertiajs/react';
 import { FormEvent } from 'react';
 import { Tab } from '@headlessui/react';
 import { InscripcionFormData, InscripcionCreateProps } from '@/types';
-import AlumnoForm from '@/Components/Inscripciones/AlumnoForm';
-import TutoresForm from '@/Components/Inscripciones/TutoresForm';
-import InscripcionForm from '@/Components/Inscripciones/InscripcionForm';
-import FichaSaludForm from '@/Components/Inscripciones/FichaSaludForm';
+import {AlumnoForm} from '../../components/AlumnoForm';
 
 export default function Create({ 
     cursos = [], 
