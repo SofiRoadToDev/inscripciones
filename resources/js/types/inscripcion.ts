@@ -152,6 +152,7 @@ export interface AlumnoFormData {
     fecha_nacimiento: string;
     nacionalidad: string;
     genero: 'M' | 'F' | 'X' | '';
+    foto?: File | null;
     domicilio: DomicilioFormData;
 }
 

@@ -1,17 +1,23 @@
 import { useForm } from '@inertiajs/react';
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { Tab } from '@headlessui/react';
 import { InscripcionFormData, InscripcionCreateProps } from '@/types';
-import {AlumnoForm} from '../../components/AlumnoForm';
+import {AlumnoForm} from '@/components/Inscripciones/AlumnoForm';
+import {TutoresForm} from '@/components/Inscripciones/TutoresForm';
+import {InscripcionForm} from '@/components/Inscripciones/InscripcionForm';
+import {FichaSaludForm} from '@/components/Inscripciones/FichaSaludForm';
+import Hero from '@/components/Inscripciones/partials/Hero';
 
-export default function Create({ 
-    cursos = [], 
-    niveles = [], 
-    provincias = [], 
-    departamentos = [], 
-    localidades = [] 
+
+export default function Create({
+    cursos = [],
+    niveles = [],
+    provincias = [],
+    departamentos = [],
+    localidades = []
 }: InscripcionCreateProps) {
-    
+
+    const [selectedTab, setSelectedTab] = useState(0);
     const { data, setData, post, processing, errors } = useForm<InscripcionFormData>({
         alumno: {
             id: null,
@@ -21,6 +27,7 @@ export default function Create({
             fecha_nacimiento: '',
             nacionalidad: 'Argentina',
             genero: '',
+            foto: null,
             domicilio: {
                 id: null,
                 calle: '',
@@ -78,15 +85,68 @@ export default function Create({
         }
     });
 
+    const validateRequiredFields = (): boolean => {
+        // Validar Alumno
+        if (!data.alumno.apellido || !data.alumno.nombre || !data.alumno.dni ||
+            !data.alumno.fecha_nacimiento || !data.alumno.nacionalidad || !data.alumno.genero || !data.alumno.foto) {
+            return false;
+        }
+
+        // Validar Domicilio del Alumno
+        if (!data.alumno.domicilio.calle || !data.alumno.domicilio.numero ||
+            !data.alumno.domicilio.provincia_id || !data.alumno.domicilio.departamento_id ||
+            !data.alumno.domicilio.localidad_id) {
+            return false;
+        }
+
+        // Validar Tutores (al menos uno con datos completos)
+        if (data.tutores.length === 0) {
+            return false;
+        }
+
+        for (const tutor of data.tutores) {
+            if (!tutor.apellido || !tutor.nombre || !tutor.dni || !tutor.telefono) {
+                return false;
+            }
+
+            // Validar Domicilio del Tutor
+            if (!tutor.domicilio.calle || !tutor.domicilio.numero ||
+                !tutor.domicilio.provincia_id || !tutor.domicilio.departamento_id ||
+                !tutor.domicilio.localidad_id) {
+                return false;
+            }
+        }
+
+        // Validar Inscripción
+        if (!data.inscripcion.fecha || !data.inscripcion.ciclo_lectivo ||
+            !data.inscripcion.curso_id || !data.inscripcion.nivel_id) {
+            return false;
+        }
+
+        // Validar Escuela de Procedencia
+        if (!data.escuela_procedencia.cue || !data.escuela_procedencia.nombre ||
+            !data.escuela_procedencia.localidad_id) {
+            return false;
+        }
+
+        return true;
+    };
+
     const submit = (e: FormEvent) => {
         e.preventDefault();
-        post(route('inscripciones.store'));
+        if (!validateRequiredFields()) {
+            alert('Por favor, complete todos los campos requeridos antes de enviar el formulario.');
+            return;
+        }
+        post('/inscripciones');
     };
 
     return (
+        <>
+        <Hero/>
         <div className="min-h-screen bg-gray-50 py-8">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="mb-8">
+                <div className="mb-8 flex flex-col justify-center items-center">
                     <h1 className="text-3xl font-bold text-gray-900">Nueva Inscripción</h1>
                     <p className="mt-2 text-sm text-gray-600">
                         Complete todos los datos requeridos para inscribir al alumno
@@ -94,11 +154,11 @@ export default function Create({
                 </div>
 
                 <form onSubmit={submit}>
-                    <Tab.Group>
+                    <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
                         <Tab.List className="flex space-x-2 rounded-xl bg-blue-900/20 p-1 mb-6">
                             <Tab
                                 className={({ selected }) =>
-                                    `w-full rounded-lg py-2.5 text-sm font-medium leading-5 
+                                    `w-full rounded-lg py-2.5 text-sm font-medium leading-5
                                     ${selected
                                         ? 'bg-white text-blue-700 shadow'
                                         : 'text-blue-600 hover:bg-white/[0.12] hover:text-blue-800'
@@ -109,7 +169,7 @@ export default function Create({
                             </Tab>
                             <Tab
                                 className={({ selected }) =>
-                                    `w-full rounded-lg py-2.5 text-sm font-medium leading-5 
+                                    `w-full rounded-lg py-2.5 text-sm font-medium leading-5
                                     ${selected
                                         ? 'bg-white text-blue-700 shadow'
                                         : 'text-blue-600 hover:bg-white/[0.12] hover:text-blue-800'
@@ -120,7 +180,7 @@ export default function Create({
                             </Tab>
                             <Tab
                                 className={({ selected }) =>
-                                    `w-full rounded-lg py-2.5 text-sm font-medium leading-5 
+                                    `w-full rounded-lg py-2.5 text-sm font-medium leading-5
                                     ${selected
                                         ? 'bg-white text-blue-700 shadow'
                                         : 'text-blue-600 hover:bg-white/[0.12] hover:text-blue-800'
@@ -131,7 +191,7 @@ export default function Create({
                             </Tab>
                             <Tab
                                 className={({ selected }) =>
-                                    `w-full rounded-lg py-2.5 text-sm font-medium leading-5 
+                                    `w-full rounded-lg py-2.5 text-sm font-medium leading-5
                                     ${selected
                                         ? 'bg-white text-blue-700 shadow'
                                         : 'text-blue-600 hover:bg-white/[0.12] hover:text-blue-800'
@@ -185,25 +245,28 @@ export default function Create({
                         </Tab.Panels>
                     </Tab.Group>
 
-                    {/* Botones de Acción */}
-                    <div className="mt-8 flex justify-end gap-4">
-                        <button
-                            type="button"
-                            onClick={() => window.history.back()}
-                            className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
-                        >
-                            Cancelar
-                        </button>
-                        <button
-                            type="submit"
-                            disabled={processing}
-                            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            {processing ? 'Guardando...' : 'Guardar Inscripción'}
-                        </button>
-                    </div>
+                    {/* Botones de Acción - Solo en la última tab */}
+                    {selectedTab === 3 && (
+                        <div className="mt-8 flex justify-end gap-4">
+                            <button
+                                type="button"
+                                onClick={() => window.history.back()}
+                                className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                            >
+                                Cancelar
+                            </button>
+                            <button
+                                type="submit"
+                                disabled={processing || !validateRequiredFields()}
+                                className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {processing ? 'Guardando...' : 'Guardar Inscripción'}
+                            </button>
+                        </div>
+                    )}
                 </form>
             </div>
         </div>
+        </>
     );
 }

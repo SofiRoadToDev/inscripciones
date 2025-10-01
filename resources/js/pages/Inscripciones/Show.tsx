@@ -14,7 +14,7 @@ export default function Show({ inscripcion }: InscripcionShowProps) {
                         </p>
                     </div>
                     <Link
-                        href={route('inscripciones.create')}
+                        href={'/inscripciones/create'}
                         className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
                     >
                         Nueva Inscripción
@@ -44,7 +44,7 @@ export default function Show({ inscripcion }: InscripcionShowProps) {
                         <div>
                             <p className="text-sm text-gray-600">Género</p>
                             <p className="font-medium">
-                                {inscripcion.alumno?.genero === 'M' ? 'Masculino' : 
+                                {inscripcion.alumno?.genero === 'M' ? 'Masculino' :
                                  inscripcion.alumno?.genero === 'F' ? 'Femenino' : 'Otro'}
                             </p>
                         </div>
@@ -59,8 +59,8 @@ export default function Show({ inscripcion }: InscripcionShowProps) {
                                 {inscripcion.alumno.domicilio.piso && `, Piso ${inscripcion.alumno.domicilio.piso}`}
                                 {inscripcion.alumno.domicilio.depto && `, Depto ${inscripcion.alumno.domicilio.depto}`}
                                 <br />
-                                {inscripcion.alumno.domicilio.localidad?.nombre}, 
-                                {inscripcion.alumno.domicilio.departamento?.nombre}, 
+                                {inscripcion.alumno.domicilio.localidad?.nombre},
+                                {inscripcion.alumno.domicilio.departamento?.nombre},
                                 {inscripcion.alumno.domicilio.provincia?.nombre}
                             </p>
                         </div>

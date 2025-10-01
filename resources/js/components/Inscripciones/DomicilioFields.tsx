@@ -19,7 +19,7 @@ interface DomicilioFieldsProps {
     localidades?: Localidad[];
 }
 
-export default function DomicilioFields({
+export const DomicilioFields =function DomicilioFields({
     prefix,
     domicilio,
     errors,
@@ -28,7 +28,7 @@ export default function DomicilioFields({
     departamentos = [],
     localidades = [],
 }: DomicilioFieldsProps) {
-    
+
     // Filtrar departamentos por provincia seleccionada
     const departamentosFiltrados = departamentos.filter(
         (dep) => dep.provincia_id === Number(domicilio.provincia_id)
@@ -41,13 +41,13 @@ export default function DomicilioFields({
 
     const handleChange = (field: string, value: string) => {
         setData(`${prefix}.${field}`, value);
-        
+
         // Reset dependientes cuando cambia la provincia
         if (field === 'provincia_id') {
             setData(`${prefix}.departamento_id`, '');
             setData(`${prefix}.localidad_id`, '');
         }
-        
+
         // Reset localidad cuando cambia el departamento
         if (field === 'departamento_id') {
             setData(`${prefix}.localidad_id`, '');
@@ -57,7 +57,7 @@ export default function DomicilioFields({
     return (
         <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-700">Domicilio</h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Calle */}
                 <div className="md:col-span-1">
@@ -129,7 +129,7 @@ export default function DomicilioFields({
                     <select
                         value={domicilio.provincia_id}
                         onChange={(e) => handleChange('provincia_id', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:ring-blue-500 focus:border-blue-500"
                     >
                         <option value="">Seleccione...</option>
                         {provincias.map((prov) => (
@@ -152,7 +152,7 @@ export default function DomicilioFields({
                         value={domicilio.departamento_id}
                         onChange={(e) => handleChange('departamento_id', e.target.value)}
                         disabled={!domicilio.provincia_id}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
                     >
                         <option value="">Seleccione...</option>
                         {departamentosFiltrados.map((dep) => (
@@ -175,7 +175,7 @@ export default function DomicilioFields({
                         value={domicilio.localidad_id}
                         onChange={(e) => handleChange('localidad_id', e.target.value)}
                         disabled={!domicilio.departamento_id}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
                     >
                         <option value="">Seleccione...</option>
                         {localidadesFiltradas.map((loc) => (

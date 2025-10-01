@@ -1,5 +1,5 @@
 import { FormSectionProps, Provincia, Departamento, Localidad } from '@/types';
-import DomicilioFields from './DomicilioFields';
+import { DomicilioFields } from './DomicilioFields';
 import { PlusCircle, Trash2 } from 'lucide-react';
 
 interface TutoresFormProps extends FormSectionProps {
@@ -8,7 +8,7 @@ interface TutoresFormProps extends FormSectionProps {
     localidades?: Localidad[];
 }
 
-export default function TutoresForm({
+export const TutoresForm =function TutoresForm({
     data,
     setData,
     errors,
@@ -16,7 +16,7 @@ export default function TutoresForm({
     departamentos = [],
     localidades = [],
 }: TutoresFormProps) {
-    
+
     const agregarTutor = () => {
         setData('tutores', [
             ...data.tutores,

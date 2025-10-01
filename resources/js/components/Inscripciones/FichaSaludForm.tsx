@@ -1,7 +1,7 @@
 import { FormSectionProps } from '@/types';
 
-export default function FichaSaludForm({ data, setData, errors }: FormSectionProps) {
-    
+export const FichaSaludForm =function FichaSaludForm({ data, setData, errors }: FormSectionProps) {
+
     const handleChange = (field: string, value: string | boolean) => {
         setData(`ficha_salud.${field}`, value);
     };

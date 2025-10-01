@@ -5,14 +5,14 @@ interface InscripcionFormProps extends FormSectionProps {
     niveles?: Nivel[];
 }
 
-export default function InscripcionForm({
+export const InscripcionForm = function InscripcionForm({
     data,
     setData,
     errors,
     cursos = [],
     niveles = [],
 }: InscripcionFormProps) {
-    
+
     const handleChange = (field: string, value: string | boolean | number) => {
         setData(`inscripcion.${field}`, value);
     };
@@ -114,44 +114,6 @@ export default function InscripcionForm({
                     </label>
                 </div>
 
-                {/* Promedio */}
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Promedio
-                    </label>
-                    <input
-                        type="number"
-                        value={data.inscripcion.promedio || ''}
-                        onChange={(e) => handleChange('promedio', e.target.value ? parseFloat(e.target.value) : null)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        min="0"
-                        max="10"
-                        step="0.01"
-                        placeholder="Ej: 7.5"
-                    />
-                    {errors['inscripcion.promedio'] && (
-                        <p className="mt-1 text-sm text-red-600">{errors['inscripcion.promedio']}</p>
-                    )}
-                </div>
-
-                {/* Puntaje */}
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Puntaje
-                    </label>
-                    <input
-                        type="number"
-                        value={data.inscripcion.puntaje || ''}
-                        onChange={(e) => handleChange('puntaje', e.target.value ? parseFloat(e.target.value) : null)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                        min="0"
-                        placeholder="Ej: 85"
-                    />
-                    {errors['inscripcion.puntaje'] && (
-                        <p className="mt-1 text-sm text-red-600">{errors['inscripcion.puntaje']}</p>
-                    )}
-                </div>
-
                 {/* Materias Pendientes */}
                 <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -170,7 +132,7 @@ export default function InscripcionForm({
             {/* Escuela de Procedencia */}
             <div className="border-t pt-6 mt-6">
                 <h3 className="text-lg font-semibold text-gray-700 mb-4">Escuela de Procedencia</h3>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* CUE */}
                     <div>

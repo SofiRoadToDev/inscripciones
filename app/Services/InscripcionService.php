@@ -11,10 +11,11 @@ use Illuminate\Support\Facades\Log;
 class InscripcionService
 {
     /**
-     * Constructor con inyección del repositorio
+     * Constructor con inyección del repositorio y servicio de archivos
      */
     public function __construct(
-        private InscripcionRepository $repository
+        private InscripcionRepository $repository,
+        private FileUploadService $fileUploadService
     ) {}
 
     /**
@@ -67,16 +68,26 @@ class InscripcionService
 
     /**
      * Procesar alumno: crear nuevo o actualizar existente
-     * 
+     *
      * @param array $datosAlumno
      * @return Alumno
      */
     private function procesarAlumno(array $datosAlumno): Alumno
     {
-        // Extraer datos del domicilio
+        // Extraer datos del domicilio y la foto
         $datosDomicilio = $datosAlumno['domicilio'];
-        $datosAlumnoSinDomicilio = collect($datosAlumno)->except('domicilio')->toArray();
-        
+        $archivoFoto = $datosAlumno['foto'] ?? null;
+        $datosAlumnoSinDomicilio = collect($datosAlumno)->except(['domicilio', 'foto'])->toArray();
+
+        // Procesar foto si existe
+        if ($archivoFoto && $archivoFoto instanceof \Illuminate\Http\UploadedFile) {
+            $rutaFoto = $this->fileUploadService->subirFotoAlumno(
+                $archivoFoto,
+                $datosAlumno['dni']
+            );
+            $datosAlumnoSinDomicilio['foto'] = $rutaFoto;
+        }
+
         // Verificar si es actualización o creación
         if (isset($datosAlumno['id']) && $datosAlumno['id']) {
             // ACTUALIZAR alumno existente
@@ -84,14 +95,14 @@ class InscripcionService
                 $datosAlumno['id'],
                 $datosAlumnoSinDomicilio
             );
-            
+
             // Actualizar domicilio existente
             $this->repository->actualizarOCrearDomicilioAlumno($alumno, $datosDomicilio);
-            
+
         } else {
             // CREAR domicilio nuevo
             $domicilio = $this->repository->crearDomicilio($datosDomicilio);
-            
+
             // CREAR alumno nuevo con referencia al domicilio
             $alumno = $this->repository->crearAlumno(
                 array_merge($datosAlumnoSinDomicilio, [
@@ -99,7 +110,7 @@ class InscripcionService
                 ])
             );
         }
-        
+
         return $alumno;
     }
 
