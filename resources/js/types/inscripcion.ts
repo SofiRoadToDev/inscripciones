@@ -14,6 +14,7 @@ export interface Alumno {
     domicilio_id?: number | null;
     domicilio?: Domicilio;
     tutores?: Tutor[];
+    contacto?: Contacto;
     inscripciones?: Inscripcion[];
     created_at?: string;
     updated_at?: string;
@@ -47,6 +48,12 @@ export interface Domicilio {
     localidad?: Localidad;
     created_at?: string;
     updated_at?: string;
+}
+
+export interface Contacto {
+    id: number | null;
+    email: string;
+    telefono: string;
 }
 
 export interface Inscripcion {

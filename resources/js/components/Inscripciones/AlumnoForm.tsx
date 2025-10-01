@@ -288,19 +288,35 @@ export const AlumnoForm =function AlumnoForm({
             </div>
              {/* Contacto del Alumno */}
              <div className="border-t pt-6">
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                <label className="block text-sm font-medium text-foreground mb-1">
                     Email<span className="text-red-500">*</span>
                 </label>
+                <label className="block text-sm font-medium text-foreground mb-1">
+                    Telfono<span className="text-red-500">*</span>
+                </label>
                 <input
                             type="email"
-                            value={data.alumno.contacto.email}
+                            value={data.alumno.contacto?.email || ''}
                             onChange={(e) => handleChange('contacto.email', e.target.value)}
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Ej: Argentina"
                         />
-                        {errors['alumno.email'] && (
+                        {errors['alumno.contacto.email'] && (
                             <p className="mt-1 text-sm text-red-600">{errors['alumno.contacto.email']}</p>
                         )}
+                
+                <input
+                            type="telefono"
+                            value={data.alumno.contacto?.telefono || ''}
+                            onChange={(e) => handleChange('contacto.telefono', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Ej: 1123456789"
+                        />
+                        {errors['alumno.email'] && (
+                            <p className="mt-1 text-sm text-red-600">{errors['alumno.contacto.telefono']}</p>
+                        )}
+            </div>
             </div>
         </div>
     );
