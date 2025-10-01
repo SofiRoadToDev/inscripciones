@@ -8,6 +8,11 @@ interface DomicilioFieldsProps {
         numero: string;
         piso: string;
         depto: string;
+        manzana: string;
+        casa:string;
+        lote:string;
+        block:string;
+        barrio:string;
         provincia_id: number | string;
         departamento_id: number | string;
         localidad_id: number | string;
@@ -104,6 +109,59 @@ export const DomicilioFields =function DomicilioFields({
                         onChange={(e) => handleChange('piso', e.target.value)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Ej: 2"
+                    />
+                </div>
+                 {/* Manzana */}
+                <div>
+                    <label className="block text-sm font-medium text-foreground mb-1">
+                        Manzana
+                    </label>
+                    <input
+                        type="text"
+                        value={domicilio.manzana}
+                        onChange={(e) => handleChange('manzana', e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Ej: 2"
+                    />
+                </div>
+                 {/* Casa */}
+                <div>
+                    <label className="block text-sm font-medium text-foreground mb-1">
+                        Casa
+                    </label>
+                    <input
+                        type="text"
+                        value={domicilio.casa}
+                        onChange={(e) => handleChange('casa', e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Ej: 2"
+                    />
+                </div>
+                 {/* Lote */}
+                <div>
+                    <label className="block text-sm font-medium text-foreground mb-1">
+                        Lote
+                    </label>
+                    <input
+                        type="text"
+                        value={domicilio.lote}
+                        onChange={(e) => handleChange('lote', e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Ej: M"
+                    />
+                </div>
+
+                 {/* Barrio */}
+                <div>
+                    <label className="block text-sm font-medium text-foreground mb-1">
+                        Barrio
+                    </label>
+                    <input
+                        type="text"
+                        value={domicilio.barrio}
+                        onChange={(e) => handleChange('barrio', e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Ej: Villa Soledad"
                     />
                 </div>
 

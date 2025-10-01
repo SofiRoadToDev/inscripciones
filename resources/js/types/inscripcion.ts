@@ -153,6 +153,7 @@ export interface AlumnoFormData {
     nacionalidad: string;
     genero: 'M' | 'F' | 'X' | '';
     foto?: File | null;
+    contacto: ContactoFormData;
     domicilio: DomicilioFormData;
 }
 
@@ -173,9 +174,19 @@ export interface DomicilioFormData {
     numero: string;
     piso: string;
     depto: string;
+    casa:string;
+    lote:string;
+    barrio:string;
+    manzana:string;
+    block:string;
     provincia_id: number | string;
     departamento_id: number | string;
     localidad_id: number | string;
+}
+
+export interface ContactoFormData{
+    email: string;
+    telefono: string;
 }
 
 export interface InscripcionDataForm {
