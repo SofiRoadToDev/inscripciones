@@ -76,6 +76,7 @@ class InscripcionService
     {
         // Extraer datos del domicilio y la foto
         $datosDomicilio = $datosAlumno['domicilio'];
+        $datosContacto = $datosAlumno['contacto'];
         $archivoFoto = $datosAlumno['foto'] ?? null;
         $datosAlumnoSinDomicilio = collect($datosAlumno)->except(['domicilio', 'foto'])->toArray();
 
@@ -99,14 +100,19 @@ class InscripcionService
             // Actualizar domicilio existente
             $this->repository->actualizarOCrearDomicilioAlumno($alumno, $datosDomicilio);
 
+            // Actualizar contacto existente
+            $this->repository->actualizarOCrearContactoAlumno($alumno, $datosContacto);
         } else {
             // CREAR domicilio nuevo
             $domicilio = $this->repository->crearDomicilio($datosDomicilio);
+            // CREAR contacto nuevo
+            $contacto = $this->repository->crearContacto($datosContacto);
 
             // CREAR alumno nuevo con referencia al domicilio
             $alumno = $this->repository->crearAlumno(
                 array_merge($datosAlumnoSinDomicilio, [
-                    'domicilio_id' => $domicilio->id
+                    'domicilio_id' => $domicilio->id,
+                    'contacto_id' => $contacto->id
                 ])
             );
         }

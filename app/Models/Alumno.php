@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
 
 class Alumno extends Model
 {
@@ -31,4 +33,10 @@ class Alumno extends Model
     {
         return $this->hasMany(Inscripcion::class);
     }
+
+    public function contacto(): HasOne
+    {
+        return $this->hasOne(Contacto::class);
+    }
+
 }

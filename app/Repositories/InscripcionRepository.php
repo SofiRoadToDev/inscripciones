@@ -8,7 +8,7 @@ use App\Models\Domicilio;
 use App\Models\Inscripcion;
 use App\Models\FichaSalud;
 use App\Models\EscuelaProcedencia;
-use Illuminate\Support\Collection;
+use App\Models\Contacto;
 
 class InscripcionRepository
 {
@@ -79,6 +79,41 @@ class InscripcionRepository
         return $domicilio;
     }
 
+     // ============================================
+    // CONTACTO
+    // ============================================
+     /**
+     * Crear domicilio
+     */
+    public function crearContacto(array $datos): Contacto
+    {
+        return Contacto::create($datos);
+    }
+
+    /**
+     * Actualizar contacto existente
+     */
+    public function actualizarContacto(int $id, array $datos): Contacto
+    {
+        $contacto = Contacto::findOrFail($id);
+        $contacto->update($datos);
+        return $contacto->fresh();
+    }
+
+    /**
+     * Actualizar o crear contacto del alumno
+     */
+    public function actualizarOCrearContactoAlumno(Alumno $alumno, array $datos): Contacto
+    {
+        if ($alumno->contacto_id) {
+            return $this->actualizarContacto($alumno->contacto_id, $datos);
+        }
+        
+        $contacto = $this->crearContacto($datos);
+        $alumno->update(['contacto_id' => $contacto->id]);
+        
+        return $contacto;
+    }
     // ============================================
     // TUTORES
     // ============================================
