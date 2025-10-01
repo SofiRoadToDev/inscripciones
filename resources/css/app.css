@@ -63,8 +63,8 @@
 
 :root {
     /* Paleta azul profesional para escuela - Tema Claro */
-    --background: oklch(0.98 0.005 240);        /* Azul muy claro casi blanco */
-    --foreground: oklch(0.20 0.02 240);         /* Azul muy oscuro para texto */
+    --background: oklch(82.819% 0.0709 238.497);        /* Azul muy claro casi blanco */
+    --foreground: oklch(24.53% 0.0592 247.774);         /* Azul muy oscuro para texto */
 
     --card: oklch(1 0 0);                       /* Blanco puro para tarjetas */
     --card-foreground: oklch(0.20 0.02 240);    /* Azul oscuro */
@@ -75,7 +75,7 @@
     --primary: oklch(0.55 0.18 250);            /* Azul institucional vibrante */
     --primary-foreground: oklch(0.99 0 0);      /* Blanco */
 
-    --secondary: oklch(0.75 0.08 250);          /* Azul claro secundario */
+    --secondary: oklch(77.551% 0.08962 252.036);          /* Azul claro secundario */
     --secondary-foreground: oklch(0.20 0.02 240); /* Azul oscuro */
 
     --muted: oklch(0.94 0.01 240);              /* Azul grisáceo muy claro */

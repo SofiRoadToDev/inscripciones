@@ -56,12 +56,12 @@ export const DomicilioFields =function DomicilioFields({
 
     return (
         <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-700">Domicilio</h3>
+            <h3 className="text-lg font-semibold text-foreground">Domicilio</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Calle */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-foreground mb-1">
                         Calle <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -78,7 +78,7 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Número */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-foreground mb-1">
                         Número <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -95,7 +95,7 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Piso */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-foreground mb-1">
                         Piso
                     </label>
                     <input
@@ -109,7 +109,7 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Departamento/Depto */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-foreground mb-1">
                         Depto
                     </label>
                     <input
@@ -123,13 +123,13 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Provincia */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-foreground mb-1">
                         Provincia <span className="text-red-500">*</span>
                     </label>
                     <select
                         value={domicilio.provincia_id}
                         onChange={(e) => handleChange('provincia_id', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500"
                     >
                         <option value="">Seleccione...</option>
                         {provincias.map((prov) => (
@@ -145,14 +145,14 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Departamento */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-foreground mb-1">
                         Departamento <span className="text-red-500">*</span>
                     </label>
                     <select
                         value={domicilio.departamento_id}
                         onChange={(e) => handleChange('departamento_id', e.target.value)}
                         disabled={!domicilio.provincia_id}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
                     >
                         <option value="">Seleccione...</option>
                         {departamentosFiltrados.map((dep) => (
@@ -168,14 +168,14 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Localidad */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-foreground mb-1">
                         Localidad <span className="text-red-500">*</span>
                     </label>
                     <select
                         value={domicilio.localidad_id}
                         onChange={(e) => handleChange('localidad_id', e.target.value)}
                         disabled={!domicilio.departamento_id}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
                     >
                         <option value="">Seleccione...</option>
                         {localidadesFiltradas.map((loc) => (

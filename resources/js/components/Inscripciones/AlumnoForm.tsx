@@ -78,17 +78,17 @@ export const AlumnoForm =function AlumnoForm({
 
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow space-y-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Datos del Alumno</h2>
+        <div className="bg-secondary p-6 rounded-lg shadow space-y-6">
+            <h2 className="text-xl font-bold text-foreground mb-4">Datos del Alumno</h2>
 
             {/* Datos Personales */}
             <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-700">Datos Personales</h3>
+                <h3 className="text-lg font-semibold text-foreground">Datos Personales</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Apellido */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-foreground mb-1">
                             Apellido <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -105,7 +105,7 @@ export const AlumnoForm =function AlumnoForm({
 
                     {/* Nombre */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-foreground mb-1">
                             Nombre <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -122,7 +122,7 @@ export const AlumnoForm =function AlumnoForm({
 
                     {/* DNI */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-foreground mb-1">
                             DNI <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -140,7 +140,7 @@ export const AlumnoForm =function AlumnoForm({
 
                     {/* Foto 4x4 */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-foreground mb-2">
                             Foto 4x4 <span className="text-red-500">*</span>
                         </label>
 
@@ -189,7 +189,7 @@ export const AlumnoForm =function AlumnoForm({
                                     alt="Preview de foto 4x4"
                                     className="w-42 h-42 object-cover rounded-lg border-2 border-gray-300 shadow-sm"
                                 />
-                                <p className="mt-2 text-sm text-gray-700">
+                                <p className="mt-2 text-sm text-foreground">
                                     {data.alumno.foto instanceof File ? data.alumno.foto.name : 'Imagen cargada'}
                                 </p>
                             </div>
@@ -202,7 +202,7 @@ export const AlumnoForm =function AlumnoForm({
 
                     {/* Fecha de Nacimiento */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-foreground mb-1">
                             Fecha de Nacimiento <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -225,7 +225,7 @@ export const AlumnoForm =function AlumnoForm({
                                     handleChange('fecha_nacimiento', inputValue);
                                 }
                             }}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500"
                             placeholder="dd/mm/yyyy" // Añadir un placeholder para guiar al usuario
                             // El atributo 'max' no es aplicable para type="text" y se ha eliminado.
                             // Si necesitas validación de fecha máxima, deberás implementarla manualmente.
@@ -237,7 +237,7 @@ export const AlumnoForm =function AlumnoForm({
 
                     {/* Nacionalidad */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-foreground mb-1">
                             Nacionalidad <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -254,13 +254,13 @@ export const AlumnoForm =function AlumnoForm({
 
                     {/* Género */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-foreground mb-1">
                             Género <span className="text-red-500">*</span>
                         </label>
                         <select
                             value={data.alumno.genero}
                             onChange={(e) => handleChange('genero', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 text-black focus:border-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 text-foreground focus:border-blue-500"
                         >
                             <option value="">Seleccione...</option>
                             <option value="M">Masculino</option>

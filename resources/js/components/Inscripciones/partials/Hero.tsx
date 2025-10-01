@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const Hero = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { theme, toggleTheme } = useTheme();
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -42,13 +44,27 @@ const Hero = () => {
 
                         {/* Desktop Menu */}
                         <div className="hidden md:block">
-                            <div className="ml-10 flex items-baseline space-x-8">
+                            <div className="ml-10 flex items-center space-x-8">
                                 <a href="#" className="text-muted-foreground hover:text-primary px-3 py-2 text-lg font-medium transition-colors duration-200">Inicio</a>
                                 <a href="#" className="text-muted-foreground hover:text-primary px-3 py-2 text-lg font-medium transition-colors duration-200">Nosotros</a>
                                 <a href="#" className="text-muted-foreground hover:text-primary px-3 py-2 text-lg font-medium transition-colors duration-200">Plan de Estudio</a>
                                 <a href="#" className="text-muted-foreground hover:text-primary px-3 py-2 text-lg font-medium transition-colors duration-200">Novedades</a>
                             </div>
                         </div>
+
+                        {/* Theme Toggle */}
+                        <button
+                            onClick={toggleTheme}
+                            className="ml-4 p-2 rounded-md text-card-foreground hover:text-primary hover:bg-muted transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ring"
+                            aria-label="Cambiar tema"
+                            title={theme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
+                        >
+                            {theme === 'light' ? (
+                                <Moon className="h-6 w-6" />
+                            ) : (
+                                <Sun className="h-6 w-6" />
+                            )}
+                        </button>
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden">
@@ -81,10 +97,7 @@ const Hero = () => {
                 )}
             </nav>
 
-            {/* Main Content */}
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-            </main>
         </>
     );
 };

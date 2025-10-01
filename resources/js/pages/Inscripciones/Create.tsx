@@ -7,6 +7,7 @@ import {TutoresForm} from '@/components/Inscripciones/TutoresForm';
 import {InscripcionForm} from '@/components/Inscripciones/InscripcionForm';
 import {FichaSaludForm} from '@/components/Inscripciones/FichaSaludForm';
 import Hero from '@/components/Inscripciones/partials/Hero';
+import PublicLayout from '@/layouts/public/PublicLayout';
 
 
 export default function Create({
@@ -143,22 +144,22 @@ export default function Create({
 
     return (
         <>
-        <Hero/>
-        <div className="min-h-screen bg-gray-50 py-8">
+        <PublicLayout>
+        <div className="min-h-screen bg-background  py-8 " >
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-8 flex flex-col justify-center items-center">
-                    <h1 className="text-3xl font-bold text-gray-900">Nueva Inscripción</h1>
-                    <p className="mt-2 text-sm text-gray-600">
+                    <h1 className="text-3xl font-bold text-foreground">Nueva Inscripción</h1>
+                    <p className="mt-2 text-sm text-foreground">
                         Complete todos los datos requeridos para inscribir al alumno
                     </p>
                 </div>
 
-                <form onSubmit={submit}>
+                <form onSubmit={submit} className='bg-background'>
                     <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
                         <Tab.List className="flex space-x-2 rounded-xl bg-blue-900/20 p-1 mb-6">
                             <Tab
                                 className={({ selected }) =>
-                                    `w-full rounded-lg py-2.5 text-sm font-medium leading-5
+                                    `w-full rounded-lg py-2.5 text-sm font-medium  leading-5
                                     ${selected
                                         ? 'bg-white text-blue-700 shadow'
                                         : 'text-blue-600 hover:bg-white/[0.12] hover:text-blue-800'
@@ -267,6 +268,7 @@ export default function Create({
                 </form>
             </div>
         </div>
+       </PublicLayout>
         </>
     );
 }
