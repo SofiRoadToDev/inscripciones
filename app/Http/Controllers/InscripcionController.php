@@ -7,7 +7,13 @@ use App\Http\Requests\InscripcionRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use App\Models\Departamento;
+use App\Models\Localidad;
+use App\Models\Curso;
+
+
 
 class InscripcionController extends Controller
 {
@@ -27,8 +33,9 @@ class InscripcionController extends Controller
         'cursos' => \App\Models\Curso::all(),
         'niveles' => \App\Models\Nivel::all(),
         'provincias' => \App\Models\Provincia::all(),
-        'departamentos' => \App\Models\Departamento::all(),
-        'localidades' => \App\Models\Localidad::all(),
+        // 'departamentos' y 'localidades' se cargarán dinámicamente.
+        // 'departamentos' => \App\Models\Departamento::all(),
+        // 'localidades' => \App\Models\Localidad::all(),
     ]);
     }
 
@@ -107,5 +114,38 @@ class InscripcionController extends Controller
             'encontrado' => true,
             'alumno' => $alumno
         ]);
+    }
+
+    public function getDepartamentosPorProvincia($provincia_id){
+        $departamentos = Departamento::where(['provincia_id' => $provincia_id])->get();
+        if(!$departamentos->count()){
+            return response()->json([
+                'encontrado' => false,
+                'mensaje' => 'No se encontraron departamentos para esta provincia'
+            ]);
+        }
+        return response()->json($departamentos);
+    }
+
+    public function getLocalidadesPorDepartamento($departamento_id){
+        $localidades = Localidad::where(['departamento_id' => $departamento_id])->get();
+        if(!$localidades->count()){ 
+            return response()->json([
+                'encontrado' => false,
+                'mensaje' => 'No se encontraron localidades para este departamento'
+            ]);
+        }
+        return response()->json($localidades);
+    }
+
+    public function getCursosPorNivel($nivel_codigo){
+        $cursos = Curso::where(['nivel' => $nivel_codigo])->get();
+        if(!$cursos->count()){
+            return response()->json([
+                'encontrado' => false,
+                'mensaje' => 'No se encontraron cursos para este nivel'
+            ]);
+        }
+        return response()->json($cursos);
     }
 }

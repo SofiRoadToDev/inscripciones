@@ -1,4 +1,5 @@
-import { ChangeEvent } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Provincia, Departamento, Localidad } from '@/types';
 
 interface DomicilioFieldsProps {
@@ -20,8 +21,6 @@ interface DomicilioFieldsProps {
     errors: Record<string, string>;
     setData: (key: string, value: any) => void;
     provincias?: Provincia[];
-    departamentos?: Departamento[];
-    localidades?: Localidad[];
 }
 
 export const DomicilioFields =function DomicilioFields({
@@ -30,31 +29,58 @@ export const DomicilioFields =function DomicilioFields({
     errors,
     setData,
     provincias = [],
-    departamentos = [],
-    localidades = [],
 }: DomicilioFieldsProps) {
 
-    // Filtrar departamentos por provincia seleccionada
-    const departamentosFiltrados = departamentos.filter(
-        (dep) => dep.provincia_id === Number(domicilio.provincia_id)
-    );
+    const [departamentos, setDepartamentos] = useState<Departamento[]>([]);
+    const [localidades, setLocalidades] = useState<Localidad[]>([]);
+    const [loadingDepartamentos, setLoadingDepartamentos] = useState(false);
+    const [loadingLocalidades, setLoadingLocalidades] = useState(false);
 
-    // Filtrar localidades por departamento seleccionado
-    const localidadesFiltradas = localidades.filter(
-        (loc) => loc.departamento_id === Number(domicilio.departamento_id)
-    );
+    // Efecto para cargar departamentos cuando cambia la provincia
+    useEffect(() => {
+        if (domicilio.provincia_id) {
+            setLoadingDepartamentos(true);
+            axios.get(`/api/departamentos/${domicilio.provincia_id}`)
+                .then(response => {
+                    setDepartamentos(response.data);
+                })
+                .catch(error => console.error('Error fetching departamentos:', error))
+                .finally(() => setLoadingDepartamentos(false));
+        } else {
+            setDepartamentos([]);
+        }
+    }, [domicilio.provincia_id]);
+
+    // Efecto para cargar localidades cuando cambia el departamento
+    useEffect(() => {
+        if (domicilio.departamento_id) {
+            setLoadingLocalidades(true);
+            axios.get(`/api/localidades/${domicilio.departamento_id}`)
+                .then(response => {
+                    setLocalidades(response.data);
+                })
+                .catch(error => console.error('Error fetching localidades:', error))
+                .finally(() => setLoadingLocalidades(false));
+        } else {
+            setLocalidades([]);
+        }
+    }, [domicilio.departamento_id]);
 
     const handleChange = (field: string, value: string) => {
         setData(`${prefix}.${field}`, value);
 
         // Reset dependientes cuando cambia la provincia
         if (field === 'provincia_id') {
+            // Limpiar estado local y del formulario
+            setDepartamentos([]);
+            setLocalidades([]);
             setData(`${prefix}.departamento_id`, '');
             setData(`${prefix}.localidad_id`, '');
         }
 
         // Reset localidad cuando cambia el departamento
         if (field === 'departamento_id') {
+            setLocalidades([]);
             setData(`${prefix}.localidad_id`, '');
         }
     };
@@ -212,8 +238,10 @@ export const DomicilioFields =function DomicilioFields({
                         disabled={!domicilio.provincia_id}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
                     >
-                        <option value="">Seleccione...</option>
-                        {departamentosFiltrados.map((dep) => (
+                        <option value="">
+                            {loadingDepartamentos ? 'Cargando...' : 'Seleccione...'}
+                        </option>
+                        {departamentos.map((dep) => (
                             <option key={dep.id} value={dep.id}>
                                 {dep.nombre}
                             </option>
@@ -235,8 +263,10 @@ export const DomicilioFields =function DomicilioFields({
                         disabled={!domicilio.departamento_id}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
                     >
-                        <option value="">Seleccione...</option>
-                        {localidadesFiltradas.map((loc) => (
+                        <option value="">
+                            {loadingLocalidades ? 'Cargando...' : 'Seleccione...'}
+                        </option>
+                        {localidades.map((loc) => (
                             <option key={loc.id} value={loc.id}>
                                 {loc.nombre}
                             </option>

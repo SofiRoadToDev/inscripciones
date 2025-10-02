@@ -1,7 +1,8 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FormSectionProps, Curso, Nivel } from '@/types';
 
 interface InscripcionFormProps extends FormSectionProps {
-    cursos?: Curso[];
     niveles?: Nivel[];
 }
 
@@ -9,12 +10,34 @@ export const InscripcionForm = function InscripcionForm({
     data,
     setData,
     errors,
-    cursos = [],
     niveles = [],
 }: InscripcionFormProps) {
 
+    const [cursos, setCursos] = useState<Curso[]>([]);
+    const [loadingCursos, setLoadingCursos] = useState(false);
+
+    useEffect(() => {
+        if (data.inscripcion.nivel_id) {
+            setLoadingCursos(true);
+            axios.get(`/api/cursos/${data.inscripcion.nivel_id}`)
+                .then(response => {
+                    setCursos(response.data);
+                })
+                .catch(error => console.error('Error fetching cursos:', error))
+                .finally(() => setLoadingCursos(false));
+        } else {
+            setCursos([]);
+        }
+    }, [data.inscripcion.nivel_id]);
+
     const handleChange = (field: string, value: string | boolean | number) => {
         setData(`inscripcion.${field}`, value);
+
+        // Si cambia el nivel, reseteamos el curso seleccionado
+        if (field === 'nivel_id') {
+            setCursos([]);
+            setData('inscripcion.curso_id', '');
+        }
     };
 
     return (
@@ -86,9 +109,12 @@ export const InscripcionForm = function InscripcionForm({
                     <select
                         value={data.inscripcion.curso_id}
                         onChange={(e) => handleChange('curso_id', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        disabled={!data.inscripcion.nivel_id || cursos.length === 0}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
                     >
-                        <option value="">Seleccione...</option>
+                        <option value="">
+                            {loadingCursos ? 'Cargando...' : 'Seleccione...'}
+                        </option>
                         {cursos.map((curso) => (
                             <option key={curso.id} value={curso.id}>
                                 {curso.codigo} - {curso.nivel} {curso.turno} - División {curso.division}

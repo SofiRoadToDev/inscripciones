@@ -27,6 +27,17 @@ Route::prefix('inscripciones')->name('inscripciones.')->group(function () {
     Route::post('/buscar-alumno', [InscripcionController::class, 'buscarAlumno'])
         ->name('buscar-alumno');
 });
+Route::prefix('api')->group(function () {
+
+    Route::get('/departamentos/{provincia_id}', [InscripcionController::class, 'getDepartamentosPorProvincia'])
+        ->name('departamentos');
+
+    Route::get('/localidades/{departamento_id}', [InscripcionController::class, 'getLocalidadesPorDepartamento'])
+        ->name('localidades');
+
+    Route::get('/cursos/{nivel_codigo}', [InscripcionController::class, 'getCursosPorNivel'])
+        ->name('cursos');
+});
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

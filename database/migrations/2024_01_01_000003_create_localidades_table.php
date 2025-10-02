@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('localidades', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->foreignId('departamento_id')->constrained('departamentos');
             $table->timestamps();
         });
     }

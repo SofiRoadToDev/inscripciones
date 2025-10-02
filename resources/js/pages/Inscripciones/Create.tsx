@@ -11,11 +11,8 @@ import PublicLayout from '@/layouts/public/PublicLayout';
 
 
 export default function Create({
-    cursos = [],
     niveles = [],
-    provincias = [],
-    departamentos = [],
-    localidades = []
+    provincias = []
 }: InscripcionCreateProps) {
 
     const [selectedTab, setSelectedTab] = useState(0);
@@ -210,8 +207,6 @@ export default function Create({
                                     setData={setData}
                                     errors={errors}
                                     provincias={provincias}
-                                    departamentos={departamentos}
-                                    localidades={localidades}
                                 />
                             </Tab.Panel>
 
@@ -221,8 +216,6 @@ export default function Create({
                                     setData={setData}
                                     errors={errors}
                                     provincias={provincias}
-                                    departamentos={departamentos}
-                                    localidades={localidades}
                                 />
                             </Tab.Panel>
 
@@ -231,7 +224,6 @@ export default function Create({
                                     data={data}
                                     setData={setData}
                                     errors={errors}
-                                    cursos={cursos}
                                     niveles={niveles}
                                 />
                             </Tab.Panel>
