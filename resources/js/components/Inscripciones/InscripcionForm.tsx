@@ -21,6 +21,7 @@ export const InscripcionForm = function InscripcionForm({
             setLoadingCursos(true);
             axios.get(`/api/cursos/${data.inscripcion.nivel_id}`)
                 .then(response => {
+                    console.log(response.data);
                     setCursos(response.data);
                 })
                 .catch(error => console.error('Error fetching cursos:', error))

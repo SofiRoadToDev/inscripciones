@@ -14,11 +14,11 @@ class CursoSeeder extends Seeder
     {
         $niveles = DB::table('niveles')->get()->pluck('codigo');
         $cursos = [
-            ['codigo' => '11cbtm','nivel' => $niveles[0],'turno' => 'Mañana','division' => '1'],
-            ['codigo' => '12cbtm','nivel' => $niveles[0],'turno' => 'Mañana','division' => '2'],
-            ['codigo' => '11cbtt','nivel' => $niveles[0],'turno' => 'Tarde','division' => '1'],
-            ['codigo' => '12cbtt','nivel' => $niveles[0],'turno' => 'Tarde','division' => '2'],
-            ['codigo' => '13cbtt','nivel' => $niveles[0],'turno' => 'Tarde','division' => '3'],
+            ['codigo' => '11cbtm','nivel' => 1,'turno' => 'Mañana','division' => '1'],
+            ['codigo' => '12cbtm','nivel' => 1,'turno' => 'Mañana','division' => '2'],
+            ['codigo' => '11cbtt','nivel' => 1,'turno' => 'Tarde','division' => '1'],
+            ['codigo' => '12cbtt','nivel' => 1,'turno' => 'Tarde','division' => '2'],
+            ['codigo' => '13cbtt','nivel' => 1,'turno' => 'Tarde','division' => '3'],
            
         ];
         

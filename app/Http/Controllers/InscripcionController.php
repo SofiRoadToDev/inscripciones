@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Departamento;
 use App\Models\Localidad;
 use App\Models\Curso;
+use App\Models\EscuelaProcedencia;
 
 
 
@@ -147,5 +148,16 @@ class InscripcionController extends Controller
             ]);
         }
         return response()->json($cursos);
+    }
+
+    public function getEscuelaProcedenciaLikeNombre($nombre){
+        $escuelas = EscuelaProcedencia::where('nombre','like','%'.$nombre.'%')->get();
+        if(!$escuelas->count()){
+            return response()->json([
+                'encontrado' => false,
+                'mensaje' => 'No se encontraron escuelas con ese nombre'
+            ]);
+        }
+        return response()->json($escuelas);
     }
 }

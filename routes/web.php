@@ -37,6 +37,9 @@ Route::prefix('api')->group(function () {
 
     Route::get('/cursos/{nivel_codigo}', [InscripcionController::class, 'getCursosPorNivel'])
         ->name('cursos');
+
+    Route::get('/escuelas-procedencia/{nombre}', [InscripcionController::class, 'getEscuelaProcedenciaLikeNombre'])
+        ->name('escuelas-procedencia');
 });
 
 require __DIR__.'/settings.php';

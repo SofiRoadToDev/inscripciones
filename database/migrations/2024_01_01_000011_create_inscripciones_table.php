@@ -11,15 +11,12 @@ return new class extends Migration {
             $table->id();
             $table->date('fecha');
             $table->year('ciclo_lectivo');
-            $table->string('escuela_procedencia')->nullable();
             $table->text('documentacion')->nullable();
             $table->boolean('repite')->default(false);
             $table->string('repite_anio_previo')->nullable();
             $table->boolean('discontinuo')->default(false);
             $table->text('materias_pendientes')->nullable();
-            $table->string('escuela_plan')->nullable();
-            $table->decimal('promedio', 4, 2)->nullable();
-            $table->integer('puntaje')->nullable();
+            $table->foreignId('escuela_procedencia')->nullable()->constrained('escuelas_procedencia');
             $table->integer('egresos')->nullable();
             $table->integer('regulares')->nullable();
             $table->foreignId('alumno_id')->constrained('alumnos');
