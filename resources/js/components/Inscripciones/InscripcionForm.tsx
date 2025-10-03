@@ -115,53 +115,53 @@ export const InscripcionForm = function InscripcionForm({
     }, [data.escuela_procedencia.nombre, setData]);
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow space-y-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Datos de Inscripción</h2>
+        <div className="bg-card p-6 rounded-lg shadow space-y-6">
+            <h2 className="text-xl font-bold text-foreground mb-4">Datos de Inscripción</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Fecha */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Fecha de Inscripción <span className="text-red-500">*</span>
+                    <label className="block text-sm font-medium text-foreground mb-1">
+                        Fecha de Inscripción <span className="text-destructive">*</span>
                     </label>
                     <input
                         type="date"
                         value={data.inscripcion.fecha}
                         onChange={(e) => handleChange('fecha', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                     />
                     {errors['inscripcion.fecha'] && (
-                        <p className="mt-1 text-sm text-red-600">{errors['inscripcion.fecha']}</p>
+                        <p className="mt-1 text-sm text-destructive">{errors['inscripcion.fecha']}</p>
                     )}
                 </div>
 
                 {/* Ciclo Lectivo */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Ciclo Lectivo <span className="text-red-500">*</span>
+                    <label className="block text-sm font-medium text-foreground mb-1">
+                        Ciclo Lectivo <span className="text-destructive">*</span>
                     </label>
                     <input
                         type="number"
                         value={data.inscripcion.ciclo_lectivo}
                         onChange={(e) => handleChange('ciclo_lectivo', parseInt(e.target.value))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                         min="2020"
                         max="2100"
                     />
                     {errors['inscripcion.ciclo_lectivo'] && (
-                        <p className="mt-1 text-sm text-red-600">{errors['inscripcion.ciclo_lectivo']}</p>
+                        <p className="mt-1 text-sm text-destructive">{errors['inscripcion.ciclo_lectivo']}</p>
                     )}
                 </div>
 
                 {/* Nivel */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Nivel <span className="text-red-500">*</span>
+                    <label className="block text-sm font-medium text-foreground mb-1">
+                        Nivel <span className="text-destructive">*</span>
                     </label>
                     <select
                         value={data.inscripcion.nivel_id}
                         onChange={(e) => handleChange('nivel_id', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                     >
                         <option value="">Seleccione...</option>
                         {niveles.map((nivel) => (
@@ -171,20 +171,20 @@ export const InscripcionForm = function InscripcionForm({
                         ))}
                     </select>
                     {errors['inscripcion.nivel_id'] && (
-                        <p className="mt-1 text-sm text-red-600">{errors['inscripcion.nivel_id']}</p>
+                        <p className="mt-1 text-sm text-destructive">{errors['inscripcion.nivel_id']}</p>
                     )}
                 </div>
 
                 {/* Curso */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Curso <span className="text-red-500">*</span>
+                    <label className="block text-sm font-medium text-foreground mb-1">
+                        Curso <span className="text-destructive">*</span>
                     </label>
                     <select
                         value={data.inscripcion.curso_id}
                         onChange={(e) => handleChange('curso_id', e.target.value)}
                         disabled={!data.inscripcion.nivel_id || cursos.length === 0}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
+                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring disabled:bg-muted"
                     >
                         <option value="">
                             {loadingCursos ? 'Cargando...' : 'Seleccione...'}
@@ -196,7 +196,7 @@ export const InscripcionForm = function InscripcionForm({
                         ))}
                     </select>
                     {errors['inscripcion.curso_id'] && (
-                        <p className="mt-1 text-sm text-red-600">{errors['inscripcion.curso_id']}</p>
+                        <p className="mt-1 text-sm text-destructive">{errors['inscripcion.curso_id']}</p>
                     )}
                 </div>
 
@@ -207,22 +207,22 @@ export const InscripcionForm = function InscripcionForm({
                         id="repite"
                         checked={data.inscripcion.repite}
                         onChange={(e) => handleChange('repite', e.target.checked)}
-                        className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                        className="h-4 w-4 text-primary border-input rounded focus:ring-primary"
                     />
-                    <label htmlFor="repite" className="ml-2 block text-sm text-gray-700">
+                    <label htmlFor="repite" className="ml-2 block text-sm text-foreground">
                         ¿Repite el año?
                     </label>
                 </div>
 
                 {/* Materias Pendientes */}
                 <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-foreground mb-1">
                         Materias Pendientes
                     </label>
                     <textarea
                         value={data.inscripcion.materias_pendientes}
                         onChange={(e) => handleChange('materias_pendientes', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                         rows={3}
                         placeholder="Ej: Matemática, Historia"
                     />
@@ -230,58 +230,58 @@ export const InscripcionForm = function InscripcionForm({
             </div>
 
             {/* Escuela de Procedencia */}
-            <div className="border-t pt-6 mt-6">
-                <h3 className="text-lg font-semibold text-gray-700 mb-4">Escuela de Procedencia</h3>
+            <div className="border-t border-border pt-6 mt-6">
+                <h3 className="text-lg font-semibold text-foreground mb-4">Escuela de Procedencia</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* CUE */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-foreground mb-1">
                             CUE 
                         </label>
                         <input
                             type="text"
                             value={data.escuela_procedencia.cue || ''}
                             onChange={(e) => setData('escuela_procedencia.cue', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: 660123400"
                         />
                         {errors['escuela_procedencia.cue'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['escuela_procedencia.cue']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['escuela_procedencia.cue']}</p>
                         )}
                     </div>
 
                     {/* Nombre */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Nombre <span className="text-red-500">*</span>
+                        <label className="block text-sm font-medium text-foreground mb-1">
+                            Nombre <span className="text-destructive">*</span>
                         </label>
                         <input
                             type="text"
                             value={data.escuela_procedencia.nombre || ''}
                             onChange={(e) => handleEscuelaNombreChange(e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: Escuela Primaria N° 1"
                         />
                         {errors['escuela_procedencia.nombre'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['escuela_procedencia.nombre']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['escuela_procedencia.nombre']}</p>
                         )}
                     </div>
 
                     {/* Localidad */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-sm font-medium text-foreground mb-1">
                             Localidad 
                         </label>
                         <input
                             type="number"
                             value={data.escuela_procedencia.localidad_id || ''}
                             onChange={(e) => setData('escuela_procedencia.localidad_id', e.target.value ? parseInt(e.target.value) : '')}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="ID de localidad"
                         />
                         {errors['escuela_procedencia.localidad_id'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['escuela_procedencia.localidad_id']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['escuela_procedencia.localidad_id']}</p>
                         )}
                     </div>
                 </div>

@@ -151,12 +151,12 @@ export const AlumnoForm =function AlumnoForm({
     };
 
     return (
-        <div className="bg-secondary p-6 rounded-lg shadow space-y-6">
+        <div className="bg-card p-6 rounded-lg shadow space-y-6">
             <div className='grid grid-cols-2 gap-4 mb-4'>
                  <h2 className="text-4xl font-bold text-foreground mb-4">Datos del Alumno</h2>
                  
             {/* Campo de búsqueda por DNI */}
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <div className="bg-muted p-4 rounded-lg border">
                 <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
                     <div className="flex-1">
                         <label className="block text-sm font-medium text-foreground mb-1">
@@ -167,7 +167,7 @@ export const AlumnoForm =function AlumnoForm({
                                 type="text"
                                 value={data.alumno.dni}
                                 onChange={(e) => handleChange('dni', e.target.value)}
-                                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                                 placeholder="Ingrese DNI para buscar alumno existente"
                                 disabled={loading}
                             />
@@ -176,15 +176,15 @@ export const AlumnoForm =function AlumnoForm({
                                 disabled={loading || !data.alumno.dni}
                                 className={`px-4 py-2 rounded-md font-medium ${
                                     loading || !data.alumno.dni
-                                        ? 'bg-gray-400 cursor-not-allowed'
-                                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                                        : 'bg-primary text-primary-foreground hover:bg-primary/90'
                                 }`}
                             >
                                 {loading ? 'Buscando...' : 'Buscar'}
                             </button>
                         </div>
                         {searchError && (
-                            <p className="mt-2 text-sm text-red-600">{searchError}</p>
+                            <p className="mt-2 text-sm text-destructive">{searchError}</p>
                         )}
                     </div>
                 </div>
@@ -201,59 +201,59 @@ export const AlumnoForm =function AlumnoForm({
                     {/* Apellido */}
                     <div>
                         <label className="block text-sm font-medium text-foreground mb-1">
-                            Apellido <span className="text-red-500">*</span>
+                            Apellido <span className="text-destructive">*</span>
                         </label>
                         <input
                             type="text"
                             value={data.alumno.apellido}
                             onChange={(e) => handleChange('apellido', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: Pérez"
                         />
                         {errors['alumno.apellido'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['alumno.apellido']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['alumno.apellido']}</p>
                         )}
                     </div>
 
                     {/* Nombre */}
                     <div>
                         <label className="block text-sm font-medium text-foreground mb-1">
-                            Nombre <span className="text-red-500">*</span>
+                            Nombre <span className="text-destructive">*</span>
                         </label>
                         <input
                             type="text"
                             value={data.alumno.nombre}
                             onChange={(e) => handleChange('nombre', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: Juan"
                         />
                         {errors['alumno.nombre'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['alumno.nombre']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['alumno.nombre']}</p>
                         )}
                     </div>
 
                     {/* DNI */}
                     <div>
                         <label className="block text-sm font-medium text-foreground mb-1">
-                            DNI <span className="text-red-500">*</span>
+                            DNI <span className="text-destructive">*</span>
                         </label>
                         <input
                             type="text"
                             value={data.alumno.dni}
                             onChange={(e) => handleChange('dni', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: 12345678"
                             maxLength={20}
                         />
                         {errors['alumno.dni'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['alumno.dni']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['alumno.dni']}</p>
                         )}
                     </div>
 
                     {/* Foto 4x4 */}
                     <div>
                         <label className="block text-sm font-medium text-foreground mb-2">
-                            Foto 4x4 <span className="text-red-500">*</span>
+                            Foto 4x4 <span className="text-destructive">*</span>
                         </label>
 
                         {/* Inputs ocultos */}
@@ -278,7 +278,7 @@ export const AlumnoForm =function AlumnoForm({
                             <button
                                 type="button"
                                 onClick={() => cameraInputRef.current?.click()}
-                                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors focus:ring-1 focus:ring-ring focus:ring-offset-2"
                             >
                                 <Camera size={20} />
                                 <span className="font-medium">Tomar Foto</span>
@@ -286,7 +286,7 @@ export const AlumnoForm =function AlumnoForm({
                             <button
                                 type="button"
                                 onClick={() => fileInputRef.current?.click()}
-                                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors focus:ring-1 focus:ring-ring focus:ring-offset-2"
                             >
                                 <Upload size={20} />
                                 <span className="font-medium">Subir Archivo</span>
@@ -299,7 +299,7 @@ export const AlumnoForm =function AlumnoForm({
                                 <img
                                     src={fotoPreview}
                                     alt="Preview de foto 4x4"
-                                    className="w-42 h-42 object-cover rounded-lg border-2 border-gray-300 shadow-sm"
+                                    className="w-42 h-42 object-cover rounded-lg border border-border shadow-sm"
                                 />
                                 <p className="mt-2 text-sm text-foreground">
                                     {data.alumno.foto instanceof File ? data.alumno.foto.name : 'Imagen cargada'}
@@ -308,14 +308,14 @@ export const AlumnoForm =function AlumnoForm({
                         )}
 
                         {errors['alumno.foto'] && (
-                            <p className="mt-2 text-sm text-red-600">{errors['alumno.foto']}</p>
+                            <p className="mt-2 text-sm text-destructive">{errors['alumno.foto']}</p>
                         )}
                     </div>
 
                     {/* Fecha de Nacimiento */}
                     <div>
                         <label className="block text-sm font-medium text-foreground mb-1">
-                            Fecha de Nacimiento <span className="text-red-500">*</span>
+                            Fecha de Nacimiento <span className="text-destructive">*</span>
                         </label>
                         <input
                             type="date"
@@ -337,41 +337,41 @@ export const AlumnoForm =function AlumnoForm({
                                     handleChange('fecha_nacimiento', inputValue);
                                 }
                             }}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md text-foreground focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="dd/mm/yyyy" // Añadir un placeholder para guiar al usuario
                             maxLength={10} // dd/mm/yyyy tiene 10 caracteres
                         />
                         {errors['alumno.fecha_nacimiento'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['alumno.fecha_nacimiento']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['alumno.fecha_nacimiento']}</p>
                         )}
                     </div>
 
                     {/* Nacionalidad */}
                     <div>
                         <label className="block text-sm font-medium text-foreground mb-1">
-                            Nacionalidad <span className="text-red-500">*</span>
+                            Nacionalidad <span className="text-destructive">*</span>
                         </label>
                         <input
                             type="text"
                             value={data.alumno.nacionalidad}
                             onChange={(e) => handleChange('nacionalidad', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: Argentina"
                         />
                         {errors['alumno.nacionalidad'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['alumno.nacionalidad']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['alumno.nacionalidad']}</p>
                         )}
                     </div>
 
                     {/* Género */}
                     <div>
                         <label className="block text-sm font-medium text-foreground mb-1">
-                            Género <span className="text-red-500">*</span>
+                            Género <span className="text-destructive">*</span>
                         </label>
                         <select
                             value={data.alumno.genero}
                             onChange={(e) => handleChange('genero', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 text-foreground focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring text-foreground focus:border-ring"
                         >
                             <option value="">Seleccione...</option>
                             <option value="M">Masculino</option>
@@ -379,7 +379,7 @@ export const AlumnoForm =function AlumnoForm({
                             <option value="X">Otro</option>
                         </select>
                         {errors['alumno.genero'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['alumno.genero']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['alumno.genero']}</p>
                         )}
                     </div>
                 </div>
@@ -401,31 +401,31 @@ export const AlumnoForm =function AlumnoForm({
              <div className="border-t pt-6">
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                <label className="block text-sm font-medium text-foreground mb-1">
-                    Email<span className="text-red-500">*</span>
+                    Email<span className="text-destructive">*</span>
                 </label>
                 <label className="block text-sm font-medium text-foreground mb-1">
-                    Telfono<span className="text-red-500">*</span>
+                    Teléfono<span className="text-destructive">*</span>
                 </label>
                 <input
                             type="email"
                             value={data.alumno.contacto?.email || ''}
                             onChange={(e) => handleChange('contacto.email', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Ej: Argentina"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                            placeholder="Ej: ejemplo@correo.com"
                         />
                         {errors['alumno.contacto.email'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['alumno.contacto.email']}</p>
+                            <p className="mt-1 text-sm text-destructive">{errors['alumno.contacto.email']}</p>
                         )}
                 
                 <input
-                            type="telefono"
+                            type="tel"
                             value={data.alumno.contacto?.telefono || ''}
                             onChange={(e) => handleChange('contacto.telefono', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: 1123456789"
                         />
-                        {errors['alumno.email'] && (
-                            <p className="mt-1 text-sm text-red-600">{errors['alumno.contacto.telefono']}</p>
+                        {errors['alumno.contacto.telefono'] && (
+                            <p className="mt-1 text-sm text-destructive">{errors['alumno.contacto.telefono']}</p>
                         )}
             </div>
             </div>
