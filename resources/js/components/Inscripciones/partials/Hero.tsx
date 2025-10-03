@@ -12,7 +12,7 @@ const Hero = () => {
 
     return (
         <>
-            <header className="relative overflow-hidden">
+            <header className="relative overflow-hidden ">
                 {/* Hero Section con efecto parallax usando Tailwind */}
                 <div
                     className="h-[50vh] md:bg-fixed bg-scroll bg-center bg-no-repeat bg-cover"
@@ -23,14 +23,14 @@ const Hero = () => {
 
                     {/* Contenido del hero */}
                     <div className="relative z-10 flex flex-col items-center justify-center h-[50vh] px-4 text-center text-white">
-                        <img  className="h-15 w-15 md:h-30 md:w-30" src="/img/escudo.png" alt="" />
+                        <img  className="h-15 w-15 md:h-30 md:w-30 mt-6" src="/img/escudo.png" alt="" />
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
                            Escuela de Educación Técnica 3107
                         </h1>
                         <h1 className="text-2xl md:text-4xl font-bold mb-6 animate-fade-in">
                            "Juana Azurduy de Padilla"
                         </h1>
-                        <button className="bg-primary cursor-pointer hover:bg-primary/90 text-primary-foreground font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-delay">
+                        <button className="bg-primary  mb-6 cursor-pointer hover:bg-primary/90 text-primary-foreground font-bold py-3 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-delay">
                             Inscripciones
                         </button>
                     </div>

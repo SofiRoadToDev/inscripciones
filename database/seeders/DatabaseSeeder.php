@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             /*ProvinciaSeeder::class,
             DepartamentoSeeder::class,
             LocalidadSeeder::class,*/
+            EscuelaProcedenciaSeeder::class,
         ]);
 
         // User::factory(10)->create();

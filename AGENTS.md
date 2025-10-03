@@ -1,7 +1,13 @@
 # Repository Guidelines
 
-All LLMs models are allowed to open and read any file inside this repository but to make any change it must
-me authorized by user having previous approval.
+Codex, Claude, Qwen y Gemini tienen permiso de abrir y leer cualquier archivo del proyecto y ejecutar cualquier comando siempre que no modifiquen el contenido o eliminen un archivo existente. En caso de necesitar hacerlo deben solicitar
+aprobacion del usuario, justificando la necesidad del cambio.
+
+Cada vez que el usuario solicita algo deberan describir la serie de pasos a seguir para lograrlo con una breve descripcion del para que de cada uno. 
+
+Si necesitas ejecutar algun comando para cumplir una solicitud ya aprobada por el usuario solo hazlo, no preguntes comando por comando nuevamente autorizacion.
+
+Cuando ejecutes comandos agrega una linea de descripcion de que hace ese comando.
 
 ## Project Structure & Module Organization
 - Laravel backend lives under `app/`, with HTTP routes in `routes/` and database seeds/migrations in `database/`.

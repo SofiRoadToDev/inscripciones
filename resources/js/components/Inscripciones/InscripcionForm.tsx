@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { FormSectionProps, Curso, Nivel } from '@/types';
 
@@ -15,6 +15,9 @@ export const InscripcionForm = function InscripcionForm({
 
     const [cursos, setCursos] = useState<Curso[]>([]);
     const [loadingCursos, setLoadingCursos] = useState(false);
+    const lastMatchedEscuelaNombreRef = useRef<string>('');
+    const fetchCounterRef = useRef(0);
+
 
     useEffect(() => {
         if (data.inscripcion.nivel_id) {
@@ -40,6 +43,76 @@ export const InscripcionForm = function InscripcionForm({
             setData('inscripcion.curso_id', '');
         }
     };
+
+    const handleEscuelaNombreChange = (value: string) => {
+        lastMatchedEscuelaNombreRef.current = '';
+        setData('inscripcion.escuela_procedencia', '');
+        setData('escuela_procedencia.cue', '');
+        setData('escuela_procedencia.localidad_id', '');
+        setData('escuela_procedencia.nombre', value);
+    };
+
+    useEffect(() => {
+        const nombre = (data.escuela_procedencia.nombre || '').trim();
+
+        if (!nombre) {
+            lastMatchedEscuelaNombreRef.current = '';
+            setData('inscripcion.escuela_procedencia', '');
+            setData('escuela_procedencia.cue', '');
+            setData('escuela_procedencia.localidad_id', '');
+            return;
+        }
+
+        if (nombre.length < 3) {
+            return;
+        }
+
+        if (nombre === lastMatchedEscuelaNombreRef.current) {
+            return;
+        }
+
+        const requestId = ++fetchCounterRef.current;
+        let isActive = true;
+
+        axios
+            .get(`/api/escuelas-procedencia/${encodeURIComponent(nombre)}`)
+            .then((response) => {
+                if (!isActive || requestId !== fetchCounterRef.current) {
+                    return;
+                }
+
+                const payload = response.data;
+                const escuelas = Array.isArray(payload) ? payload : [];
+
+                if (escuelas.length > 0) {
+                    const escuela = escuelas[0];
+                    lastMatchedEscuelaNombreRef.current = escuela.nombre ?? nombre;
+                    setData('inscripcion.escuela_procedencia', escuela.id ?? '');
+                    setData('escuela_procedencia.cue', escuela.cue ?? '');
+                    setData('escuela_procedencia.nombre', escuela.nombre ?? nombre);
+                    setData('escuela_procedencia.localidad_id', escuela.localidad_id ?? '');
+                } else {
+                    lastMatchedEscuelaNombreRef.current = '';
+                    setData('inscripcion.escuela_procedencia', '');
+                    setData('escuela_procedencia.cue', '');
+                    setData('escuela_procedencia.localidad_id', '');
+                }
+            })
+            .catch(() => {
+                if (!isActive || requestId !== fetchCounterRef.current) {
+                    return;
+                }
+
+                lastMatchedEscuelaNombreRef.current = '';
+                setData('inscripcion.escuela_procedencia', '');
+                setData('escuela_procedencia.cue', '');
+                setData('escuela_procedencia.localidad_id', '');
+            });
+
+        return () => {
+            isActive = false;
+        };
+    }, [data.escuela_procedencia.nombre, setData]);
 
     return (
         <div className="bg-white p-6 rounded-lg shadow space-y-6">
@@ -186,7 +259,7 @@ export const InscripcionForm = function InscripcionForm({
                         <input
                             type="text"
                             value={data.escuela_procedencia.nombre}
-                            onChange={(e) => setData('escuela_procedencia.nombre', e.target.value)}
+                            onChange={(e) => handleEscuelaNombreChange(e.target.value)}
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Ej: Escuela Primaria N° 1"
                         />
@@ -216,3 +289,4 @@ export const InscripcionForm = function InscripcionForm({
         </div>
     );
 }
+
