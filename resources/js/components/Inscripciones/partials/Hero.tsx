@@ -49,6 +49,7 @@ const Hero = () => {
                                 <a href="#" className="text-muted-foreground hover:text-primary px-3 py-2 text-lg font-medium transition-colors duration-200">Nosotros</a>
                                 <a href="#" className="text-muted-foreground hover:text-primary px-3 py-2 text-lg font-medium transition-colors duration-200">Plan de Estudio</a>
                                 <a href="#" className="text-muted-foreground hover:text-primary px-3 py-2 text-lg font-medium transition-colors duration-200">Novedades</a>
+                                <a href="/inscripciones" className="text-muted-foreground hover:text-primary px-3 py-2 text-lg font-medium transition-colors duration-200">Inscripciones</a>
                             </div>
                         </div>
 

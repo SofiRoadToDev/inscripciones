@@ -36,9 +36,20 @@ class InscripcionService
             $this->procesarTutores($alumno, $datos['tutores']);
             
             // 3. Procesar Escuela de Procedencia
-            $escuela = $this->repository->buscarOCrearEscuelaProcedencia(
-                $datos['escuela_procedencia']
-            );
+            // Si se proporciona un ID de escuela existente, usarla directamente
+            // De lo contrario, buscar o crear una nueva escuela
+            if (!empty($datos['inscripcion']['escuela_procedencia'])) {
+                // Se ha seleccionado una escuela existente por ID
+                $escuela = \App\Models\EscuelaProcedencia::find($datos['inscripcion']['escuela_procedencia']);
+                if (!$escuela) {
+                    throw new \Exception('La escuela de procedencia seleccionada no existe');
+                }
+            } else {
+                // No se ha seleccionado una escuela existente, buscar o crear con los datos proporcionados
+                $escuela = $this->repository->buscarOCrearEscuelaProcedencia(
+                    $datos['escuela_procedencia']
+                );
+            }
             
             // 4. Crear Inscripción
             $inscripcion = $this->repository->crearInscripcion($alumno, [
@@ -50,7 +61,7 @@ class InscripcionService
                 'materias_pendientes' => $datos['inscripcion']['materias_pendientes'] ?? null,
                 'promedio' => $datos['inscripcion']['promedio'] ?? null,
                 'puntaje' => $datos['inscripcion']['puntaje'] ?? null,
-                'escuela_procedencia' => $escuela->nombre, // Campo de texto legado
+                'escuela_procedencia' => $escuela->id,
             ]);
             
             // 5. Crear Ficha de Salud

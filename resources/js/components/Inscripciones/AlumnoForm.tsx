@@ -77,9 +77,121 @@ export const AlumnoForm =function AlumnoForm({
     };
 
 
+    const [loading, setLoading] = useState(false);
+    const [searchError, setSearchError] = useState<string | null>(null);
+
+    const buscarAlumnoPorDni = async (dni: string) => {
+        if (dni.trim() === '') return;
+        
+        setLoading(true);
+        setSearchError(null);
+        
+        try {
+            const response = await fetch(`/api/inscripciones/buscar-alumno?dni=${dni}`);
+            const data = await response.json();
+            
+            if (data.encontrado && data.alumno) {
+                // Actualizar el formulario con los datos del alumno encontrado
+                const alumno = data.alumno;
+                
+                // Actualizar datos personales
+                setData('alumno.apellido', alumno.apellido);
+                setData('alumno.nombre', alumno.nombre);
+                setData('alumno.dni', alumno.dni);
+                setData('alumno.fecha_nacimiento', alumno.fecha_nacimiento);
+                setData('alumno.nacionalidad', alumno.nacionalidad);
+                setData('alumno.genero', alumno.genero);
+                
+                // Actualizar datos de contacto si existen
+                if (alumno.contacto) {
+                    setData('alumno.contacto.email', alumno.contacto.email || '');
+                    setData('alumno.contacto.telefono', alumno.contacto.telefono || '');
+                }
+                
+                // Actualizar domicilio si existe
+                if (alumno.domicilio) {
+                    setData('alumno.domicilio.calle', alumno.domicilio.calle || '');
+                    setData('alumno.domicilio.numero', alumno.domicilio.numero || '');
+                    setData('alumno.domicilio.piso', alumno.domicilio.piso || '');
+                    setData('alumno.domicilio.departamento', alumno.domicilio.departamento || '');
+                    setData('alumno.domicilio.codigo_postal', alumno.domicilio.codigo_postal || '');
+                    setData('alumno.domicilio.localidad_id', alumno.domicilio.localidad_id || '');
+                    
+                    // Actualizar localidades/departamentos si es necesario
+                    if (alumno.domicilio.localidad?.departamento_id) {
+                        setData('alumno.domicilio.departamento_id', alumno.domicilio.localidad.departamento_id);
+                    }
+                    if (alumno.domicilio.localidad?.departamento?.provincia_id) {
+                        setData('alumno.domicilio.provincia_id', alumno.domicilio.localidad.departamento.provincia_id);
+                    }
+                }
+                
+                // Actualizar foto si existe
+                if (alumno.foto) {
+                    setData('alumno.foto', alumno.foto);
+                }
+                
+            } else {
+                setSearchError(data.mensaje || 'No se encontró un alumno con ese DNI');
+            }
+        } catch (error) {
+            console.error('Error buscando alumno:', error);
+            setSearchError('Error al buscar el alumno. Por favor, inténtelo nuevamente.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleDniSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+        const dni = data.alumno.dni;
+        if (dni) {
+            buscarAlumnoPorDni(dni);
+        }
+    };
+
     return (
         <div className="bg-secondary p-6 rounded-lg shadow space-y-6">
-            <h2 className="text-xl font-bold text-foreground mb-4">Datos del Alumno</h2>
+            <div className='grid grid-cols-2 gap-4 mb-4'>
+                 <h2 className="text-4xl font-bold text-foreground mb-4">Datos del Alumno</h2>
+                 
+            {/* Campo de búsqueda por DNI */}
+            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+                    <div className="flex-1">
+                        <label className="block text-sm font-medium text-foreground mb-1">
+                            Buscar alumno por DNI
+                        </label>
+                        <div className="flex gap-2">
+                            <input
+                                type="text"
+                                value={data.alumno.dni}
+                                onChange={(e) => handleChange('dni', e.target.value)}
+                                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Ingrese DNI para buscar alumno existente"
+                                disabled={loading}
+                            />
+                            <button
+                                onClick={handleDniSearch}
+                                disabled={loading || !data.alumno.dni}
+                                className={`px-4 py-2 rounded-md font-medium ${
+                                    loading || !data.alumno.dni
+                                        ? 'bg-gray-400 cursor-not-allowed'
+                                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                                }`}
+                            >
+                                {loading ? 'Buscando...' : 'Buscar'}
+                            </button>
+                        </div>
+                        {searchError && (
+                            <p className="mt-2 text-sm text-red-600">{searchError}</p>
+                        )}
+                    </div>
+                </div>
+            </div>
+            </div>
+           
+
 
             {/* Datos Personales */}
             <div className="space-y-4">
@@ -206,8 +318,8 @@ export const AlumnoForm =function AlumnoForm({
                             Fecha de Nacimiento <span className="text-red-500">*</span>
                         </label>
                         <input
-                            type="text" // Cambiado de "date" a "text" para permitir el formato dd/mm/yyyy
-                            value={formatDateToDDMMYYYY(data.alumno.fecha_nacimiento)}
+                            type="date"
+                            value={data.alumno.fecha_nacimiento}
                             onChange={(e) => {
                                 const inputValue = e.target.value;
                                 const parsedDate = parseDateFromDDMMYYYY(inputValue);
@@ -220,15 +332,14 @@ export const AlumnoForm =function AlumnoForm({
                                     handleChange('fecha_nacimiento', parsedDate);
                                 } else {
                                     // Si el formato no es válido, actualizar el estado con el valor crudo
-                                    // Esto permitirá que el usuario vea su entrada y la correja,
+                                    // Esto permitirá que el usuario vea su entrada y la corrija,
                                     // y la validación del backend/frontend debería manejar el error.
                                     handleChange('fecha_nacimiento', inputValue);
                                 }
                             }}
                             className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500"
                             placeholder="dd/mm/yyyy" // Añadir un placeholder para guiar al usuario
-                            // El atributo 'max' no es aplicable para type="text" y se ha eliminado.
-                            // Si necesitas validación de fecha máxima, deberás implementarla manualmente.
+                            maxLength={10} // dd/mm/yyyy tiene 10 caracteres
                         />
                         {errors['alumno.fecha_nacimiento'] && (
                             <p className="mt-1 text-sm text-red-600">{errors['alumno.fecha_nacimiento']}</p>

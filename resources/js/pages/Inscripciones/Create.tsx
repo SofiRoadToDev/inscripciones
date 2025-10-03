@@ -122,10 +122,20 @@ export default function Create({
         }
 
         // Validar Escuela de Procedencia
-        if (!data.escuela_procedencia.cue || !data.escuela_procedencia.nombre ||
-            !data.escuela_procedencia.localidad_id) {
-            return false;
+        // Si se ha seleccionado una escuela existente (tiene ID), usamos ese ID
+        // Si no se ha seleccionado una escuela existente, debe haber al menos el nombre para crearla
+        if (!data.inscripcion.escuela_procedencia) {
+            // Si no se ha encontrado una escuela existente, se requiere al menos el nombre
+            if (!data.escuela_procedencia.nombre) {
+                return false;
+            }
+            // Opcionalmente, si se proporciona CUE, también debe haber localidad_id
+            if (data.escuela_procedencia.cue && !data.escuela_procedencia.localidad_id) {
+                return false;
+            }
         }
+        // Si se ha encontrado una escuela existente (data.inscripcion.escuela_procedencia tiene un valor),
+        // no se necesitan los campos individuales de escuela_procedencia
 
         return true;
     };

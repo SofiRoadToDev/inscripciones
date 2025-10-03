@@ -201,8 +201,11 @@ class InscripcionRepository
     /**
      * Buscar escuela por CUE
      */
-    public function buscarEscuelaPorCue(string $cue): ?EscuelaProcedencia
+    public function buscarEscuelaPorCue(?string $cue): ?EscuelaProcedencia
     {
+        if (!$cue) {
+            return null;
+        }
         return EscuelaProcedencia::where('cue', $cue)->first();
     }
 
@@ -211,7 +214,29 @@ class InscripcionRepository
      */
     public function crearEscuelaProcedencia(array $datos): EscuelaProcedencia
     {
-        return EscuelaProcedencia::create($datos);
+        // Primero verificar si ya existe una escuela con este CUE
+        $existing = $this->buscarEscuelaPorCue($datos['cue']);
+        if ($existing) {
+            return $existing;
+        }
+        
+        // Intentar crear la escuela
+        try {
+            return EscuelaProcedencia::create($datos);
+        } catch (\Exception $e) {
+            // Si es un error de restricción UNIQUE para el CUE, buscar la escuela existente
+            if (str_contains($e->getMessage(), 'UNIQUE constraint failed') && 
+                str_contains($e->getMessage(), 'cue')) {
+                // La escuela probablemente fue creada por otro proceso en paralelo
+                $existing = $this->buscarEscuelaPorCue($datos['cue']);
+                if ($existing) {
+                    return $existing;
+                }
+            }
+            
+            // Si no es un error UNIQUE o no se puede resolver, relanzar la excepción
+            throw $e;
+        }
     }
 
     /**
@@ -219,7 +244,17 @@ class InscripcionRepository
      */
     public function buscarOCrearEscuelaProcedencia(array $datos): EscuelaProcedencia
     {
-        $escuela = $this->buscarEscuelaPorCue($datos['cue']);
+        $escuela = null;
+        
+        // Primero intentar buscar por CUE si está disponible
+        if (!empty($datos['cue'])) {
+            $escuela = $this->buscarEscuelaPorCue($datos['cue']);
+        }
+        
+        // Si no se encontró por CUE, intentar buscar por nombre
+        if (!$escuela && !empty($datos['nombre'])) {
+            $escuela = EscuelaProcedencia::where('nombre', $datos['nombre'])->first();
+        }
         
         if ($escuela) {
             // Actualizar datos si es necesario

@@ -9,9 +9,9 @@ return new class extends Migration {
     {
         Schema::create('escuelas_procedencia', function (Blueprint $table) {
             $table->id();
-            $table->string('cue')->unique();
+            $table->string('cue')->unique()->nullable();
             $table->string('nombre');
-            $table->foreignId('localidad_id')->constrained('localidades');
+            $table->foreignId('localidad_id')->constrained('localidades')->nullable();
             $table->timestamps();
         });
     }

@@ -46,7 +46,7 @@ export const InscripcionForm = function InscripcionForm({
 
     const handleEscuelaNombreChange = (value: string) => {
         lastMatchedEscuelaNombreRef.current = '';
-        setData('inscripcion.escuela_procedencia', '');
+        setData('inscripcion.escuela_procedencia', null);
         setData('escuela_procedencia.cue', '');
         setData('escuela_procedencia.localidad_id', '');
         setData('escuela_procedencia.nombre', value);
@@ -57,7 +57,7 @@ export const InscripcionForm = function InscripcionForm({
 
         if (!nombre) {
             lastMatchedEscuelaNombreRef.current = '';
-            setData('inscripcion.escuela_procedencia', '');
+            setData('inscripcion.escuela_procedencia', null);
             setData('escuela_procedencia.cue', '');
             setData('escuela_procedencia.localidad_id', '');
             return;
@@ -93,7 +93,7 @@ export const InscripcionForm = function InscripcionForm({
                     setData('escuela_procedencia.localidad_id', escuela.localidad_id ?? '');
                 } else {
                     lastMatchedEscuelaNombreRef.current = '';
-                    setData('inscripcion.escuela_procedencia', '');
+                    setData('inscripcion.escuela_procedencia', null);
                     setData('escuela_procedencia.cue', '');
                     setData('escuela_procedencia.localidad_id', '');
                 }
@@ -104,7 +104,7 @@ export const InscripcionForm = function InscripcionForm({
                 }
 
                 lastMatchedEscuelaNombreRef.current = '';
-                setData('inscripcion.escuela_procedencia', '');
+                setData('inscripcion.escuela_procedencia', null);
                 setData('escuela_procedencia.cue', '');
                 setData('escuela_procedencia.localidad_id', '');
             });
@@ -237,11 +237,11 @@ export const InscripcionForm = function InscripcionForm({
                     {/* CUE */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            CUE <span className="text-red-500">*</span>
+                            CUE 
                         </label>
                         <input
                             type="text"
-                            value={data.escuela_procedencia.cue}
+                            value={data.escuela_procedencia.cue || ''}
                             onChange={(e) => setData('escuela_procedencia.cue', e.target.value)}
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Ej: 660123400"
@@ -258,7 +258,7 @@ export const InscripcionForm = function InscripcionForm({
                         </label>
                         <input
                             type="text"
-                            value={data.escuela_procedencia.nombre}
+                            value={data.escuela_procedencia.nombre || ''}
                             onChange={(e) => handleEscuelaNombreChange(e.target.value)}
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Ej: Escuela Primaria N° 1"
@@ -271,12 +271,12 @@ export const InscripcionForm = function InscripcionForm({
                     {/* Localidad */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Localidad <span className="text-red-500">*</span>
+                            Localidad 
                         </label>
                         <input
                             type="number"
-                            value={data.escuela_procedencia.localidad_id}
-                            onChange={(e) => setData('escuela_procedencia.localidad_id', e.target.value)}
+                            value={data.escuela_procedencia.localidad_id || ''}
+                            onChange={(e) => setData('escuela_procedencia.localidad_id', e.target.value ? parseInt(e.target.value) : '')}
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                             placeholder="ID de localidad"
                         />
