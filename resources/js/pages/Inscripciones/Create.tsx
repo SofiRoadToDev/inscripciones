@@ -16,6 +16,8 @@ export default function Create({
 }: InscripcionCreateProps) {
 
     const [selectedTab, setSelectedTab] = useState(0);
+    const [showError, setShowError] = useState(false);
+    const [isFormValid, setIsFormValid] = useState(false);
     const { data, setData, post, processing, errors } = useForm<InscripcionFormData>({
         alumno: {
             id: null,
@@ -84,66 +86,29 @@ export default function Create({
     });
 
     const validateRequiredFields = (): boolean => {
-        // Validar Alumno
-        if (!data.alumno.apellido || !data.alumno.nombre || !data.alumno.dni ||
-            !data.alumno.fecha_nacimiento || !data.alumno.nacionalidad || !data.alumno.genero || !data.alumno.foto) {
-            return false;
-        }
+        const validations = {
+            alumno: !data.alumno.apellido || !data.alumno.nombre || !data.alumno.dni || !data.alumno.fecha_nacimiento || !data.alumno.nacionalidad || !data.alumno.genero || !data.alumno.foto,
+            domicilioAlumno: !data.alumno.domicilio.calle || !data.alumno.domicilio.numero || !data.alumno.domicilio.provincia_id || !data.alumno.domicilio.departamento_id || !data.alumno.domicilio.localidad_id,
+            tutores: data.tutores.length === 0,
+            tutorDetails: data.tutores.some(tutor => !tutor.apellido || !tutor.nombre || !tutor.dni || !tutor.telefono),
+            tutorDomicilio: data.tutores.some(tutor => !tutor.domicilio.calle || !tutor.domicilio.numero || !tutor.domicilio.provincia_id || !tutor.domicilio.departamento_id || !tutor.domicilio.localidad_id),
+            inscripcion: !data.inscripcion.fecha || !data.inscripcion.ciclo_lectivo || !data.inscripcion.curso_id || !data.inscripcion.nivel_id,
+            escuela: !data.inscripcion.escuela_procedencia && (!data.escuela_procedencia.nombre || (data.escuela_procedencia.cue && !data.escuela_procedencia.localidad_id))
+        };
 
-        // Validar Domicilio del Alumno
-        if (!data.alumno.domicilio.calle || !data.alumno.domicilio.numero ||
-            !data.alumno.domicilio.provincia_id || !data.alumno.domicilio.departamento_id ||
-            !data.alumno.domicilio.localidad_id) {
-            return false;
-        }
+        console.log('Validation results:', validations);
 
-        // Validar Tutores (al menos uno con datos completos)
-        if (data.tutores.length === 0) {
-            return false;
-        }
-
-        for (const tutor of data.tutores) {
-            if (!tutor.apellido || !tutor.nombre || !tutor.dni || !tutor.telefono) {
-                return false;
-            }
-
-            // Validar Domicilio del Tutor
-            if (!tutor.domicilio.calle || !tutor.domicilio.numero ||
-                !tutor.domicilio.provincia_id || !tutor.domicilio.departamento_id ||
-                !tutor.domicilio.localidad_id) {
-                return false;
-            }
-        }
-
-        // Validar Inscripción
-        if (!data.inscripcion.fecha || !data.inscripcion.ciclo_lectivo ||
-            !data.inscripcion.curso_id || !data.inscripcion.nivel_id) {
-            return false;
-        }
-
-        // Validar Escuela de Procedencia
-        // Si se ha seleccionado una escuela existente (tiene ID), usamos ese ID
-        // Si no se ha seleccionado una escuela existente, debe haber al menos el nombre para crearla
-        if (!data.inscripcion.escuela_procedencia) {
-            // Si no se ha encontrado una escuela existente, se requiere al menos el nombre
-            if (!data.escuela_procedencia.nombre) {
-                return false;
-            }
-            // Opcionalmente, si se proporciona CUE, también debe haber localidad_id
-            if (data.escuela_procedencia.cue && !data.escuela_procedencia.localidad_id) {
-                return false;
-            }
-        }
-        // Si se ha encontrado una escuela existente (data.inscripcion.escuela_procedencia tiene un valor),
-        // no se necesitan los campos individuales de escuela_procedencia
-
-        return true;
+        return Object.values(validations).every(result => !result);
     };
+
+    useEffect(() => {
+        setIsFormValid(validateRequiredFields());
+    }, [data]);
 
     const submit = (e: FormEvent) => {
         e.preventDefault();
-        if (!validateRequiredFields()) {
-            alert('Por favor, complete todos los campos requeridos antes de enviar el formulario.');
+        if (!isFormValid) {
+            setShowError(true);
             return;
         }
         post('/inscripciones');
@@ -251,6 +216,11 @@ export default function Create({
                     {/* Botones de Acción - Solo en la última tab */}
                     {selectedTab === 3 && (
                         <div className="mt-8 flex justify-end gap-4">
+                            {showError && (
+                                <p className="text-red-500 text-sm">
+                                    Por favor, complete todos los campos requeridos antes de enviar el formulario.
+                                </p>
+                            )}
                             <button
                                 type="button"
                                 onClick={() => window.history.back()}
@@ -260,7 +230,7 @@ export default function Create({
                             </button>
                             <button
                                 type="submit"
-                                disabled={processing || !validateRequiredFields()}
+                                disabled={processing || !isFormValid}
                                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {processing ? 'Guardando...' : 'Guardar Inscripción'}

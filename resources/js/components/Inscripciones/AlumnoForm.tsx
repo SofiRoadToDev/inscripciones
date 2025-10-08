@@ -393,8 +393,6 @@ export const AlumnoForm =function AlumnoForm({
                     errors={errors}
                     setData={setData}
                     provincias={provincias}
-                    departamentos={departamentos}
-                    localidades={localidades}
                 />
             </div>
              {/* Contacto del Alumno */}
