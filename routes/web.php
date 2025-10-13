@@ -6,7 +6,7 @@ use App\Http\Controllers\InscripcionController;
 
 
 Route::get('/', function () {
-    return Inertia::render('welcome');
+    return Inertia::render('public/home');
 })->name('home');
 
 Route::prefix('inscripciones')->name('inscripciones.')->group(function () {
