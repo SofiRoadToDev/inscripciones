@@ -15,8 +15,20 @@ class Alumno extends Model
     use HasFactory;
 
     protected $fillable = [
-        'apellido', 'nombre', 'dni', 'fecha_nacimiento', 'nacionalidad',
-        'padre_madre', 'tutor', 'foto', 'genero', 'domicilio_id'
+        'apellido',
+        'nombre',
+        'dni',
+        'fecha_nacimiento',
+        'nacionalidad',
+        'padre_madre',
+        'tutor',
+        'foto',
+        'genero',
+        'domicilio_id'
+    ];
+
+    protected $casts = [
+        'padre_madre' => 'boolean',
     ];
 
     public function domicilio(): BelongsTo

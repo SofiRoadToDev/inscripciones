@@ -19,7 +19,7 @@ class Nivel extends Model
 
     public function cursos(): HasMany
     {
-        return $this->hasMany(Curso::class, 'nivel', 'codigo');
+        return $this->hasMany(Curso::class);
     }
 
     public function inscripciones(): HasMany

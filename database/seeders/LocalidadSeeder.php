@@ -15,7 +15,7 @@ class LocalidadSeeder extends Seeder
     public function run(): void
     {
         // Obtener los departamentos de Salta para mapear nombres a IDs
-        $provinciaIdSalta = 16; // ID de Salta en ProvinciaSeeder
+        $provinciaIdSalta = DB::table('provincias')->where('nombre', 'Salta')->value('id');
         $departamentos = DB::table('departamentos')
             ->where('provincia_id', $provinciaIdSalta)
             ->pluck('id', 'nombre');

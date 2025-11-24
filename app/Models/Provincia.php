@@ -20,4 +20,9 @@ class Provincia extends Model
     {
         return $this->hasMany(Domicilio::class);
     }
+
+    public function departamentos(): HasMany
+    {
+        return $this->hasMany(Departamento::class);
+    }
 }

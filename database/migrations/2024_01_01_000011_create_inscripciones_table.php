@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->integer('egresos')->nullable();
             $table->integer('regulares')->nullable();
             $table->foreignId('alumno_id')->constrained('alumnos');
-            $table->foreignId('curso_id')->constrained('cursos');
+            $table->foreignId('curso_id')->nullable()->constrained('cursos');
             $table->foreignId('nivel_id')->constrained('niveles');
             $table->timestamps();
         });

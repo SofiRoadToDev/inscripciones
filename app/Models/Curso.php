@@ -15,14 +15,14 @@ class Curso extends Model
 
     protected $fillable = [
         'codigo',
-        'nivel',
+        'nivel_id',
         'turno',
         'division',
     ];
 
     public function nivel(): BelongsTo
     {
-        return $this->belongsTo(Nivel::class, 'nivel', 'codigo');
+        return $this->belongsTo(Nivel::class);
     }
 
     public function inscripciones(): HasMany

@@ -12,25 +12,29 @@ class EscuelaProcedenciaSeeder extends Seeder
      */
     public function run(): void
     {
+        $localidadSalta = DB::table('localidades')->where('nombre', 'Salta')->value('id');
+        $localidadMetan = DB::table('localidades')->where('nombre', 'San José de Metán')->value('id');
+        $localidadOran = DB::table('localidades')->where('nombre', 'San Ramón de la Nueva Orán')->value('id');
+
         DB::table('escuelas_procedencia')->insert([
             [
                 'nombre' => 'Escuela Primaria N° 1',
                 'cue' => '660123400',
-                'localidad_id' => 1,
+                'localidad_id' => $localidadSalta,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nombre' => 'Escuela Secundaria N° 5',
                 'cue' => '660567800',
-                'localidad_id' => 2,
+                'localidad_id' => $localidadMetan,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'nombre' => 'Colegio San Juan',
                 'cue' => '660901200',
-                'localidad_id' => 3,
+                'localidad_id' => $localidadOran,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

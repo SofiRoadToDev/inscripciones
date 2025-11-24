@@ -181,17 +181,17 @@ export interface DomicilioFormData {
     numero: string;
     piso: string;
     depto: string;
-    casa:string;
-    lote:string;
-    barrio:string;
-    manzana:string;
-    block:string;
+    casa: string;
+    lote: string;
+    barrio: string;
+    manzana: string;
+    block: string;
     provincia_id: number | string;
     departamento_id: number | string;
     localidad_id: number | string;
 }
 
-export interface ContactoFormData{
+export interface ContactoFormData {
     email: string;
     telefono: string;
 }
@@ -205,6 +205,7 @@ export interface InscripcionDataForm {
     materias_pendientes: string;
     promedio: number | null;
     puntaje: number | null;
+    escuela_procedencia?: number | string | null;
 }
 
 export interface EscuelaProcedenciaFormData {
@@ -230,8 +231,8 @@ export interface InscripcionCreateProps {
     cursos: Curso[];
     niveles: Nivel[];
     provincias: Provincia[];
-    departamentos: Departamento[];
-    localidades: Localidad[];
+    departamentos?: Departamento[];
+    localidades?: Localidad[];
 }
 
 export interface InscripcionShowProps {

@@ -9,6 +9,7 @@
 
 @theme {
     --font-sans:
+        'Roboto', ui-sans-serif, system-ui, sans-serif,
         'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
@@ -16,6 +17,37 @@
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
+    /* Paleta de 5 colores exactos de la imagen */
+    --color-blue-dark: oklch(45% 0.12 260);
+    /* #3B4A8C - Azul oscuro */
+    --color-blue-medium: oklch(55% 0.10 250);
+    /* #5B6FA8 - Azul medio */
+    --color-blue-teal: oklch(68% 0.08 200);
+    /* #7FA9A3 - Azul verdoso/turquesa */
+    --color-blue-light: oklch(80% 0.04 240);
+    /* #B8C5D6 - Azul claro */
+    --color-gray-blue: oklch(82% 0.02 240);
+    /* #D0D5E0 - Gris azulado */
+    /* Variables del sistema */
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -63,96 +95,160 @@
 
 :root {
     /* Paleta basada en el escudo - Tema Claro */
-    --background: oklch(95% 0.01 240);          /* Blanco para fondo */
-    --foreground: oklch(25% 0.06 260);          /* Azul oscuro para texto */
+    --background: oklch(95% 0.01 240);
+    /* Blanco para fondo */
+    --foreground: oklch(25% 0.06 260);
+    /* Azul oscuro para texto */
 
-    --card: oklch(98% 0.01 240);                /* Blanco para tarjetas */
-    --card-foreground: oklch(25% 0.06 260);     /* Azul oscuro */
+    --card: oklch(98% 0.01 240);
+    /* Blanco para tarjetas */
+    --card-foreground: oklch(25% 0.06 260);
+    /* Azul oscuro */
 
-    --popover: oklch(98% 0.01 240);             /* Blanco */
-    --popover-foreground: oklch(25% 0.06 260);  /* Azul oscuro */
+    --popover: oklch(98% 0.01 240);
+    /* Blanco */
+    --popover-foreground: oklch(25% 0.06 260);
+    /* Azul oscuro */
 
-    --primary: oklch(45% 0.15 260);             /* Azul oscuro del escudo (#2A3C94) */
-    --primary-foreground: oklch(98% 0.01 240);  /* Blanco */
+    --primary: oklch(45% 0.15 260);
+    /* Azul oscuro del escudo (#2A3C94) */
+    --primary-foreground: oklch(98% 0.01 240);
+    /* Blanco */
 
-    --secondary: oklch(80% 0.08 200);           /* Azul claro del escudo (#ADD8E6) */
-    --secondary-foreground: oklch(25% 0.06 260); /* Azul oscuro */
+    --secondary: oklch(80% 0.08 200);
+    /* Azul claro del escudo (#ADD8E6) */
+    --secondary-foreground: oklch(25% 0.06 260);
+    /* Azul oscuro */
 
-    --muted: oklch(90% 0.01 240);               /* Gris muy claro */
-    --muted-foreground: oklch(50% 0.04 260);    /* Azul medio */
+    --muted: oklch(90% 0.01 240);
+    /* Gris muy claro */
+    --muted-foreground: oklch(50% 0.04 260);
+    /* Azul medio */
 
-    --accent: oklch(60% 0.12 350);              /* Rojo del escudo (#FF0000) */
-    --accent-foreground: oklch(98% 0.01 240);   /* Blanco */
+    --accent: oklch(60% 0.12 350);
+    /* Rojo del escudo (#FF0000) */
+    --accent-foreground: oklch(98% 0.01 240);
+    /* Blanco */
 
-    --destructive: oklch(50% 0.20 30);          /* Rojo intenso para acciones destructivas */
-    --destructive-foreground: oklch(98% 0.01 240); /* Blanco */
+    --destructive: oklch(50% 0.20 30);
+    /* Rojo intenso para acciones destructivas */
+    --destructive-foreground: oklch(98% 0.01 240);
+    /* Blanco */
 
-    --border: oklch(85% 0.01 240);              /* Bordes grises claros */
-    --input: oklch(92% 0.01 240);               /* Fondo inputs blancos */
-    --ring: oklch(45% 0.15 260);                /* Ring igual al primary (azul oscuro) */
+    --border: oklch(85% 0.01 240);
+    /* Bordes grises claros */
+    --input: oklch(92% 0.01 240);
+    /* Fondo inputs blancos */
+    --ring: oklch(45% 0.15 260);
+    /* Ring igual al primary (azul oscuro) */
 
-    --chart-1: oklch(45% 0.15 260);             /* Azul oscuro del escudo */
-    --chart-2: oklch(60% 0.12 350);             /* Rojo del escudo */
-    --chart-3: oklch(80% 0.08 200);             /* Azul claro del escudo */
-    --chart-4: oklch(55% 0.10 260);             /* Azul medio */
-    --chart-5: oklch(70% 0.06 350);             /* Rojo claro */
+    --chart-1: oklch(45% 0.15 260);
+    /* Azul oscuro del escudo */
+    --chart-2: oklch(60% 0.12 350);
+    /* Rojo del escudo */
+    --chart-3: oklch(80% 0.08 200);
+    /* Azul claro del escudo */
+    --chart-4: oklch(55% 0.10 260);
+    /* Azul medio */
+    --chart-5: oklch(70% 0.06 350);
+    /* Rojo claro */
 
     --radius: 0.5rem;
 
-    --sidebar: oklch(0.96 0.01 240);            /* Sidebar azul muy claro */
-    --sidebar-foreground: oklch(0.25 0.02 240); /* Texto sidebar azul oscuro */
-    --sidebar-primary: oklch(0.55 0.18 250);    /* Azul principal */
-    --sidebar-primary-foreground: oklch(0.99 0 0); /* Blanco */
-    --sidebar-accent: oklch(0.92 0.01 240);     /* Accent sidebar */
-    --sidebar-accent-foreground: oklch(0.25 0.02 240); /* Texto */
-    --sidebar-border: oklch(0.88 0.01 240);     /* Bordes sidebar */
-    --sidebar-ring: oklch(0.55 0.18 250);       /* Ring sidebar */
+    --sidebar: oklch(0.96 0.01 240);
+    /* Sidebar azul muy claro */
+    --sidebar-foreground: oklch(0.25 0.02 240);
+    /* Texto sidebar azul oscuro */
+    --sidebar-primary: oklch(0.55 0.18 250);
+    /* Azul principal */
+    --sidebar-primary-foreground: oklch(0.99 0 0);
+    /* Blanco */
+    --sidebar-accent: oklch(0.92 0.01 240);
+    /* Accent sidebar */
+    --sidebar-accent-foreground: oklch(0.25 0.02 240);
+    /* Texto */
+    --sidebar-border: oklch(0.88 0.01 240);
+    /* Bordes sidebar */
+    --sidebar-ring: oklch(0.55 0.18 250);
+    /* Ring sidebar */
 }
 
 .dark {
     /* Paleta basada en el escudo - Tema Oscuro */
-    --background: oklch(20% 0.02 260);          /* Azul oscuro profundo */
-    --foreground: oklch(85% 0.01 240);          /* Blanco/claro */
+    --background: oklch(20% 0.02 260);
+    /* Azul oscuro profundo */
+    --foreground: oklch(85% 0.01 240);
+    /* Blanco/claro */
 
-    --card: oklch(25% 0.02 260);                /* Azul oscuro para tarjetas */
-    --card-foreground: oklch(85% 0.01 240);     /* Blanco/claro */
+    --card: oklch(25% 0.02 260);
+    /* Azul oscuro para tarjetas */
+    --card-foreground: oklch(85% 0.01 240);
+    /* Blanco/claro */
 
-    --popover: oklch(22% 0.02 260);             /* Azul oscuro */
-    --popover-foreground: oklch(85% 0.01 240);  /* Blanco/claro */
+    --popover: oklch(22% 0.02 260);
+    /* Azul oscuro */
+    --popover-foreground: oklch(85% 0.01 240);
+    /* Blanco/claro */
 
-    --primary: oklch(50% 0.12 260);             /* Azul oscuro más claro en modo oscuro */
-    --primary-foreground: oklch(95% 0.01 240);  /* Blanco */
+    --primary: oklch(50% 0.12 260);
+    /* Azul oscuro más claro en modo oscuro */
+    --primary-foreground: oklch(95% 0.01 240);
+    /* Blanco */
 
-    --secondary: oklch(40% 0.06 200);           /* Azul claro más oscuro */
-    --secondary-foreground: oklch(90% 0.01 240); /* Blanco/claro */
+    --secondary: oklch(40% 0.06 200);
+    /* Azul claro más oscuro */
+    --secondary-foreground: oklch(90% 0.01 240);
+    /* Blanco/claro */
 
-    --muted: oklch(30% 0.01 260);               /* Oscuro */
-    --muted-foreground: oklch(65% 0.02 260);    /* Azul claro */
+    --muted: oklch(30% 0.01 260);
+    /* Oscuro */
+    --muted-foreground: oklch(65% 0.02 260);
+    /* Azul claro */
 
-    --accent: oklch(65% 0.15 350);              /* Rojo brillante en modo oscuro */
-    --accent-foreground: oklch(95% 0.01 240);   /* Blanco */
+    --accent: oklch(65% 0.15 350);
+    /* Rojo brillante en modo oscuro */
+    --accent-foreground: oklch(95% 0.01 240);
+    /* Blanco */
 
-    --destructive: oklch(60% 0.15 30);          /* Rojo más brillante */
-    --destructive-foreground: oklch(95% 0.01 240); /* Blanco */
+    --destructive: oklch(60% 0.15 30);
+    /* Rojo más brillante */
+    --destructive-foreground: oklch(95% 0.01 240);
+    /* Blanco */
 
-    --border: oklch(35% 0.01 260);              /* Bordes azul oscuro */
-    --input: oklch(30% 0.01 260);               /* Fondo inputs */
-    --ring: oklch(50% 0.12 260);                /* Ring igual al primary */
+    --border: oklch(35% 0.01 260);
+    /* Bordes azul oscuro */
+    --input: oklch(30% 0.01 260);
+    /* Fondo inputs */
+    --ring: oklch(50% 0.12 260);
+    /* Ring igual al primary */
 
-    --chart-1: oklch(50% 0.12 260);             /* Azul oscuro */
-    --chart-2: oklch(65% 0.15 350);             /* Rojo */
-    --chart-3: oklch(40% 0.06 200);             /* Azul claro */
-    --chart-4: oklch(55% 0.10 260);             /* Azul medio */
-    --chart-5: oklch(70% 0.08 350);             /* Rojo más claro */
+    --chart-1: oklch(50% 0.12 260);
+    /* Azul oscuro */
+    --chart-2: oklch(65% 0.15 350);
+    /* Rojo */
+    --chart-3: oklch(40% 0.06 200);
+    /* Azul claro */
+    --chart-4: oklch(55% 0.10 260);
+    /* Azul medio */
+    --chart-5: oklch(70% 0.08 350);
+    /* Rojo más claro */
 
-    --sidebar: oklch(22% 0.02 260);             /* Sidebar azul oscuro */
-    --sidebar-foreground: oklch(85% 0.01 240);  /* Texto sidebar blanco/claro */
-    --sidebar-primary: oklch(50% 0.12 260);     /* Azul primario */
-    --sidebar-primary-foreground: oklch(95% 0.01 240); /* Blanco */
-    --sidebar-accent: oklch(30% 0.02 260);      /* Acento sidebar */
-    --sidebar-accent-foreground: oklch(85% 0.01 240); /* Texto */
-    --sidebar-border: oklch(35% 0.01 260);      /* Bordes sidebar */
-    --sidebar-ring: oklch(50% 0.12 260);        /* Ring sidebar */
+    --sidebar: oklch(22% 0.02 260);
+    /* Sidebar azul oscuro */
+    --sidebar-foreground: oklch(85% 0.01 240);
+    /* Texto sidebar blanco/claro */
+    --sidebar-primary: oklch(50% 0.12 260);
+    /* Azul primario */
+    --sidebar-primary-foreground: oklch(95% 0.01 240);
+    /* Blanco */
+    --sidebar-accent: oklch(30% 0.02 260);
+    /* Acento sidebar */
+    --sidebar-accent-foreground: oklch(85% 0.01 240);
+    /* Texto */
+    --sidebar-border: oklch(35% 0.01 260);
+    /* Bordes sidebar */
+    --sidebar-ring: oklch(50% 0.12 260);
+    /* Ring sidebar */
 }
 
 @layer base {

@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->string('dni')->unique();
             $table->date('fecha_nacimiento');
             $table->string('nacionalidad');
-            $table->string('padre_madre')->nullable();
+            $table->boolean('padre_madre')->default(false);
             $table->string('tutor')->nullable();
             $table->string('foto')->nullable();
             $table->string('genero');

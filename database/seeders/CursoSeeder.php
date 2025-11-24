@@ -12,16 +12,16 @@ class CursoSeeder extends Seeder
      */
     public function run(): void
     {
-        $niveles = DB::table('niveles')->get()->pluck('codigo');
+        $niveles = DB::table('niveles')->pluck('id', 'codigo');
+
         $cursos = [
-            ['codigo' => '11cbtm','nivel' => 1,'turno' => 'Mañana','division' => '1'],
-            ['codigo' => '12cbtm','nivel' => 1,'turno' => 'Mañana','division' => '2'],
-            ['codigo' => '11cbtt','nivel' => 1,'turno' => 'Tarde','division' => '1'],
-            ['codigo' => '12cbtt','nivel' => 1,'turno' => 'Tarde','division' => '2'],
-            ['codigo' => '13cbtt','nivel' => 1,'turno' => 'Tarde','division' => '3'],
-           
+            ['codigo' => '11cbtm', 'nivel_id' => $niveles['1CB'], 'turno' => 'Mañana', 'division' => '1'],
+            ['codigo' => '12cbtm', 'nivel_id' => $niveles['1CB'], 'turno' => 'Mañana', 'division' => '2'],
+            ['codigo' => '11cbtt', 'nivel_id' => $niveles['1CB'], 'turno' => 'Tarde', 'division' => '1'],
+            ['codigo' => '12cbtt', 'nivel_id' => $niveles['1CB'], 'turno' => 'Tarde', 'division' => '2'],
+            ['codigo' => '13cbtt', 'nivel_id' => $niveles['1CB'], 'turno' => 'Tarde', 'division' => '3'],
         ];
-        
+
         DB::table('cursos')->insert($cursos);
     }
 }

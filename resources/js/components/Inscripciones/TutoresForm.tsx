@@ -4,17 +4,13 @@ import { PlusCircle, Trash2 } from 'lucide-react';
 
 interface TutoresFormProps extends FormSectionProps {
     provincias?: Provincia[];
-    departamentos?: Departamento[];
-    localidades?: Localidad[];
 }
 
-export const TutoresForm =function TutoresForm({
+export const TutoresForm = function TutoresForm({
     data,
     setData,
     errors,
     provincias = [],
-    departamentos = [],
-    localidades = [],
 }: TutoresFormProps) {
 
     const agregarTutor = () => {
@@ -93,10 +89,11 @@ export const TutoresForm =function TutoresForm({
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* Apellido */}
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`apellido_${index}`} className="block text-sm font-medium text-foreground mb-1">
                                 Apellido <span className="text-destructive">*</span>
                             </label>
                             <input
+                                id={`apellido_${index}`}
                                 type="text"
                                 value={tutor.apellido}
                                 onChange={(e) => handleChange(index, 'apellido', e.target.value)}
@@ -109,10 +106,11 @@ export const TutoresForm =function TutoresForm({
 
                         {/* Nombre */}
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`nombre_${index}`} className="block text-sm font-medium text-foreground mb-1">
                                 Nombre <span className="text-destructive">*</span>
                             </label>
                             <input
+                                id={`nombre_${index}`}
                                 type="text"
                                 value={tutor.nombre}
                                 onChange={(e) => handleChange(index, 'nombre', e.target.value)}
@@ -125,10 +123,11 @@ export const TutoresForm =function TutoresForm({
 
                         {/* DNI */}
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`dni_${index}`} className="block text-sm font-medium text-foreground mb-1">
                                 DNI <span className="text-destructive">*</span>
                             </label>
                             <input
+                                id={`dni_${index}`}
                                 type="text"
                                 value={tutor.dni}
                                 onChange={(e) => handleChange(index, 'dni', e.target.value)}
@@ -142,10 +141,11 @@ export const TutoresForm =function TutoresForm({
 
                         {/* Teléfono */}
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`telefono_${index}`} className="block text-sm font-medium text-foreground mb-1">
                                 Teléfono <span className="text-destructive">*</span>
                             </label>
                             <input
+                                id={`telefono_${index}`}
                                 type="text"
                                 value={tutor.telefono}
                                 onChange={(e) => handleChange(index, 'telefono', e.target.value)}
@@ -158,10 +158,11 @@ export const TutoresForm =function TutoresForm({
 
                         {/* Estudios */}
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`estudios_${index}`} className="block text-sm font-medium text-foreground mb-1">
                                 Estudios
                             </label>
                             <input
+                                id={`estudios_${index}`}
                                 type="text"
                                 value={tutor.estudios}
                                 onChange={(e) => handleChange(index, 'estudios', e.target.value)}
@@ -172,10 +173,11 @@ export const TutoresForm =function TutoresForm({
 
                         {/* Ocupación */}
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`ocupacion_${index}`} className="block text-sm font-medium text-foreground mb-1">
                                 Ocupación
                             </label>
                             <input
+                                id={`ocupacion_${index}`}
                                 type="text"
                                 value={tutor.ocupacion}
                                 onChange={(e) => handleChange(index, 'ocupacion', e.target.value)}
@@ -193,8 +195,6 @@ export const TutoresForm =function TutoresForm({
                             errors={errors}
                             setData={setData}
                             provincias={provincias}
-                            departamentos={departamentos}
-                            localidades={localidades}
                         />
                     </div>
                 </div>

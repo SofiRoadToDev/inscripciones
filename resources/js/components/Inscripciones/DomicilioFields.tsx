@@ -10,10 +10,10 @@ interface DomicilioFieldsProps {
         piso: string;
         depto: string;
         manzana: string;
-        casa:string;
-        lote:string;
-        block:string;
-        barrio:string;
+        casa: string;
+        lote: string;
+        block: string;
+        barrio: string;
         provincia_id: number | string;
         departamento_id: number | string;
         localidad_id: number | string;
@@ -23,7 +23,7 @@ interface DomicilioFieldsProps {
     provincias?: Provincia[];
 }
 
-export const DomicilioFields =function DomicilioFields({
+export const DomicilioFields = function DomicilioFields({
     prefix,
     domicilio,
     errors,
@@ -92,10 +92,10 @@ export const DomicilioFields =function DomicilioFields({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Calle */}
                 <div className="md:col-span-1">
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="calle" className="block text-sm font-medium text-foreground mb-1">
                         Calle <span className="text-red-500">*</span>
                     </label>
-                    <input
+                    <input id="calle"
                         type="text"
                         value={domicilio.calle}
                         onChange={(e) => handleChange('calle', e.target.value)}
@@ -109,10 +109,10 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Número */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="numero" className="block text-sm font-medium text-foreground mb-1">
                         Número <span className="text-red-500">*</span>
                     </label>
-                    <input
+                    <input id="numero"
                         type="text"
                         value={domicilio.numero}
                         onChange={(e) => handleChange('numero', e.target.value)}
@@ -126,10 +126,10 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Piso */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="piso" className="block text-sm font-medium text-foreground mb-1">
                         Piso
                     </label>
-                    <input
+                    <input id="piso"
                         type="text"
                         value={domicilio.piso}
                         onChange={(e) => handleChange('piso', e.target.value)}
@@ -137,12 +137,12 @@ export const DomicilioFields =function DomicilioFields({
                         placeholder="Ej: 2"
                     />
                 </div>
-                 {/* Manzana */}
+                {/* Manzana */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="manzana" className="block text-sm font-medium text-foreground mb-1">
                         Manzana
                     </label>
-                    <input
+                    <input id="manzana"
                         type="text"
                         value={domicilio.manzana}
                         onChange={(e) => handleChange('manzana', e.target.value)}
@@ -150,12 +150,12 @@ export const DomicilioFields =function DomicilioFields({
                         placeholder="Ej: 2"
                     />
                 </div>
-                 {/* Casa */}
+                {/* Casa */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="casa" className="block text-sm font-medium text-foreground mb-1">
                         Casa
                     </label>
-                    <input
+                    <input id="casa"
                         type="text"
                         value={domicilio.casa}
                         onChange={(e) => handleChange('casa', e.target.value)}
@@ -163,12 +163,12 @@ export const DomicilioFields =function DomicilioFields({
                         placeholder="Ej: 2"
                     />
                 </div>
-                 {/* Lote */}
+                {/* Lote */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="lote" className="block text-sm font-medium text-foreground mb-1">
                         Lote
                     </label>
-                    <input
+                    <input id="lote"
                         type="text"
                         value={domicilio.lote}
                         onChange={(e) => handleChange('lote', e.target.value)}
@@ -177,12 +177,12 @@ export const DomicilioFields =function DomicilioFields({
                     />
                 </div>
 
-                 {/* Barrio */}
+                {/* Barrio */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="barrio" className="block text-sm font-medium text-foreground mb-1">
                         Barrio
                     </label>
-                    <input
+                    <input id="barrio"
                         type="text"
                         value={domicilio.barrio}
                         onChange={(e) => handleChange('barrio', e.target.value)}
@@ -193,10 +193,10 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Departamento/Depto */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="depto" className="block text-sm font-medium text-foreground mb-1">
                         Depto
                     </label>
-                    <input
+                    <input id="depto"
                         type="text"
                         value={domicilio.depto}
                         onChange={(e) => handleChange('depto', e.target.value)}
@@ -207,10 +207,10 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Provincia */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="provincia_id" className="block text-sm font-medium text-foreground mb-1">
                         Provincia <span className="text-red-500">*</span>
                     </label>
-                    <select
+                    <select id="provincia_id"
                         value={domicilio.provincia_id}
                         onChange={(e) => handleChange('provincia_id', e.target.value)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500"
@@ -229,10 +229,10 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Departamento */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="departamento_id" className="block text-sm font-medium text-foreground mb-1">
                         Departamento <span className="text-red-500">*</span>
                     </label>
-                    <select
+                    <select id="departamento_id"
                         value={domicilio.departamento_id}
                         onChange={(e) => handleChange('departamento_id', e.target.value)}
                         disabled={!domicilio.provincia_id}
@@ -254,10 +254,10 @@ export const DomicilioFields =function DomicilioFields({
 
                 {/* Localidad */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="localidad_id" className="block text-sm font-medium text-foreground mb-1">
                         Localidad <span className="text-red-500">*</span>
                     </label>
-                    <select
+                    <select id="localidad_id"
                         value={domicilio.localidad_id}
                         onChange={(e) => handleChange('localidad_id', e.target.value)}
                         disabled={!domicilio.departamento_id}

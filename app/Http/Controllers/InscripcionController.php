@@ -23,7 +23,8 @@ class InscripcionController extends Controller
      */
     public function __construct(
         private InscripcionService $inscripcionService
-    ) {}
+    ) {
+    }
 
     /**
      * Mostrar formulario de creación de inscripción
@@ -31,13 +32,13 @@ class InscripcionController extends Controller
     public function create(): Response
     {
         return Inertia::render('Inscripciones/Create', [
-        'cursos' => \App\Models\Curso::all(),
-        'niveles' => \App\Models\Nivel::all(),
-        'provincias' => \App\Models\Provincia::all(),
-        // 'departamentos' y 'localidades' se cargarán dinámicamente.
-        // 'departamentos' => \App\Models\Departamento::all(),
-        // 'localidades' => \App\Models\Localidad::all(),
-    ]);
+            'cursos' => \App\Models\Curso::all(),
+            'niveles' => \App\Models\Nivel::all(),
+            'provincias' => \App\Models\Provincia::all(),
+            // 'departamentos' y 'localidades' se cargarán dinámicamente.
+            // 'departamentos' => \App\Models\Departamento::all(),
+            // 'localidades' => \App\Models\Localidad::all(),
+        ]);
     }
 
     /**
@@ -49,32 +50,32 @@ class InscripcionController extends Controller
             // Validar que el alumno no esté inscrito dos veces en el mismo ciclo lectivo
             $alumnoId = $request->validated('alumno_id');
             $cicloLectivo = $request->validated('ciclo_lectivo');
-            
+
             $existingInscripcion = \App\Models\Inscripcion::where('alumno_id', $alumnoId)
                 ->where('ciclo_lectivo', $cicloLectivo)
                 ->first();
-            
+
             if ($existingInscripcion) {
                 return back()
                     ->withErrors(['error' => 'El alumno ya está inscrito en este ciclo lectivo. No se permite más de una inscripción por ciclo lectivo.'])
                     ->withInput();
             }
-            
+
             // Crear inscripción con todos los datos validados
             $inscripcion = $this->inscripcionService->crearInscripcion(
                 $request->validated()
             );
-            
+
             return redirect()
                 ->route('inscripciones.show', $inscripcion->id)
                 ->with('success', 'Inscripción creada exitosamente');
-                
+
         } catch (\Exception $e) {
             // Log del error
             \Log::error('Error al crear inscripción: ' . $e->getMessage(), [
                 'trace' => $e->getTraceAsString()
             ]);
-            
+
             return back()
                 ->withErrors(['error' => 'Ocurrió un error al procesar la inscripción. Por favor, inténtelo nuevamente.'])
                 ->withInput();
@@ -94,7 +95,7 @@ class InscripcionController extends Controller
             'nivel',
             'fichaSalud'
         ])->findOrFail($id);
-        
+
         return Inertia::render('Inscripciones/Show', [
             'inscripcion' => $inscripcion
         ]);
@@ -109,31 +110,32 @@ class InscripcionController extends Controller
         $request->validate([
             'dni' => 'required|string'
         ]);
-        
+
         $alumno = $this->inscripcionService->buscarAlumnoPorDni($request->dni);
-        
+
         if (!$alumno) {
             return response()->json([
                 'encontrado' => false,
                 'mensaje' => 'No se encontró un alumno con ese DNI'
             ]);
         }
-        
+
         // Cargar relaciones necesarias
         $alumno->load([
             'domicilio.localidad.departamento.provincia',
             'tutores.domicilio.localidad.departamento.provincia'
         ]);
-        
+
         return response()->json([
             'encontrado' => true,
             'alumno' => $alumno
         ]);
     }
 
-    public function getDepartamentosPorProvincia($provincia_id){
+    public function getDepartamentosPorProvincia($provincia_id)
+    {
         $departamentos = Departamento::where(['provincia_id' => $provincia_id])->get();
-        if(!$departamentos->count()){
+        if (!$departamentos->count()) {
             return response()->json([
                 'encontrado' => false,
                 'mensaje' => 'No se encontraron departamentos para esta provincia'
@@ -142,9 +144,10 @@ class InscripcionController extends Controller
         return response()->json($departamentos);
     }
 
-    public function getLocalidadesPorDepartamento($departamento_id){
+    public function getLocalidadesPorDepartamento($departamento_id)
+    {
         $localidades = Localidad::where(['departamento_id' => $departamento_id])->get();
-        if(!$localidades->count()){ 
+        if (!$localidades->count()) {
             return response()->json([
                 'encontrado' => false,
                 'mensaje' => 'No se encontraron localidades para este departamento'
@@ -153,9 +156,10 @@ class InscripcionController extends Controller
         return response()->json($localidades);
     }
 
-    public function getCursosPorNivel($nivel_codigo){
-        $cursos = Curso::where(['nivel' => $nivel_codigo])->get();
-        if(!$cursos->count()){
+    public function getCursosPorNivel($id)
+    {
+        $cursos = Curso::where(['nivel_id' => $id])->get();
+        if (!$cursos->count()) {
             return response()->json([
                 'encontrado' => false,
                 'mensaje' => 'No se encontraron cursos para este nivel'
@@ -164,9 +168,10 @@ class InscripcionController extends Controller
         return response()->json($cursos);
     }
 
-    public function getEscuelaProcedenciaLikeNombre($nombre){
-        $escuelas = EscuelaProcedencia::where('nombre','like','%'.$nombre.'%')->get();
-        if(!$escuelas->count()){
+    public function getEscuelaProcedenciaLikeNombre($nombre)
+    {
+        $escuelas = EscuelaProcedencia::where('nombre', 'like', '%' . $nombre . '%')->get();
+        if (!$escuelas->count()) {
             return response()->json([
                 'encontrado' => false,
                 'mensaje' => 'No se encontraron escuelas con ese nombre'

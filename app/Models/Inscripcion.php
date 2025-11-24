@@ -57,4 +57,9 @@ class Inscripcion extends Model
     {
         return $this->hasOne(FichaSalud::class);
     }
+
+    public function escuelaProcedencia(): BelongsTo
+    {
+        return $this->belongsTo(EscuelaProcedencia::class, 'escuela_procedencia');
+    }
 }

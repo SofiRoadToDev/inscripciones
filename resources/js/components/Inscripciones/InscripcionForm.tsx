@@ -24,10 +24,17 @@ export const InscripcionForm = function InscripcionForm({
             setLoadingCursos(true);
             axios.get(`/api/cursos/${data.inscripcion.nivel_id}`)
                 .then(response => {
-                    console.log(response.data);
-                    setCursos(response.data);
+                    console.log('Cursos response:', response.data);
+                    // Asegurarse de que siempre sea un array
+                    const cursosData = Array.isArray(response.data)
+                        ? response.data
+                        : [];
+                    setCursos(cursosData);
                 })
-                .catch(error => console.error('Error fetching cursos:', error))
+                .catch(error => {
+                    console.error('Error fetching cursos:', error);
+                    setCursos([]); // En caso de error, establecer array vacío
+                })
                 .finally(() => setLoadingCursos(false));
         } else {
             setCursos([]);
@@ -121,10 +128,10 @@ export const InscripcionForm = function InscripcionForm({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Fecha */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="fecha_inscripcion" className="block text-sm font-medium text-foreground mb-1">
                         Fecha de Inscripción <span className="text-destructive">*</span>
                     </label>
-                    <input
+                    <input id="fecha_inscripcion"
                         type="date"
                         value={data.inscripcion.fecha}
                         onChange={(e) => handleChange('fecha', e.target.value)}
@@ -137,10 +144,10 @@ export const InscripcionForm = function InscripcionForm({
 
                 {/* Ciclo Lectivo */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="ciclo_lectivo" className="block text-sm font-medium text-foreground mb-1">
                         Ciclo Lectivo <span className="text-destructive">*</span>
                     </label>
-                    <input
+                    <input id="ciclo_lectivo"
                         type="number"
                         value={data.inscripcion.ciclo_lectivo}
                         onChange={(e) => handleChange('ciclo_lectivo', parseInt(e.target.value))}
@@ -155,10 +162,10 @@ export const InscripcionForm = function InscripcionForm({
 
                 {/* Nivel */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="nivel_id" className="block text-sm font-medium text-foreground mb-1">
                         Nivel <span className="text-destructive">*</span>
                     </label>
-                    <select
+                    <select id="nivel_id"
                         value={data.inscripcion.nivel_id}
                         onChange={(e) => handleChange('nivel_id', e.target.value)}
                         className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
@@ -177,10 +184,10 @@ export const InscripcionForm = function InscripcionForm({
 
                 {/* Curso */}
                 <div>
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="curso_id" className="block text-sm font-medium text-foreground mb-1">
                         Curso <span className="text-destructive">*</span>
                     </label>
-                    <select
+                    <select id="curso_id"
                         value={data.inscripcion.curso_id}
                         onChange={(e) => handleChange('curso_id', e.target.value)}
                         disabled={!data.inscripcion.nivel_id || cursos.length === 0}
@@ -216,10 +223,10 @@ export const InscripcionForm = function InscripcionForm({
 
                 {/* Materias Pendientes */}
                 <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="materias_pendientes" className="block text-sm font-medium text-foreground mb-1">
                         Materias Pendientes
                     </label>
-                    <textarea
+                    <textarea id="materias_pendientes"
                         value={data.inscripcion.materias_pendientes}
                         onChange={(e) => handleChange('materias_pendientes', e.target.value)}
                         className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
@@ -236,10 +243,10 @@ export const InscripcionForm = function InscripcionForm({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* CUE */}
                     <div>
-                        <label className="block text-sm font-medium text-foreground mb-1">
-                            CUE 
+                        <label htmlFor="cue" className="block text-sm font-medium text-foreground mb-1">
+                            CUE
                         </label>
-                        <input
+                        <input id="cue"
                             type="text"
                             value={data.escuela_procedencia.cue || ''}
                             onChange={(e) => setData('escuela_procedencia.cue', e.target.value)}
@@ -253,10 +260,10 @@ export const InscripcionForm = function InscripcionForm({
 
                     {/* Nombre */}
                     <div>
-                        <label className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor="nombre_escuela" className="block text-sm font-medium text-foreground mb-1">
                             Nombre <span className="text-destructive">*</span>
                         </label>
-                        <input
+                        <input id="nombre_escuela"
                             type="text"
                             value={data.escuela_procedencia.nombre || ''}
                             onChange={(e) => handleEscuelaNombreChange(e.target.value)}
@@ -270,10 +277,10 @@ export const InscripcionForm = function InscripcionForm({
 
                     {/* Localidad */}
                     <div>
-                        <label className="block text-sm font-medium text-foreground mb-1">
-                            Localidad 
+                        <label htmlFor="localidad_id" className="block text-sm font-medium text-foreground mb-1">
+                            Localidad
                         </label>
-                        <input
+                        <input id="localidad_id"
                             type="number"
                             value={data.escuela_procedencia.localidad_id || ''}
                             onChange={(e) => setData('escuela_procedencia.localidad_id', e.target.value ? parseInt(e.target.value) : '')}

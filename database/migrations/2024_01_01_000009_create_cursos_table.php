@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->string('codigo');
-            $table->string('nivel');
+            $table->foreignId('nivel_id')->constrained('niveles');
             $table->string('turno');
             $table->string('division');
             $table->timestamps();

@@ -1,0 +1,71 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e6]:
+      - heading "Escuela de Educación Técnica 3107" [level=1] [ref=e7]
+      - heading "\"Juana Azurduy de Padilla\"" [level=1] [ref=e8]
+      - button "Inscripciones" [ref=e9] [cursor=pointer]
+  - navigation [ref=e10]:
+    - generic [ref=e12]:
+      - generic [ref=e14]:
+        - link "Inicio" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "Nosotros" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Plan de Estudio" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+        - link "Novedades" [ref=e18] [cursor=pointer]:
+          - /url: "#"
+        - link "Inscripciones" [ref=e19] [cursor=pointer]:
+          - /url: /inscripciones
+      - button "Cambiar tema" [ref=e20]:
+        - img [ref=e21]
+  - main [ref=e23]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - heading "Nueva Inscripción" [level=1] [ref=e27]
+        - paragraph [ref=e28]: Complete todos los datos requeridos para inscribir al alumno
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - tablist [ref=e31]:
+            - tab "Alumno" [ref=e32]
+            - tab "Tutores" [ref=e33]
+            - tab "Inscripción" [ref=e34]
+            - tab "Ficha de Salud" [selected] [ref=e35]
+          - tabpanel "Ficha de Salud" [ref=e37]:
+            - generic [ref=e38]:
+              - heading "Ficha de Salud" [level=2] [ref=e39]
+              - generic [ref=e40]:
+                - generic [ref=e41]:
+                  - generic [ref=e42]: Enfermedad Crónica
+                  - textbox "Enfermedad Crónica" [ref=e43]:
+                    - /placeholder: "Ej: Asma"
+                    - text: Ninguna
+                - generic [ref=e44]:
+                  - generic [ref=e45]: Alergias
+                  - textbox "Alergias" [ref=e46]:
+                    - /placeholder: "Ej: Polen, Frutos secos"
+                    - text: Ninguna
+                - generic [ref=e47]:
+                  - generic [ref=e48]: Discapacidad
+                  - textbox "Discapacidad" [ref=e49]:
+                    - /placeholder: Descripción si corresponde
+                    - text: Ninguna
+                - generic [ref=e50]:
+                  - generic [ref=e51]: Medicamentos
+                  - textbox "Medicamentos" [ref=e52]:
+                    - /placeholder: Medicamentos que toma habitualmente
+                    - text: Ninguno
+                - generic [ref=e53]:
+                  - checkbox "Vacunación completa *" [checked] [ref=e54]
+                  - generic [ref=e55]: Vacunación completa *
+                - generic [ref=e56]:
+                  - generic [ref=e57]: Observaciones
+                  - textbox "Observaciones" [ref=e58]:
+                    - /placeholder: Información adicional relevante
+        - generic [ref=e59]:
+          - button "Cancelar" [ref=e60]
+          - button "Guardar Inscripción" [ref=e61]
+```
