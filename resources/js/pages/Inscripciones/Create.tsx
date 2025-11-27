@@ -17,7 +17,6 @@ export default function Create({
 
     const [selectedTab, setSelectedTab] = useState(0);
     const [showError, setShowError] = useState(false);
-    const [isFormValid, setIsFormValid] = useState(false);
     const { data, setData, post, processing, errors } = useForm<InscripcionFormData>({
         alumno: {
             id: null,
@@ -87,27 +86,21 @@ export default function Create({
 
     const validateRequiredFields = (): boolean => {
         const validations = {
-            alumno: !data.alumno.apellido || !data.alumno.nombre || !data.alumno.dni || !data.alumno.fecha_nacimiento || !data.alumno.nacionalidad || !data.alumno.genero || !data.alumno.foto,
-            domicilioAlumno: !data.alumno.domicilio.calle || !data.alumno.domicilio.numero || !data.alumno.domicilio.provincia_id || !data.alumno.domicilio.departamento_id || !data.alumno.domicilio.localidad_id,
-            tutores: data.tutores.length === 0,
-            tutorDetails: data.tutores.some(tutor => !tutor.apellido || !tutor.nombre || !tutor.dni || !tutor.telefono),
-            tutorDomicilio: data.tutores.some(tutor => !tutor.domicilio.calle || !tutor.domicilio.numero || !tutor.domicilio.provincia_id || !tutor.domicilio.departamento_id || !tutor.domicilio.localidad_id),
-            inscripcion: !data.inscripcion.fecha || !data.inscripcion.ciclo_lectivo || !data.inscripcion.curso_id || !data.inscripcion.nivel_id,
-            escuela: !data.inscripcion.escuela_procedencia && (!data.escuela_procedencia.nombre || (data.escuela_procedencia.cue && !data.escuela_procedencia.localidad_id))
+            alumno: data.alumno.apellido && data.alumno.nombre && data.alumno.dni && data.alumno.fecha_nacimiento && data.alumno.nacionalidad && data.alumno.genero && data.alumno.foto,
+            domicilioAlumno: data.alumno.domicilio.calle && data.alumno.domicilio.numero && data.alumno.domicilio.provincia_id && data.alumno.domicilio.departamento_id && data.alumno.domicilio.localidad_id,
+            tutores: data.tutores.length > 0,
+            tutorDetails: data.tutores.every(tutor => tutor.apellido && tutor.nombre && tutor.dni && tutor.telefono),
+            tutorDomicilio: data.tutores.every(tutor => tutor.domicilio.calle && tutor.domicilio.numero && tutor.domicilio.provincia_id && tutor.domicilio.departamento_id && tutor.domicilio.localidad_id),
+            inscripcion: data.inscripcion.fecha && data.inscripcion.ciclo_lectivo && data.inscripcion.curso_id && data.inscripcion.nivel_id,
+            escuela: !!data.inscripcion.escuela_procedencia || (data.escuela_procedencia.nombre && data.escuela_procedencia.localidad_id)
         };
 
-        console.log('Validation results:', validations);
-
-        return Object.values(validations).every(result => !result);
+        return Object.values(validations).every(result => result);
     };
-
-    useEffect(() => {
-        setIsFormValid(validateRequiredFields());
-    }, [data]);
 
     const submit = (e: FormEvent) => {
         e.preventDefault();
-        if (!isFormValid) {
+        if (!validateRequiredFields()) {
             setShowError(true);
             return;
         }
@@ -230,7 +223,7 @@ export default function Create({
                             </button>
                             <button
                                 type="submit"
-                                disabled={processing || !isFormValid}
+                                disabled={processing || !validateRequiredFields()}
                                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {processing ? 'Guardando...' : 'Guardar Inscripción'}
