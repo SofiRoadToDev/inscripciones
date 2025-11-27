@@ -1,7 +1,7 @@
 import PublicLayout from "@/layouts/public/PublicLayout"
 
 
-const home = () => {
+const Home = () => {
   return (
     <PublicLayout>
       <div>Home Page</div>
@@ -9,4 +9,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home
