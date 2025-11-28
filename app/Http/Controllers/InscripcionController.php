@@ -47,24 +47,27 @@ class InscripcionController extends Controller
     public function store(InscripcionRequest $request): RedirectResponse
     {
         try {
+            $datosValidados = $request->validated();
+
             // Validar que el alumno no esté inscrito dos veces en el mismo ciclo lectivo
-            $alumnoId = $request->validated('alumno_id');
-            $cicloLectivo = $request->validated('ciclo_lectivo');
+            // Solo validar si es un alumno existente (con ID)
+            if (isset($datosValidados['alumno']['id']) && $datosValidados['alumno']['id']) {
+                $alumnoId = $datosValidados['alumno']['id'];
+                $cicloLectivo = $datosValidados['inscripcion']['ciclo_lectivo'];
 
-            $existingInscripcion = \App\Models\Inscripcion::where('alumno_id', $alumnoId)
-                ->where('ciclo_lectivo', $cicloLectivo)
-                ->first();
+                $existingInscripcion = \App\Models\Inscripcion::where('alumno_id', $alumnoId)
+                    ->where('ciclo_lectivo', $cicloLectivo)
+                    ->first();
 
-            if ($existingInscripcion) {
-                return back()
-                    ->withErrors(['error' => 'El alumno ya está inscrito en este ciclo lectivo. No se permite más de una inscripción por ciclo lectivo.'])
-                    ->withInput();
+                if ($existingInscripcion) {
+                    return back()
+                        ->withErrors(['error' => 'El alumno ya está inscrito en este ciclo lectivo. No se permite más de una inscripción por ciclo lectivo.'])
+                        ->withInput();
+                }
             }
 
             // Crear inscripción con todos los datos validados
-            $inscripcion = $this->inscripcionService->crearInscripcion(
-                $request->validated()
-            );
+            $inscripcion = $this->inscripcionService->crearInscripcion($datosValidados);
 
             return redirect()
                 ->route('inscripciones.show', $inscripcion->id)

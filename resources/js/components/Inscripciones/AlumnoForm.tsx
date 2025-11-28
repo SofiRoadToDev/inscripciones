@@ -256,7 +256,7 @@ export const AlumnoForm = function AlumnoForm({
                     {/* Foto 4x4 */}
                     <div>
                         <label htmlFor="foto" className="block text-sm font-medium text-foreground mb-2">
-                            Foto 4x4 <span className="text-destructive">*</span>
+                            Foto 4x4 (Opcional)
                         </label>
 
                         {/* Inputs ocultos */}

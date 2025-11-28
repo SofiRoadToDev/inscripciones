@@ -2,9 +2,19 @@
   "permissions": {
     "allow": [
       "Bash(npm run typecheck:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(node --version)",
+      "Bash(test:*)",
+      "Bash(node:*)",
+      "Bash(cat:*)",
+      "Bash(pkill:*)",
+      "Bash(mcp list:*)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "debug-specialist"
+  ]
 }

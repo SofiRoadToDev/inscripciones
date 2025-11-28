@@ -15,6 +15,7 @@ class InscripcionValidationRules
             'inscripcion.materias_pendientes' => 'nullable|string',
             'inscripcion.promedio' => 'nullable|numeric|min:0|max:10',
             'inscripcion.puntaje' => 'nullable|numeric|min:0',
+            'inscripcion.escuela_procedencia' => 'nullable|exists:escuelas_procedencia,id',
         ];
     }
 

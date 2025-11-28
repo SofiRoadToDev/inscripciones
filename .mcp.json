@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "debug-specialist": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/mnt/d/mcp-debug-specialist/dist/index.js"
+      ],
+      "cwd": "/mnt/d/mcp-debug-specialist"
+    },
+    "env":{}
+  }
+}

@@ -7,9 +7,9 @@ class EscuelaProcedenciaValidationRules
     public static function rules(): array
     {
         return [
-            'escuela_procedencia.cue' => 'required|string|max:20',
-            'escuela_procedencia.nombre' => 'required|string|max:255',
-            'escuela_procedencia.localidad_id' => 'required|exists:localidades,id',
+            'escuela_procedencia.cue' => 'nullable|string|max:20',
+            'escuela_procedencia.nombre' => 'required_without:inscripcion.escuela_procedencia|string|max:255',
+            'escuela_procedencia.localidad_id' => 'required_with:escuela_procedencia.cue|exists:localidades,id',
         ];
     }
 

@@ -18,7 +18,9 @@ class AlumnoValidationRules
             'alumno.fecha_nacimiento' => 'required|date|before:today',
             'alumno.nacionalidad' => 'required|string|max:100',
             'alumno.genero' => 'required|in:M,F,X',
-            'alumno.foto' => 'required|image|mimes:jpeg,jpg,png,webp|max:2048', // Máximo 2MB
+            'alumno.foto' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048', // Máximo 2MB
+            'alumno.contacto.email' => 'nullable|email|max:255',
+            'alumno.contacto.telefono' => 'required|string|max:20',
         ];
     }
 
@@ -34,10 +36,11 @@ class AlumnoValidationRules
             'alumno.nacionalidad.required' => 'La nacionalidad es obligatoria',
             'alumno.genero.required' => 'El género es obligatorio',
             'alumno.genero.in' => 'El género debe ser M, F o X',
-            'alumno.foto.required' => 'La foto 4x4 es obligatoria',
             'alumno.foto.image' => 'El archivo debe ser una imagen',
             'alumno.foto.mimes' => 'La foto debe ser formato JPEG, JPG, PNG o WEBP',
             'alumno.foto.max' => 'La foto no puede superar los 2MB',
+            'alumno.contacto.email.email' => 'El email del alumno debe ser una dirección válida',
+            'alumno.contacto.telefono.required' => 'El teléfono del alumno es obligatorio',
         ];
     }
 }
