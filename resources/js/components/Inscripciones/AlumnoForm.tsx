@@ -158,7 +158,7 @@ export const AlumnoForm = function AlumnoForm({
                 {/* Campo de búsqueda por DNI */}
                 <div className="bg-slate-700/50 backdrop-blur-md p-4 rounded-lg">
                     <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
-                        <div className="flex-1">
+                        <div className="flex-1 ">
                             <label htmlFor="dni_search" className="block text-sm font-medium text-white mb-1">
                                 Buscar alumno por DNI
                             </label>
@@ -279,11 +279,11 @@ export const AlumnoForm = function AlumnoForm({
                         />
 
                         {/* Botones con iconos */}
-                        <div className="flex gap-3">
+                        <div className=" w-full flex flex-col md:flex-row gap-3">
                             <button
                                 type="button"
                                 onClick={() => cameraInputRef.current?.click()}
-                                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors focus:ring-1 focus:ring-ring focus:ring-offset-2"
+                                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-primary/70  backdrop-blur-md border border-white/10  text-primary-foreground rounded-md hover:bg-primary/90 transition-colors focus:ring-1 focus:ring-ring focus:ring-offset-2"
                             >
                                 <Camera size={20} />
                                 <span className="font-medium">Tomar Foto</span>
@@ -291,7 +291,7 @@ export const AlumnoForm = function AlumnoForm({
                             <button
                                 type="button"
                                 onClick={() => fileInputRef.current?.click()}
-                                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors focus:ring-1 focus:ring-ring focus:ring-offset-2"
+                                className=" flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-secondary/70 border border-white/10 backdrop-blur-md text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors focus:ring-1 focus:ring-ring focus:ring-offset-2"
                             >
                                 <Upload size={20} />
                                 <span className="font-medium">Subir Archivo</span>

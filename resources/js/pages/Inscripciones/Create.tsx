@@ -1,6 +1,6 @@
 import { useForm } from '@inertiajs/react';
 import { FormEvent, useState, useEffect } from 'react';
-import { Tab } from '@headlessui/react';
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/react';
 import { InscripcionFormData, InscripcionCreateProps } from '@/types';
 import { AlumnoForm } from '@/components/Inscripciones/AlumnoForm';
 import { TutoresForm } from '@/components/Inscripciones/TutoresForm';
@@ -140,15 +140,15 @@ export default function Create({
                             </p>
                         </div>
 
-                        <form onSubmit={submit} className='bg-white/20 backdrop-blur-md p-6 rounded-lg'>
-                            <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
-                                <Tab.List className="flex space-x-2 rounded-xl bg-blue-900/20 p-1 mb-6">
+                        <form onSubmit={submit} className='bg-white/20 backdrop-blur-md p-6 rounded-lg border border-white/10 shadow-lg'>
+                            <TabGroup selectedIndex={selectedTab} onChange={setSelectedTab}>
+                                <TabList className="flex space-x-2 rounded-xl bg-blue-900/20 p-1 mb-6 border border-white/30">
                                     <Tab
                                         className={({ selected }) =>
                                             `w-full rounded-lg py-2.5 text-sm font-medium  leading-5
                                     ${selected
                                                 ? 'bg-white text-blue-700 shadow'
-                                                : 'text-blue-600 hover:bg-white/[0.12] hover:text-blue-800'
+                                                : 'text-white hover:bg-white/[0.12] hover:text-white'
                                             }`
                                         }
                                     >
@@ -159,7 +159,7 @@ export default function Create({
                                             `w-full rounded-lg py-2.5 text-sm font-medium leading-5
                                     ${selected
                                                 ? 'bg-white text-blue-700 shadow'
-                                                : 'text-blue-600 hover:bg-white/[0.12] hover:text-blue-800'
+                                                : 'text-white hover:bg-white/[0.12] hover:text-white'
                                             }`
                                         }
                                     >
@@ -170,7 +170,7 @@ export default function Create({
                                             `w-full rounded-lg py-2.5 text-sm font-medium leading-5
                                     ${selected
                                                 ? 'bg-white text-blue-700 shadow'
-                                                : 'text-blue-600 hover:bg-white/[0.12] hover:text-blue-800'
+                                                : 'text-white hover:bg-white/[0.12] hover:text-white'
                                             }`
                                         }
                                     >
@@ -181,51 +181,51 @@ export default function Create({
                                             `w-full rounded-lg py-2.5 text-sm font-medium leading-5
                                     ${selected
                                                 ? 'bg-white text-blue-700 shadow'
-                                                : 'text-blue-600 hover:bg-white/[0.12] hover:text-blue-800'
+                                                : 'text-white hover:bg-white/[0.12] hover:text-white'
                                             }`
                                         }
                                     >
                                         Ficha de Salud
                                     </Tab>
-                                </Tab.List>
+                                </TabList>
 
-                                <Tab.Panels>
-                                    <Tab.Panel>
+                                <TabPanels>
+                                    <TabPanel>
                                         <AlumnoForm
                                             data={data}
                                             setData={setData}
                                             errors={errors}
                                             provincias={provincias}
                                         />
-                                    </Tab.Panel>
+                                    </TabPanel>
 
-                                    <Tab.Panel>
+                                    <TabPanel>
                                         <TutoresForm
                                             data={data}
                                             setData={setData}
                                             errors={errors}
                                             provincias={provincias}
                                         />
-                                    </Tab.Panel>
+                                    </TabPanel>
 
-                                    <Tab.Panel>
+                                    <TabPanel>
                                         <InscripcionForm
                                             data={data}
                                             setData={setData}
                                             errors={errors}
                                             niveles={niveles}
                                         />
-                                    </Tab.Panel>
+                                    </TabPanel>
 
-                                    <Tab.Panel>
+                                    <TabPanel>
                                         <FichaSaludForm
                                             data={data}
                                             setData={setData}
                                             errors={errors}
                                         />
-                                    </Tab.Panel>
-                                </Tab.Panels>
-                            </Tab.Group>
+                                    </TabPanel>
+                                </TabPanels>
+                            </TabGroup>
 
                             {/* Botones de Acción - Solo en la última tab */}
                             {selectedTab === 3 && (
@@ -238,14 +238,14 @@ export default function Create({
                                     <button
                                         type="button"
                                         onClick={() => window.history.back()}
-                                        className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                                        className="px-6 py-2 border border-gray-300/20 rounded-md text-white hover:bg-white/10"
                                     >
                                         Cancelar
                                     </button>
                                     <button
                                         type="submit"
                                         disabled={processing || !isFormValid}
-                                        className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="px-6 py-2 bg-blue-600/80 border border-bg-blue-900/50  text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         {processing ? 'Guardando...' : 'Guardar Inscripción'}
                                     </button>
