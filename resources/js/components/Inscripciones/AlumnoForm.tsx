@@ -151,15 +151,15 @@ export const AlumnoForm = function AlumnoForm({
     };
 
     return (
-        <div className="bg-card p-6 rounded-lg shadow space-y-6">
-            <div className='grid grid-cols-2 gap-4 mb-4'>
-                <h2 className="text-4xl font-bold text-foreground mb-4">Datos del Alumno</h2>
+        <div className="bg-transparent  p-6 rounded-lg shadow space-y-6 ">
+            <div className='grid md:grid-cols-2 gap-4 mb-4'>
+                <h2 className="text-4xl font-bold text-white mb-4 text-center">Datos del Alumno</h2>
 
                 {/* Campo de búsqueda por DNI */}
-                <div className="bg-muted p-4 rounded-lg border">
+                <div className="bg-slate-700/50 backdrop-blur-md p-4 rounded-lg">
                     <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
                         <div className="flex-1">
-                            <label htmlFor="dni_search" className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor="dni_search" className="block text-sm font-medium text-white mb-1">
                                 Buscar alumno por DNI
                             </label>
                             <div className="flex gap-2">
@@ -168,7 +168,7 @@ export const AlumnoForm = function AlumnoForm({
                                     type="text"
                                     value={data.alumno.dni}
                                     onChange={(e) => handleChange('dni', e.target.value)}
-                                    className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                                    className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                                     placeholder="Ingrese DNI para buscar alumno existente"
                                     disabled={loading}
                                 />
@@ -176,7 +176,7 @@ export const AlumnoForm = function AlumnoForm({
                                     onClick={handleDniSearch}
                                     disabled={loading || !data.alumno.dni}
                                     className={`px-4 py-2 rounded-md font-medium ${loading || !data.alumno.dni
-                                        ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                                        ? 'bg-slate-600 text-white/60 cursor-not-allowed'
                                         : 'bg-primary text-primary-foreground hover:bg-primary/90'
                                         }`}
                                 >
@@ -195,12 +195,12 @@ export const AlumnoForm = function AlumnoForm({
 
             {/* Datos Personales */}
             <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-foreground">Datos Personales</h3>
+                <h3 className="text-lg font-semibold text-white">Datos Personales</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Apellido */}
                     <div>
-                        <label htmlFor="apellido" className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor="apellido" className="block text-sm font-medium text-white mb-1">
                             Apellido <span className="text-destructive">*</span>
                         </label>
                         <input
@@ -208,7 +208,7 @@ export const AlumnoForm = function AlumnoForm({
                             type="text"
                             value={data.alumno.apellido}
                             onChange={(e) => handleChange('apellido', e.target.value)}
-                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                            className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: Pérez"
                         />
                         {errors['alumno.apellido'] && (
@@ -218,7 +218,7 @@ export const AlumnoForm = function AlumnoForm({
 
                     {/* Nombre */}
                     <div>
-                        <label htmlFor="nombre" className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor="nombre" className="block text-sm font-medium text-white mb-1">
                             Nombre <span className="text-destructive">*</span>
                         </label>
                         <input
@@ -226,7 +226,7 @@ export const AlumnoForm = function AlumnoForm({
                             type="text"
                             value={data.alumno.nombre}
                             onChange={(e) => handleChange('nombre', e.target.value)}
-                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                            className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: Juan"
                         />
                         {errors['alumno.nombre'] && (
@@ -236,7 +236,7 @@ export const AlumnoForm = function AlumnoForm({
 
                     {/* DNI */}
                     <div>
-                        <label htmlFor="dni" className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor="dni" className="block text-sm font-medium text-white mb-1">
                             DNI <span className="text-destructive">*</span>
                         </label>
                         <input
@@ -244,7 +244,7 @@ export const AlumnoForm = function AlumnoForm({
                             type="text"
                             value={data.alumno.dni}
                             onChange={(e) => handleChange('dni', e.target.value)}
-                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                            className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: 12345678"
                             maxLength={20}
                         />
@@ -255,7 +255,7 @@ export const AlumnoForm = function AlumnoForm({
 
                     {/* Foto 4x4 */}
                     <div>
-                        <label htmlFor="foto" className="block text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="foto" className="block text-sm font-medium text-white mb-2">
                             Foto 4x4 (Opcional)
                         </label>
 
@@ -306,7 +306,7 @@ export const AlumnoForm = function AlumnoForm({
                                     alt="Preview de foto 4x4"
                                     className="w-42 h-42 object-cover rounded-lg border border-border shadow-sm"
                                 />
-                                <p className="mt-2 text-sm text-foreground">
+                                <p className="mt-2 text-sm text-white">
                                     {data.alumno.foto instanceof File ? data.alumno.foto.name : 'Imagen cargada'}
                                 </p>
                             </div>
@@ -319,7 +319,7 @@ export const AlumnoForm = function AlumnoForm({
 
                     {/* Fecha de Nacimiento */}
                     <div>
-                        <label htmlFor="fecha_nacimiento" className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor="fecha_nacimiento" className="block text-sm font-medium text-white mb-1">
                             Fecha de Nacimiento <span className="text-destructive">*</span>
                         </label>
                         <input
@@ -343,7 +343,7 @@ export const AlumnoForm = function AlumnoForm({
                                     handleChange('fecha_nacimiento', inputValue);
                                 }
                             }}
-                            className="w-full px-3 py-2 border input rounded-md text-foreground focus:ring-1 focus:ring-ring focus:border-ring"
+                            className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="dd/mm/yyyy" // Añadir un placeholder para guiar al usuario
                             maxLength={10} // dd/mm/yyyy tiene 10 caracteres
                         />
@@ -354,7 +354,7 @@ export const AlumnoForm = function AlumnoForm({
 
                     {/* Nacionalidad */}
                     <div>
-                        <label htmlFor='nacionalidad' className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor='nacionalidad' className="block text-sm font-medium text-white mb-1">
                             Nacionalidad <span className="text-destructive">*</span>
                         </label>
                         <input
@@ -362,7 +362,7 @@ export const AlumnoForm = function AlumnoForm({
                             type="text"
                             value={data.alumno.nacionalidad}
                             onChange={(e) => handleChange('nacionalidad', e.target.value)}
-                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                            className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: Argentina"
                         />
                         {errors['alumno.nacionalidad'] && (
@@ -372,19 +372,19 @@ export const AlumnoForm = function AlumnoForm({
 
                     {/* Género */}
                     <div>
-                        <label htmlFor="genero" className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor="genero" className="block text-sm font-medium text-white mb-1">
                             Género <span className="text-destructive">*</span>
                         </label>
                         <select
                             id="genero"
                             value={data.alumno.genero}
                             onChange={(e) => handleChange('genero', e.target.value)}
-                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring text-foreground focus:border-ring"
+                            className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white focus:ring-1 focus:ring-ring focus:border-ring"
                         >
-                            <option value="">Seleccione...</option>
-                            <option value="M">Masculino</option>
-                            <option value="F">Femenino</option>
-                            <option value="X">Otro</option>
+                            <option value="" className="bg-slate-700 text-white">Seleccione...</option>
+                            <option value="M" className="bg-slate-700 text-white">Masculino</option>
+                            <option value="F" className="bg-slate-700 text-white">Femenino</option>
+                            <option value="X" className="bg-slate-700 text-white">Otro</option>
                         </select>
                         {errors['alumno.genero'] && (
                             <p className="mt-1 text-sm text-destructive">{errors['alumno.genero']}</p>
@@ -406,10 +406,10 @@ export const AlumnoForm = function AlumnoForm({
             {/* Contacto del Alumno */}
             <div className="border-t pt-6">
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-white mb-1">
                         Email<span className="text-destructive">*</span>
                     </label>
-                    <label htmlFor="telefono" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="telefono" className="block text-sm font-medium text-white mb-1">
                         Teléfono<span className="text-destructive">*</span>
                     </label>
                     <input
@@ -417,7 +417,7 @@ export const AlumnoForm = function AlumnoForm({
                         type="email"
                         value={data.alumno.contacto?.email || ''}
                         onChange={(e) => handleChange('contacto.email', e.target.value)}
-                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                        className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: ejemplo@correo.com"
                     />
                     {errors['alumno.contacto.email'] && (
@@ -429,7 +429,7 @@ export const AlumnoForm = function AlumnoForm({
                         type="tel"
                         value={data.alumno.contacto?.telefono || ''}
                         onChange={(e) => handleChange('contacto.telefono', e.target.value)}
-                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                        className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: 1123456789"
                     />
                     {errors['alumno.contacto.telefono'] && (

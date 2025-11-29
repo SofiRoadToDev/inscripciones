@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Modales - Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+    <!-- SECCIÓN 1: MODALES BÁSICOS -->
+    <section class="py-20 px-4" style="font-family: 'Inter', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Modales Básicos</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Modales simples para diferentes propósitos</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Modal Básico -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modal Básico</h3>
+                    <p class="text-gray-600 mb-6">Modal simple con título, contenido y botones.</p>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-basico')">
+                        Abrir Modal
+                    </button>
+                </div>
+
+                <!-- Modal con Header personalizado -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modal con Header</h3>
+                    <p class="text-gray-600 mb-6">Modal con header personalizado y iconos.</p>
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-header')">
+                        Abrir Modal
+                    </button>
+                </div>
+
+                <!-- Modal Centered -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modal Centrado</h3>
+                    <p class="text-gray-600 mb-6">Modal perfectamente centrado en la pantalla.</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-centered')">
+                        Abrir Modal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: MODALES CON FORMULARIOS -->
+    <section class="py-20 px-4 bg-gray-100" style="font-family: 'Poppins', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Modales con Formularios</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Modales que contienen formularios completos</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Modal con Login -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modal Login</h3>
+                    <p class="text-gray-600 mb-6">Formulario de login dentro de un modal.</p>
+                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-login')">
+                        Abrir Login
+                    </button>
+                </div>
+
+                <!-- Modal con Registro -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modal Registro</h3>
+                    <p class="text-gray-600 mb-6">Formulario de registro con múltiples campos.</p>
+                    <button class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-registro')">
+                        Abrir Registro
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: MODALES DE CONFIRMACIÓN -->
+    <section class="py-20 px-4 bg-white" style="font-family: 'Inter', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Modales de Confirmación</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Para confirmar acciones importantes</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Confirmación básica -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Confirmación Básica</h3>
+                    <p class="text-gray-600 mb-6">Simple confirmación con Sí/No.</p>
+                    <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-confirmacion')">
+                        Confirmar
+                    </button>
+                </div>
+
+                <!-- Warning Modal -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Warning Modal</h3>
+                    <p class="text-gray-600 mb-6">Advertencia con iconos llamativos.</p>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-warning')">
+                        Warning
+                    </button>
+                </div>
+
+                <!-- Success Modal -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Success Modal</h3>
+                    <p class="text-gray-600 mb-6">Confirmación de éxito.</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-success')">
+                        Success
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: MODALES CON EFECTOS -->
+    <section class="py-20 px-4 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" style="font-family: 'Poppins', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Modales con Efectos</h2>
+                <p class="text-white/80 max-w-2xl mx-auto">Modales con animaciones y efectos visuales</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Slide-in Modal -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8">
+                    <h3 class="text-xl font-bold text-white mb-4">Slide-in Modal</h3>
+                    <p class="text-white/80 mb-6">Modal que se desliza desde los lados.</p>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-slide')">
+                        Slide-in
+                    </button>
+                </div>
+
+                <!-- Glassmorphism Modal -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8">
+                    <h3 class="text-xl font-bold text-white mb-4">Glassmorphism Modal</h3>
+                    <p class="text-white/80 mb-6">Modal con efecto de vidrio esmerilado.</p>
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-glass')">
+                        Glass Modal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: MODALES DE TAMAÑOS DIFERENTES -->
+    <section class="py-20 px-4 bg-gray-50" style="font-family: 'Inter', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Tamaños de Modales</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Modales en diferentes tamaños</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Small Modal -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modal Pequeño</h3>
+                    <p class="text-gray-600 mb-6">Para mensajes cortos.</p>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-small')">
+                        Small Modal
+                    </button>
+                </div>
+
+                <!-- Large Modal -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modal Grande</h3>
+                    <p class="text-gray-600 mb-6">Para contenido extenso.</p>
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-large')">
+                        Large Modal
+                    </button>
+                </div>
+
+                <!-- Fullscreen Modal -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modal Pantalla Completa</h3>
+                    <p class="text-gray-600 mb-6">Ocupa toda la pantalla.</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105" onclick="toggleModal('modal-fullscreen')">
+                        Fullscreen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALES (HTML que se muestra/oculta) -->
+
+    <!-- Modal Básico -->
+    <div id="modal-basico" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-basico-content">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-900">Modal Básico</h3>
+                    <button onclick="toggleModal('modal-basico')" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="text-gray-600 mb-6">Este es un modal básico con contenido de ejemplo.</p>
+                <div class="flex justify-end space-x-3">
+                    <button onclick="toggleModal('modal-basico')" class="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium transition-colors">
+                        Cancelar
+                    </button>
+                    <button onclick="toggleModal('modal-basico')" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal con Header -->
+    <div id="modal-header" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-header-content">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-6 rounded-t-2xl">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Información</h3>
+                    </div>
+                    <button onclick="toggleModal('modal-header')" class="text-white/80 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 mb-6">Modal con header personalizado y iconos.</p>
+                <div class="flex justify-end space-x-3">
+                    <button onclick="toggleModal('modal-header')" class="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium transition-colors">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Centered -->
+    <div id="modal-centered" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-centered-content">
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Perfectamente Centrado</h3>
+                <p class="text-gray-600 mb-6">Este modal está perfectamente centrado usando flexbox.</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="toggleModal('modal-centered')" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                        Cancelar
+                    </button>
+                    <button onclick="toggleModal('modal-centered')" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Login -->
+    <div id="modal-login" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-login-content">
+            <div class="p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Iniciar Sesión</h3>
+                    <p class="text-gray-600">Accede a tu cuenta</p>
+                </div>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none" placeholder="tu@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+                        <input type="password" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none" placeholder="••••••••">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                            <span class="ml-2 text-sm text-gray-600">Recordarme</span>
+                        </label>
+                        <a href="#" class="text-sm text-blue-500 hover:text-blue-600">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </form>
+                <div class="mt-6 space-y-3">
+                    <button onclick="toggleModal('modal-login')" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium transition-colors">
+                        Iniciar Sesión
+                    </button>
+                    <button onclick="toggleModal('modal-login')" class="w-full border border-gray-300 text-gray-700 hover:bg-gray-50 py-3 rounded-xl font-medium transition-colors">
+                        Crear Cuenta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Registro -->
+    <div id="modal-registro" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-registro-content">
+            <div class="p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Crear Cuenta</h3>
+                    <p class="text-gray-600">Regístrate en nuestra plataforma</p>
+                </div>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none" placeholder="Juan">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Apellido</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none" placeholder="Pérez">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none" placeholder="juan@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+                        <input type="password" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none" placeholder="••••••••">
+                    </div>
+                    <div>
+                        <label class="flex items-start">
+                            <input type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 mt-1">
+                            <span class="ml-2 text-sm text-gray-600">Acepto los <a href="#" class="text-blue-500 hover:text-blue-600">términos y condiciones</a></span>
+                        </label>
+                    </div>
+                </form>
+                <div class="mt-6">
+                    <button onclick="toggleModal('modal-registro')" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-medium transition-colors">
+                        Crear Cuenta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmación -->
+    <div id="modal-confirmacion" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-confirmacion-content">
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">¿Estás seguro?</h3>
+                <p class="text-gray-600 mb-6">Esta acción no se puede deshacer.</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="toggleModal('modal-confirmacion')" class="px-6 py-2 text-gray-600 hover:text-gray-800 font-medium transition-colors">
+                        Cancelar
+                    </button>
+                    <button onclick="toggleModal('modal-confirmacion')" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Warning -->
+    <div id="modal-warning" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-warning-content">
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Advertencia</h3>
+                <p class="text-gray-600 mb-6">Tu sesión está por vencer. ¿Deseas extenderla?</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="toggleModal('modal-warning')" class="px-6 py-2 text-gray-600 hover:text-gray-800 font-medium transition-colors">
+                        Ignorar
+                    </button>
+                    <button onclick="toggleModal('modal-warning')" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                        Extender
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Success -->
+    <div id="modal-success" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-success-content">
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">¡Éxito!</h3>
+                <p class="text-gray-600 mb-6">Tu operación se completó correctamente.</p>
+                <button onclick="toggleModal('modal-success')" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Slide-in -->
+    <div id="modal-slide" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="fixed inset-0 flex items-center justify-center">
+            <div class="bg-white rounded-l-3xl shadow-2xl w-full max-w-lg h-full max-h-96 mx-4 transform translate-x-full transition-transform duration-300" id="modal-slide-content">
+                <div class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900">Slide-in Modal</h3>
+                        <button onclick="toggleModal('modal-slide')" class="text-gray-400 hover:text-gray-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-gray-600 mb-6">Este modal se desliza desde la derecha.</p>
+                    <div class="space-y-4">
+                        <button onclick="toggleModal('modal-slide')" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-medium transition-colors">
+                            Acción Principal
+                        </button>
+                        <button onclick="toggleModal('modal-slide')" class="w-full border border-gray-300 text-gray-700 hover:bg-gray-50 py-3 rounded-xl font-medium transition-colors">
+                            Acción Secundaria
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Glassmorphism -->
+    <div id="modal-glass" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-glass-content">
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Glassmorphism</h3>
+                <p class="text-white/80 mb-6">Modal con efecto de vidrio esmerilado.</p>
+                <div class="space-y-3">
+                    <button onclick="toggleModal('modal-glass')" class="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-medium transition-all border border-white/30">
+                        Glass Action
+                    </button>
+                    <button onclick="toggleModal('modal-glass')" class="w-full text-white/80 hover:text-white font-medium transition-colors">
+                        Secondary
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Small -->
+    <div id="modal-small" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-small-content">
+            <div class="p-6 text-center">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Modal Pequeño</h3>
+                <p class="text-gray-600 mb-4">Para mensajes rápidos.</p>
+                <button onclick="toggleModal('modal-small')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Large -->
+    <div id="modal-large" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modal-large-content">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900">Modal Grande</h3>
+                    <button onclick="toggleModal('modal-large')" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-bold text-gray-900 mb-2">Sección 1</h4>
+                        <p class="text-gray-600">Contenido de la primera sección del modal grande.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-bold text-gray-900 mb-2">Sección 2</h4>
+                        <p class="text-gray-600">Contenido de la segunda sección del modal grande.</p>
+                    </div>
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button onclick="toggleModal('modal-large')" class="px-6 py-2 text-gray-600 hover:text-gray-800 font-medium transition-colors">
+                        Cancelar
+                    </button>
+                    <button onclick="toggleModal('modal-large')" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Fullscreen -->
+    <div id="modal-fullscreen" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-white w-full h-full transform transition-all duration-300 scale-95 opacity-0" id="modal-fullscreen-content">
+            <div class="h-full flex flex-col">
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-6">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-white">Modal Pantalla Completa</h3>
+                        <button onclick="toggleModal('modal-fullscreen')" class="text-white/80 hover:text-white">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex-1 p-8">
+                    <div class="grid md:grid-cols-3 gap-8 mb-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Característica 1</h4>
+                            <p class="text-gray-600">Descripción de la primera característica.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Característica 2</h4>
+                            <p class="text-gray-600">Descripción de la segunda característica.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-900 mb-2">Característica 3</h4>
+                            <p class="text-gray-600">Descripción de la tercera característica.</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="toggleModal('modal-fullscreen')" class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-xl font-medium transition-colors">
+                            Cancelar
+                        </button>
+                        <button onclick="toggleModal('modal-fullscreen')" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-medium transition-colors">
+                            Continuar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOCUMENTACIÓN -->
+    <div class="bg-gray-900 text-white py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Guía de Modales con Tailwind CSS</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Estructura Básica -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-blue-400" style="font-family: 'Inter', sans-serif;">Estructura Básica</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">fixed inset-0 z-50</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">bg-black bg-opacity-50</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">flex items-center justify-center</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">transform scale-95 opacity-0</code>
+                    </div>
+                </div>
+
+                <!-- Animaciones -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400" style="font-family: 'Poppins', sans-serif;">Animaciones</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">transform transition-all duration-300</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">scale-95 opacity-0</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:scale-100 hover:opacity-100</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">translate-x-full</code>
+                    </div>
+                </div>
+
+                <!-- Tamaños -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-green-400" style="font-family: 'Inter', sans-serif;">Tamaños</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">max-w-sm (small)</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">max-w-md (medium)</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">max-w-lg (large)</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">max-w-2xl (xlarge)</code>
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-yellow-400" style="font-family: 'Poppins', sans-serif;">Botones de Cerrar</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">text-gray-400 hover:text-gray-600</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">w-6 h-6</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">M6 18L18 6M6 6l12 12</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">onclick="toggleModal(id)"</code>
+                    </div>
+                </div>
+
+                <!-- Formularios -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-pink-400" style="font-family: 'Inter', sans-serif;">Formularios</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">border border-gray-200</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">focus:ring-2 focus:ring-blue-500</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">rounded-xl</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">space-y-4</code>
+                    </div>
+                </div>
+
+                <!-- Efectos Especiales -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-cyan-400">Efectos Especiales</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">backdrop-blur-xl</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">bg-white/10</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">border border-white/20</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">rounded-l-3xl</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gray-800 p-8 rounded-xl">
+                <h3 class="text-2xl font-bold mb-6 text-center text-green-400">✅ Catálogo Completo de Modales</h3>
+                <div class="grid md:grid-cols-2 gap-8 text-sm text-gray-300">
+                    <div>
+                        <h4 class="font-bold text-white mb-3">Tipos Incluidos:</h4>
+                        <ul class="space-y-1">
+                            <li>• Modales básicos con diferentes layouts</li>
+                            <li>• Modales con formularios (login/registro)</li>
+                            <li>• Modales de confirmación (warning/success/error)</li>
+                            <li>• Modales con efectos (slide-in/glassmorphism)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white mb-3">Características:</h4>
+                        <ul class="space-y-1">
+                            <li>• Animaciones suaves con Tailwind</li>
+                            <li>• Tamaños responsivos (small/large/fullscreen)</li>
+                            <li>• Efectos glassmorphism</li>
+                            <li>• Solo clases nativas de Tailwind</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const modalContent = document.getElementById(modalId + '-content');
+
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modalContent.style.transform = 'scale-100';
+                    modalContent.style.opacity = '1';
+                }, 10);
+            } else {
+                modalContent.style.transform = 'scale-95';
+                modalContent.style.opacity = '0';
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('bg-black') || event.target.classList.contains('bg-opacity-50')) {
+                const modals = document.querySelectorAll('[id^="modal-"]');
+                modals.forEach(modal => {
+                    if (!modal.classList.contains('hidden')) {
+                        const modalId = modal.id;
+                        toggleModal(modalId);
+                    }
+                });
+            }
+        });
+
+        // Cerrar modal con la tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('[id^="modal-"]');
+                modals.forEach(modal => {
+                    if (!modal.classList.contains('hidden')) {
+                        const modalId = modal.id;
+                        toggleModal(modalId);
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

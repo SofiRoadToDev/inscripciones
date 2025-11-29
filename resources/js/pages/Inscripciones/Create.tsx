@@ -131,16 +131,16 @@ export default function Create({
     return (
         <>
             <PublicLayout>
-                <div className="min-h-screen bg-background  py-8 " >
-                    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="min-h-screen bg-slate-900" >
+                    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                         <div className="mb-8 flex flex-col justify-center items-center">
-                            <h1 className="text-3xl font-bold text-foreground">Nueva Inscripción</h1>
-                            <p className="mt-2 text-sm text-foreground">
+                            <h1 className="text-3xl font-bold text-white">Nueva Inscripción</h1>
+                            <p className="mt-2 text-sm text-white/90">
                                 Complete todos los datos requeridos para inscribir al alumno
                             </p>
                         </div>
 
-                        <form onSubmit={submit} className='bg-background'>
+                        <form onSubmit={submit} className='bg-white/20 backdrop-blur-md p-6 rounded-lg'>
                             <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
                                 <Tab.List className="flex space-x-2 rounded-xl bg-blue-900/20 p-1 mb-6">
                                     <Tab

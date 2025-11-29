@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos de Cards - Solo Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+    <!-- SECCIÓN 1: CARDS CON ANIMACIONES NATIVAS -->
+    <section class="py-20 px-4" style="font-family: 'Inter', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Cards con Animaciones Tailwind</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Solo clases de Tailwind CSS - sin CSS personalizado</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 - Fade In -->
+                <div class="animate-fade-in bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <div class="text-white text-6xl font-bold animate-bounce">1</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Card Fade + Bounce</h3>
+                        <p class="text-gray-600 mb-6">Animación fade-in al cargar + bounce en elemento interior.</p>
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105">
+                            Leer Más
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 - Scale In -->
+                <div class="animate-scale-in bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                        <div class="text-white text-6xl font-bold animate-pulse">2</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Card Scale + Pulse</h3>
+                        <p class="text-gray-600 mb-6">Scale animation + pulse continuo en el número interior.</p>
+                        <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:rotate-12">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 - Slide In -->
+                <div class="animate-slide-in-from-right bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:rotate-1">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <div class="text-white text-6xl font-bold animate-ping">3</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Card Slide + Ping</h3>
+                        <p class="text-gray-600 mb-6">Slide from right animation + ping effect en el elemento.</p>
+                        <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:-translate-y-1">
+                            Descubrir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: CARDS CON HOVER EFFECTS AVANZADOS -->
+    <section class="py-20 px-4 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900" style="font-family: 'Poppins', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Cards con Hover Effects Nativos</h2>
+                <p class="text-white/80 max-w-2xl mx-auto">Solo Tailwind transform, transition y hover states</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 - Tilt Effect -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 hover:bg-white/20 hover:scale-105 hover:rotate-1 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-400/50 to-purple-500/50 rounded-2xl mb-4 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300"></div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Tilt + Rotate</h3>
+                    <p class="text-white/70 text-sm">hover:scale-105 hover:rotate-1</p>
+                </div>
+
+                <!-- Card 2 - Glow Effect -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 hover:bg-white/20 hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-pink-400/50 to-red-500/50 rounded-2xl mb-4 group-hover:animate-pulse"></div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Glow + Pulse</h3>
+                    <p class="text-white/70 text-sm">hover:shadow-purple-500/25 animate-pulse</p>
+                </div>
+
+                <!-- Card 3 - Slide Effect -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-green-400/50 to-cyan-500/50 rounded-2xl mb-4 group-hover:translate-x-2 transition-transform duration-300"></div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Slide</h3>
+                    <p class="text-white/70 text-sm">group-hover:translate-x-2</p>
+                </div>
+
+                <!-- Card 4 - Bounce Effect -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 hover:bg-white/20 hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400/50 to-orange-500/50 rounded-2xl mb-4 group-hover:animate-bounce"></div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Bounce + Lift</h3>
+                    <p class="text-white/70 text-sm">hover:-translate-y-2 animate-bounce</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: CARDS CON DIFERENTES FORMAS (SIN CSS CUSTOM) -->
+    <section class="py-20 px-4 bg-gray-900" style="font-family: 'Playfair Display', serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Cards con Formas usando Tailwind</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Solo usando clases nativas de Tailwind para formas</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card Circular -->
+                <div class="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full p-8 h-80 flex flex-col items-center justify-center text-center hover:scale-105 hover:rotate-12 transition-all duration-300">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 hover:animate-spin">
+                        <span class="text-2xl font-bold text-orange-500">01</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Circular</h3>
+                    <p class="text-white/90 text-sm">rounded-full + hover:rotate-12</p>
+                </div>
+
+                <!-- Card Square con Radius -->
+                <div class="bg-gradient-to-br from-green-400 to-blue-500 p-8 h-80 flex flex-col items-center justify-center text-center hover:scale-105 hover:-rotate-12 transition-all duration-300">
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-4 hover:animate-bounce">
+                        <span class="text-xl font-bold text-green-500">02</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Rounded</h3>
+                    <p class="text-white/90 text-sm">rounded-2xl + hover:-rotate-12</p>
+                </div>
+
+                <!-- Card Diamond -->
+                <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-8 transform hover:rotate-45 transition-transform duration-500">
+                    <div class="transform -rotate-45 h-full flex flex-col items-center justify-center text-center">
+                        <div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center mb-4 hover:animate-pulse">
+                            <span class="text-lg font-bold text-purple-500">03</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Diamond</h3>
+                        <p class="text-white/90 text-sm">hover:rotate-45</p>
+                    </div>
+                </div>
+
+                <!-- Card Hexagon Style -->
+                <div class="bg-gradient-to-br from-red-500 to-pink-500 p-8 h-80 flex flex-col items-center justify-center text-center hover:scale-105 hover:rotate-6 transition-all duration-300">
+                    <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mb-4 hover:animate-ping">
+                        <span class="text-lg font-bold text-red-500">04</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Rounded Hex</h3>
+                    <p class="text-white/90 text-sm">rounded-3xl + hover:rotate-6</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: CARDS GLASSMORPHISM PURO -->
+    <section class="py-20 px-4 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" style="font-family: 'Poppins', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Cards Glassmorphism 100% Tailwind</h2>
+                <p class="text-white/80 max-w-2xl mx-auto">Efectos de vidrio esmerilado usando solo clases nativas</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Glass Card 1 -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 hover:bg-white/20 hover:border-white/40 transition-all duration-300 group hover:scale-105">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-400/50 to-purple-500/50 rounded-2xl mb-4 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300"></div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Glass Blue</h3>
+                    <p class="text-white/70 text-sm">bg-white/10 backdrop-blur-xl</p>
+                </div>
+
+                <!-- Glass Card 2 -->
+                <div class="bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 group hover:scale-105">
+                    <div class="w-12 h-12 bg-gradient-to-br from-green-400/50 to-cyan-500/50 rounded-2xl mb-4 group-hover:animate-bounce transition-all duration-300"></div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Glass Green</h3>
+                    <p class="text-white/70 text-sm">bg-white/5 backdrop-blur-2xl</p>
+                </div>
+
+                <!-- Glass Card 3 -->
+                <div class="bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl rounded-3xl border border-white/30 p-6 hover:from-white/30 hover:to-white/10 transition-all duration-300 group hover:scale-105">
+                    <div class="w-12 h-12 bg-gradient-to-br from-orange-400/70 to-red-500/70 rounded-2xl mb-4 group-hover:rotate-180 group-hover:scale-125 transition-all duration-500"></div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Glass Gradient</h3>
+                    <p class="text-white/70 text-sm">hover:rotate-180 hover:scale-125</p>
+                </div>
+
+                <!-- Glass Card 4 -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-6 hover:bg-white/20 hover:border-white/40 transition-all duration-300 group hover:scale-105">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400/70 to-orange-500/70 rounded-2xl mb-4 group-hover:animate-pulse transition-all duration-300"></div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Glass Yellow</h3>
+                    <p class="text-white/70 text-sm">group-hover:animate-pulse</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: CARDS CON MÚLTIPLES ANIMACIONES -->
+    <section class="py-20 px-4 bg-white" style="font-family: 'Inter', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Cards con Múltiples Animaciones</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Combinando múltiples efectos solo con Tailwind</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 - Múltiples Effects -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:rotate-1 group">
+                    <div class="h-48 bg-gradient-to-br from-teal-400 to-blue-500 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent group-hover:translate-x-full transition-transform duration-700"></div>
+                        <div class="relative z-10 h-full flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/20 rounded-full animate-pulse"></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">Combo Effects</h3>
+                        <p class="text-gray-600">Scale + Rotate + Slide + Pulse</p>
+                        <button class="mt-4 bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:animate-bounce">
+                            Action
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 - Advanced Combo -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-rotate-1 group">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 overflow-hidden relative">
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 border-2 border-white rounded-full animate-ping"></div>
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 border-2 border-white/70 rounded-full animate-ping animation-delay-200"></div>
+                        </div>
+                        <div class="relative z-10 h-full flex items-center justify-center">
+                            <span class="text-white text-4xl animate-spin">⚡</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">Ripple + Spin</h3>
+                        <p class="text-gray-600">Ping animation + rotate element</p>
+                        <button class="mt-4 bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:animate-bounce">
+                            Action
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 - Transform Combo -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:rotate-1 group">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 overflow-hidden relative">
+                        <div class="absolute inset-0 group-hover:bg-white/20 transition-colors duration-300"></div>
+                        <div class="relative z-10 h-full flex items-center justify-center">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center group-hover:animate-bounce">
+                                <span class="text-2xl">🚀</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">Transform Combo</h3>
+                        <p class="text-gray-600">Scale + Rotate + Bounce + Color</p>
+                        <button class="mt-4 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:animate-pulse">
+                            Action
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTACIÓN -->
+    <div class="bg-gray-900 text-white py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Guía: Animaciones Nativas de Tailwind CSS</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Animaciones de Entrada -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-blue-400" style="font-family: 'Inter', sans-serif;">Animaciones de Entrada</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">animate-fade-in</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">animate-scale-in</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">animate-slide-in-from-right</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">animate-slide-in-from-left</code>
+                    </div>
+                </div>
+
+                <!-- Animaciones Continuas -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400" style="font-family: 'Poppins', sans-serif;">Animaciones Continuas</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">animate-spin</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">animate-pulse</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">animate-bounce</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">animate-ping</code>
+                    </div>
+                </div>
+
+                <!-- Hover Transforms -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-green-400" style="font-family: 'Inter', sans-serif;">Hover Transforms</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:scale-105</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:rotate-12</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:-translate-y-2</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:translate-x-full</code>
+                    </div>
+                </div>
+
+                <!-- Transiciones -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-yellow-400" style="font-family: 'Playfair Display', serif;">Transiciones</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">transition-all duration-300</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">transition-transform duration-500</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">transition-opacity duration-300</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">transition-colors duration-200</code>
+                    </div>
+                </div>
+
+                <!-- Glassmorphism -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-pink-400" style="font-family: 'Poppins', sans-serif;">Glassmorphism</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">bg-white/10 backdrop-blur-xl</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">border border-white/20</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">bg-white/5 backdrop-blur-2xl</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:bg-white/20</code>
+                    </div>
+                </div>
+
+                <!-- Fuentes Utilizadas -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-cyan-400">Fuentes Incluidas</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <p style="font-family: 'Inter', sans-serif;"><strong>Inter:</strong> Sans-serif moderna</p>
+                        <p style="font-family: 'Poppins', sans-serif;"><strong>Poppins:</strong> Geométrica friendly</p>
+                        <p style="font-family: 'Playfair Display', serif;"><strong>Playfair:</strong> Serif elegante</p>
+                        <p style="font-family: 'JetBrains Mono', monospace;"><strong>JetBrains Mono:</strong> Monospace tech</p>
+                        <p style="font-family: 'Dancing Script', cursive;"><strong>Dancing Script:</strong> Cursiva casual</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gray-800 p-8 rounded-xl">
+                <h3 class="text-2xl font-bold mb-6 text-center text-green-400">✅ 100% Tailwind CSS - Sin CSS Personalizado</h3>
+                <div class="grid md:grid-cols-2 gap-8 text-sm text-gray-300">
+                    <div>
+                        <h4 class="font-bold text-white mb-3">Animaciones Incluidas:</h4>
+                        <ul class="space-y-1">
+                            <li>• Fade in, Scale in, Slide in</li>
+                            <li>• Spin, Pulse, Bounce, Ping</li>
+                            <li>• Hover: scale, rotate, translate</li>
+                            <li>• Glassmorphism effects</li>
+                            <li>• Multiple transform combinations</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white mb-3">Características:</h4>
+                        <ul class="space-y-1">
+                            <li>• Solo clases nativas de Tailwind</li>
+                            <li>• 5 fuentes diferentes integradas</li>
+                            <li>• Efectos hover avanzados</li>
+                            <li>• Formas variadas sin CSS custom</li>
+                            <li>• Completamente responsive</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

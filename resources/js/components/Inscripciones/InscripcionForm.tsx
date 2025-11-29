@@ -122,20 +122,20 @@ export const InscripcionForm = function InscripcionForm({
     }, [data.escuela_procedencia.nombre, setData]);
 
     return (
-        <div className="bg-card p-6 rounded-lg shadow space-y-6">
-            <h2 className="text-xl font-bold text-foreground mb-4">Datos de Inscripción</h2>
+        <div className="bg-transparent p-6 rounded-lg shadow space-y-6">
+            <h2 className="text-xl font-bold text-white mb-4">Datos de Inscripción</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Fecha */}
                 <div>
-                    <label htmlFor="fecha_inscripcion" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="fecha_inscripcion" className="block text-sm font-medium text-white mb-1">
                         Fecha de Inscripción <span className="text-destructive">*</span>
                     </label>
                     <input id="fecha_inscripcion"
                         type="date"
                         value={data.inscripcion.fecha}
                         onChange={(e) => handleChange('fecha', e.target.value)}
-                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                        className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                     />
                     {errors['inscripcion.fecha'] && (
                         <p className="mt-1 text-sm text-destructive">{errors['inscripcion.fecha']}</p>
@@ -144,14 +144,14 @@ export const InscripcionForm = function InscripcionForm({
 
                 {/* Ciclo Lectivo */}
                 <div>
-                    <label htmlFor="ciclo_lectivo" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="ciclo_lectivo" className="block text-sm font-medium text-white mb-1">
                         Ciclo Lectivo <span className="text-destructive">*</span>
                     </label>
                     <input id="ciclo_lectivo"
                         type="number"
                         value={data.inscripcion.ciclo_lectivo}
                         onChange={(e) => handleChange('ciclo_lectivo', parseInt(e.target.value))}
-                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                        className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         min="2020"
                         max="2100"
                     />
@@ -162,13 +162,13 @@ export const InscripcionForm = function InscripcionForm({
 
                 {/* Nivel */}
                 <div>
-                    <label htmlFor="nivel_id" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="nivel_id" className="block text-sm font-medium text-white mb-1">
                         Nivel <span className="text-destructive">*</span>
                     </label>
                     <select id="nivel_id"
                         value={data.inscripcion.nivel_id}
                         onChange={(e) => handleChange('nivel_id', e.target.value)}
-                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                        className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                     >
                         <option value="">Seleccione...</option>
                         {niveles.map((nivel) => (
@@ -184,14 +184,14 @@ export const InscripcionForm = function InscripcionForm({
 
                 {/* Curso */}
                 <div>
-                    <label htmlFor="curso_id" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="curso_id" className="block text-sm font-medium text-white mb-1">
                         Curso <span className="text-destructive">*</span>
                     </label>
                     <select id="curso_id"
                         value={data.inscripcion.curso_id}
                         onChange={(e) => handleChange('curso_id', e.target.value)}
                         disabled={!data.inscripcion.nivel_id || cursos.length === 0}
-                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring disabled:bg-muted"
+                        className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white focus:ring-1 focus:ring-ring focus:border-ring disabled:bg-slate-600/50 disabled:text-white/60"
                     >
                         <option value="">
                             {loadingCursos ? 'Cargando...' : 'Seleccione...'}
@@ -216,20 +216,20 @@ export const InscripcionForm = function InscripcionForm({
                         onChange={(e) => handleChange('repite', e.target.checked)}
                         className="h-4 w-4 text-primary border-input rounded focus:ring-primary"
                     />
-                    <label htmlFor="repite" className="ml-2 block text-sm text-foreground">
+                    <label htmlFor="repite" className="ml-2 block text-sm text-white">
                         ¿Repite el año?
                     </label>
                 </div>
 
                 {/* Materias Pendientes */}
                 <div className="md:col-span-2">
-                    <label htmlFor="materias_pendientes" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="materias_pendientes" className="block text-sm font-medium text-white mb-1">
                         Materias Pendientes
                     </label>
                     <textarea id="materias_pendientes"
                         value={data.inscripcion.materias_pendientes}
                         onChange={(e) => handleChange('materias_pendientes', e.target.value)}
-                        className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                        className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         rows={3}
                         placeholder="Ej: Matemática, Historia"
                     />
@@ -237,20 +237,20 @@ export const InscripcionForm = function InscripcionForm({
             </div>
 
             {/* Escuela de Procedencia */}
-            <div className="border-t border-border pt-6 mt-6">
-                <h3 className="text-lg font-semibold text-foreground mb-4">Escuela de Procedencia</h3>
+            <div className="pt-6 mt-6">
+                <h3 className="text-lg font-semibold text-white mb-4">Escuela de Procedencia</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* CUE */}
                     <div>
-                        <label htmlFor="cue" className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor="cue" className="block text-sm font-medium text-white mb-1">
                             CUE
                         </label>
                         <input id="cue"
                             type="text"
                             value={data.escuela_procedencia.cue || ''}
                             onChange={(e) => setData('escuela_procedencia.cue', e.target.value)}
-                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                            className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: 660123400"
                         />
                         {errors['escuela_procedencia.cue'] && (
@@ -260,14 +260,14 @@ export const InscripcionForm = function InscripcionForm({
 
                     {/* Nombre */}
                     <div>
-                        <label htmlFor="nombre_escuela" className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor="nombre_escuela" className="block text-sm font-medium text-white mb-1">
                             Nombre <span className="text-destructive">*</span>
                         </label>
                         <input id="nombre_escuela"
                             type="text"
                             value={data.escuela_procedencia.nombre || ''}
                             onChange={(e) => handleEscuelaNombreChange(e.target.value)}
-                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                            className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="Ej: Escuela Primaria N° 1"
                         />
                         {errors['escuela_procedencia.nombre'] && (
@@ -277,14 +277,14 @@ export const InscripcionForm = function InscripcionForm({
 
                     {/* Localidad */}
                     <div>
-                        <label htmlFor="localidad_id" className="block text-sm font-medium text-foreground mb-1">
+                        <label htmlFor="localidad_id" className="block text-sm font-medium text-white mb-1">
                             Localidad
                         </label>
                         <input id="localidad_id"
                             type="number"
                             value={data.escuela_procedencia.localidad_id || ''}
                             onChange={(e) => setData('escuela_procedencia.localidad_id', e.target.value ? parseInt(e.target.value) : '')}
-                            className="w-full px-3 py-2 border input rounded-md focus:ring-1 focus:ring-ring focus:border-ring"
+                            className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                             placeholder="ID de localidad"
                         />
                         {errors['escuela_procedencia.localidad_id'] && (

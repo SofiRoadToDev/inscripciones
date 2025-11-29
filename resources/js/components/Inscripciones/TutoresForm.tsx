@@ -53,9 +53,9 @@ export const TutoresForm = function TutoresForm({
     };
 
     return (
-        <div className="bg-card p-6 rounded-lg shadow space-y-6">
+        <div className="bg-transparent p-6 rounded-lg shadow space-y-6">
             <div className="flex justify-between items-center">
-                <h2 className="text-xl font-bold text-foreground">Tutores</h2>
+                <h2 className="text-xl font-bold text-white">Tutores</h2>
                 <button
                     type="button"
                     onClick={agregarTutor}
@@ -71,7 +71,7 @@ export const TutoresForm = function TutoresForm({
             )}
 
             {data.tutores.map((tutor, index) => (
-                <div key={index} className="border border-border rounded-lg p-4 space-y-4 relative">
+                <div key={index} className="rounded-lg p-4 space-y-4 relative">
                     {data.tutores.length > 1 && (
                         <button
                             type="button"
@@ -82,14 +82,14 @@ export const TutoresForm = function TutoresForm({
                         </button>
                     )}
 
-                    <h3 className="text-lg font-semibold text-foreground">
+                    <h3 className="text-lg font-semibold text-white">
                         Tutor {index + 1}
                     </h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* Apellido */}
                         <div>
-                            <label htmlFor={`apellido_${index}`} className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`apellido_${index}`} className="block text-sm font-medium text-white mb-1">
                                 Apellido <span className="text-destructive">*</span>
                             </label>
                             <input
@@ -97,7 +97,7 @@ export const TutoresForm = function TutoresForm({
                                 type="text"
                                 value={tutor.apellido}
                                 onChange={(e) => handleChange(index, 'apellido', e.target.value)}
-                                className="w-full px-3 py-2 border input rounded-md"
+                                className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50"
                             />
                             {errors[`tutores.${index}.apellido`] && (
                                 <p className="mt-1 text-sm text-destructive">{errors[`tutores.${index}.apellido`]}</p>
@@ -106,7 +106,7 @@ export const TutoresForm = function TutoresForm({
 
                         {/* Nombre */}
                         <div>
-                            <label htmlFor={`nombre_${index}`} className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`nombre_${index}`} className="block text-sm font-medium text-white mb-1">
                                 Nombre <span className="text-destructive">*</span>
                             </label>
                             <input
@@ -114,7 +114,7 @@ export const TutoresForm = function TutoresForm({
                                 type="text"
                                 value={tutor.nombre}
                                 onChange={(e) => handleChange(index, 'nombre', e.target.value)}
-                                className="w-full px-3 py-2 border input rounded-md"
+                                className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50"
                             />
                             {errors[`tutores.${index}.nombre`] && (
                                 <p className="mt-1 text-sm text-destructive">{errors[`tutores.${index}.nombre`]}</p>
@@ -123,7 +123,7 @@ export const TutoresForm = function TutoresForm({
 
                         {/* DNI */}
                         <div>
-                            <label htmlFor={`dni_${index}`} className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`dni_${index}`} className="block text-sm font-medium text-white mb-1">
                                 DNI <span className="text-destructive">*</span>
                             </label>
                             <input
@@ -131,7 +131,7 @@ export const TutoresForm = function TutoresForm({
                                 type="text"
                                 value={tutor.dni}
                                 onChange={(e) => handleChange(index, 'dni', e.target.value)}
-                                className="w-full px-3 py-2 border input rounded-md"
+                                className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50"
                                 maxLength={20}
                             />
                             {errors[`tutores.${index}.dni`] && (
@@ -141,7 +141,7 @@ export const TutoresForm = function TutoresForm({
 
                         {/* Teléfono */}
                         <div>
-                            <label htmlFor={`telefono_${index}`} className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`telefono_${index}`} className="block text-sm font-medium text-white mb-1">
                                 Teléfono <span className="text-destructive">*</span>
                             </label>
                             <input
@@ -149,7 +149,7 @@ export const TutoresForm = function TutoresForm({
                                 type="text"
                                 value={tutor.telefono}
                                 onChange={(e) => handleChange(index, 'telefono', e.target.value)}
-                                className="w-full px-3 py-2 border input rounded-md"
+                                className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50"
                             />
                             {errors[`tutores.${index}.telefono`] && (
                                 <p className="mt-1 text-sm text-destructive">{errors[`tutores.${index}.telefono`]}</p>
@@ -158,7 +158,7 @@ export const TutoresForm = function TutoresForm({
 
                         {/* Estudios */}
                         <div>
-                            <label htmlFor={`estudios_${index}`} className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`estudios_${index}`} className="block text-sm font-medium text-white mb-1">
                                 Estudios
                             </label>
                             <input
@@ -166,14 +166,14 @@ export const TutoresForm = function TutoresForm({
                                 type="text"
                                 value={tutor.estudios}
                                 onChange={(e) => handleChange(index, 'estudios', e.target.value)}
-                                className="w-full px-3 py-2 border input rounded-md"
+                                className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50"
                                 placeholder="Ej: Universitario"
                             />
                         </div>
 
                         {/* Ocupación */}
                         <div>
-                            <label htmlFor={`ocupacion_${index}`} className="block text-sm font-medium text-foreground mb-1">
+                            <label htmlFor={`ocupacion_${index}`} className="block text-sm font-medium text-white mb-1">
                                 Ocupación
                             </label>
                             <input
@@ -181,14 +181,14 @@ export const TutoresForm = function TutoresForm({
                                 type="text"
                                 value={tutor.ocupacion}
                                 onChange={(e) => handleChange(index, 'ocupacion', e.target.value)}
-                                className="w-full px-3 py-2 border input rounded-md"
+                                className="w-full px-3 py-2 bg-slate-700/50 border border-white/20 rounded-md text-white placeholder:text-white/50"
                                 placeholder="Ej: Docente"
                             />
                         </div>
                     </div>
 
                     {/* Domicilio del Tutor */}
-                    <div className="border-t border-border pt-4 mt-4">
+                    <div className="pt-4 mt-4">
                         <DomicilioFields
                             prefix={`tutores.${index}.domicilio`}
                             domicilio={tutor.domicilio}

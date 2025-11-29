@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Botones - Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+    <!-- SECCIÓN 1: BOTONES PRIMARIOS -->
+    <section class="py-20 px-4" style="font-family: 'Inter', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Botones Primarios</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Botones principales para acciones importantes</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8">Colores Principales</h3>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105">
+                        Primary Blue
+                    </button>
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105">
+                        Primary Purple
+                    </button>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105">
+                        Primary Green
+                    </button>
+                    <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105">
+                        Primary Red
+                    </button>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105">
+                        Primary Yellow
+                    </button>
+                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105">
+                        Primary Indigo
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8">Gradientes</h3>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg">
+                        Gradient Blue-Purple
+                    </button>
+                    <button class="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg">
+                        Gradient Green-Blue
+                    </button>
+                    <button class="bg-gradient-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg">
+                        Gradient Pink-Red
+                    </button>
+                    <button class="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg">
+                        Gradient Yellow-Orange
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: BOTONES SECUNDARIOS Y OUTLINE -->
+    <section class="py-20 px-4 bg-gray-100" style="font-family: 'Poppins', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Botones Secundarios</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Botones outline y ghost para acciones secundarias</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Outline Buttons -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Outline Buttons</h3>
+                    <div class="space-y-4">
+                        <button class="w-full border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            Outline Blue
+                        </button>
+                        <button class="w-full border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            Outline Purple
+                        </button>
+                        <button class="w-full border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            Outline Green
+                        </button>
+                        <button class="w-full border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            Outline Red
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Ghost Buttons -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Ghost Buttons</h3>
+                    <div class="space-y-4">
+                        <button class="w-full text-blue-500 hover:bg-blue-50 px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            Ghost Blue
+                        </button>
+                        <button class="w-full text-purple-500 hover:bg-purple-50 px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            Ghost Purple
+                        </button>
+                        <button class="w-full text-green-500 hover:bg-green-50 px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            Ghost Green
+                        </button>
+                        <button class="w-full text-red-500 hover:bg-red-50 px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            Ghost Red
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: TAMAÑOS DE BOTONES -->
+    <section class="py-20 px-4 bg-white" style="font-family: 'Inter', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Tamaños de Botones</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Diferentes tamaños para diferentes contextos</p>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-8">
+                <div class="text-center space-y-8">
+                    <!-- Extra Small -->
+                    <div class="space-x-4">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300">
+                            Extra Small
+                        </button>
+                        <button class="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300">
+                            XS
+                        </button>
+                    </div>
+
+                    <!-- Small -->
+                    <div class="space-x-4">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300">
+                            Small
+                        </button>
+                        <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300">
+                            SM
+                        </button>
+                    </div>
+
+                    <!-- Medium -->
+                    <div class="space-x-4">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            Medium
+                        </button>
+                        <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                            MD
+                        </button>
+                    </div>
+
+                    <!-- Large -->
+                    <div class="space-x-4">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-medium transition-all duration-300">
+                            Large
+                        </button>
+                        <button class="bg-purple-500 hover:bg-purple-600 text-white px-8 py-4 rounded-xl text-lg font-medium transition-all duration-300">
+                            LG
+                        </button>
+                    </div>
+
+                    <!-- Extra Large -->
+                    <div class="space-x-4">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-10 py-5 rounded-2xl text-xl font-medium transition-all duration-300">
+                            Extra Large
+                        </button>
+                        <button class="bg-purple-500 hover:bg-purple-600 text-white px-10 py-5 rounded-2xl text-xl font-medium transition-all duration-300">
+                            XL
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: BOTONES CON ICONOS -->
+    <section class="py-20 px-4 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" style="font-family: 'Poppins', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Botones con Iconos</h2>
+                <p class="text-white/80 max-w-2xl mx-auto">Iconos para mejorar la experiencia del usuario</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Botón con icono izquierda -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8">
+                    <h3 class="text-xl font-bold text-white mb-6">Icon Left</h3>
+                    <div class="space-y-4">
+                        <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                            Agregar
+                        </button>
+                        <button class="w-full bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Guardar
+                        </button>
+                        <button class="w-full bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                            </svg>
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Botón con icono derecha -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8">
+                    <h3 class="text-xl font-bold text-white mb-6">Icon Right</h3>
+                    <div class="space-y-4">
+                        <button class="w-full bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                            Continuar
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                            Descargar
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </button>
+                        <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center">
+                            Enviar
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Botones solo icono -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8">
+                    <h3 class="text-xl font-bold text-white mb-6">Icon Only</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-xl font-medium transition-all duration-300 hover:scale-110 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-xl font-medium transition-all duration-300 hover:scale-110 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </button>
+                        <button class="bg-red-500 hover:bg-red-600 text-white p-3 rounded-xl font-medium transition-all duration-300 hover:scale-110 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                            </svg>
+                        </button>
+                        <button class="bg-purple-500 hover:bg-purple-600 text-white p-3 rounded-xl font-medium transition-all duration-300 hover:scale-110 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </button>
+                        <button class="bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-xl font-medium transition-all duration-300 hover:scale-110 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </button>
+                        <button class="bg-indigo-500 hover:bg-indigo-600 text-white p-3 rounded-xl font-medium transition-all duration-300 hover:scale-110 flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: LOADING STATES -->
+    <section class="py-20 px-4 bg-white" style="font-family: 'Inter', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Estados de Carga</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Botones con estados de loading y disabled</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Loading States -->
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Loading States</h3>
+                    <div class="space-y-4">
+                        <button class="w-full bg-blue-500 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center cursor-not-allowed opacity-75">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Procesando...
+                        </button>
+                        <button class="w-full bg-green-500 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center cursor-not-allowed opacity-75">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Guardando...
+                        </button>
+                        <button class="w-full bg-purple-500 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center cursor-not-allowed opacity-75">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Cargando datos...
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Disabled States -->
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Disabled States</h3>
+                    <div class="space-y-4">
+                        <button class="w-full bg-gray-300 text-gray-500 px-6 py-3 rounded-xl font-medium cursor-not-allowed">
+                            Disabled Primary
+                        </button>
+                        <button class="w-full border-2 border-gray-300 text-gray-400 px-6 py-3 rounded-xl font-medium cursor-not-allowed">
+                            Disabled Outline
+                        </button>
+                        <button class="w-full text-gray-400 px-6 py-3 rounded-xl font-medium cursor-not-allowed">
+                            Disabled Ghost
+                        </button>
+                        <button class="w-full bg-gradient-to-r from-gray-400 to-gray-500 text-white px-6 py-3 rounded-xl font-medium cursor-not-allowed">
+                            Disabled Gradient
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: BUTTON GROUPS -->
+    <section class="py-20 px-4 bg-gray-100" style="font-family: 'Poppins', sans-serif;">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Grupos de Botones</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Botones agrupados para acciones relacionadas</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Horizontal Groups -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Horizontal Groups</h3>
+                    <div class="space-y-6">
+                        <!-- Group 1 -->
+                        <div class="flex rounded-xl overflow-hidden">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 font-medium transition-all duration-300 border-r border-blue-400">
+                                Opción 1
+                            </button>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 font-medium transition-all duration-300 border-r border-blue-500">
+                                Opción 2
+                            </button>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 font-medium transition-all duration-300">
+                                Opción 3
+                            </button>
+                        </div>
+
+                        <!-- Group 2 -->
+                        <div class="flex rounded-xl overflow-hidden">
+                            <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 font-medium transition-all duration-300 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                </svg>
+                                Eliminar
+                            </button>
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 font-medium transition-all duration-300 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
+                                Editar
+                            </button>
+                            <button class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 font-medium transition-all duration-300 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                                </svg>
+                                Compartir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vertical Groups -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Vertical Groups</h3>
+                    <div class="space-y-2">
+                        <button class="w-full bg-gray-50 hover:bg-blue-50 text-gray-700 hover:text-blue-600 px-4 py-3 rounded-lg font-medium transition-all duration-300 text-left flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v0a2 2 0 01-2 2H10a2 2 0 01-2-2v0z"/>
+                            </svg>
+                            Dashboard
+                        </button>
+                        <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 text-left flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            Documentos
+                        </button>
+                        <button class="w-full bg-gray-50 hover:bg-green-50 text-gray-700 hover:text-green-600 px-4 py-3 rounded-lg font-medium transition-all duration-300 text-left flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            Reportes
+                        </button>
+                        <button class="w-full bg-gray-50 hover:bg-purple-50 text-gray-700 hover:text-purple-600 px-4 py-3 rounded-lg font-medium transition-all duration-300 text-left flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Configuración
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTACIÓN -->
+    <div class="bg-gray-900 text-white py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Guía de Botones con Tailwind CSS</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Colores -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-blue-400" style="font-family: 'Inter', sans-serif;">Colores Principales</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">bg-blue-500 hover:bg-blue-600</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">bg-purple-500 hover:bg-purple-600</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">bg-green-500 hover:bg-green-600</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">bg-red-500 hover:bg-red-600</code>
+                    </div>
+                </div>
+
+                <!-- Outline & Ghost -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400" style="font-family: 'Poppins', sans-serif;">Outline & Ghost</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">border-2 border-blue-500</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">text-blue-500 hover:bg-blue-50</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:bg-blue-500 hover:text-white</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:bg-blue-500 hover:text-white</code>
+                    </div>
+                </div>
+
+                <!-- Tamaños -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-green-400" style="font-family: 'Inter', sans-serif;">Tamaños</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">px-3 py-1.5 text-xs (XS)</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">px-4 py-2 text-sm (SM)</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">px-6 py-3 font-medium (MD)</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">px-8 py-4 text-lg (LG)</code>
+                    </div>
+                </div>
+
+                <!-- Iconos -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-yellow-400" style="font-family: 'Poppins', sans-serif;">Iconos</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">flex items-center justify-center</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">w-5 h-5 mr-2</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">p-3 rounded-xl (icon only)</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:scale-110</code>
+                    </div>
+                </div>
+
+                <!-- Loading & Disabled -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-pink-400" style="font-family: 'Inter', sans-serif;">Estados</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">animate-spin</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">cursor-not-allowed opacity-75</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">bg-gray-300 text-gray-500</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">transition-all duration-300</code>
+                    </div>
+                </div>
+
+                <!-- Efectos -->
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-cyan-400">Efectos Hover</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:scale-105</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">transition-all duration-300</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">shadow-lg hover:shadow-xl</code>
+                        <code class="block bg-gray-900 p-2 rounded font-mono">hover:-translate-y-1</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-gray-800 p-8 rounded-xl">
+                <h3 class="text-2xl font-bold mb-6 text-center text-green-400">✅ Catálogo Completo de Botones</h3>
+                <div class="grid md:grid-cols-2 gap-8 text-sm text-gray-300">
+                    <div>
+                        <h4 class="font-bold text-white mb-3">Tipos Incluidos:</h4>
+                        <ul class="space-y-1">
+                            <li>• Primarios con gradientes</li>
+                            <li>• Outline y ghost buttons</li>
+                            <li>• Diferentes tamaños (XS a XL)</li>
+                            <li>• Con iconos izquierda/derecha</li>
+                            <li>• Solo iconos (icon buttons)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white mb-3">Estados y Grupos:</h4>
+                        <ul class="space-y-1">
+                            <li>• Loading states con spinners</li>
+                            <li>• Disabled states</li>
+                            <li>• Button groups horizontales</li>
+                            <li>• Button groups verticales</li>
+                            <li>• Efectos hover avanzados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

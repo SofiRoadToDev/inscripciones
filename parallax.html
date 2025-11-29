@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efecto Parallax con Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="antialiased">
+
+    <!-- SECCIÓN 1: HERO CON PARALLAX -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- FONDO CON PARALLAX -->
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+             style="background-image: url('https://www.infobae.com/resizer/v2/H6ECXZLE4NGY7BEVZMWTGVURYE.jpg?auth=5bf98d60563270aa9abd7b98f915f39c549815738d590f11e18bdfd26a778902&smart=true&width=1024&height=512&quality=85');">
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL CON GLASSMORPHISM -->
+        <div class="relative z-10 text-center backdrop-blur-md bg-white/20 p-12 rounded-2xl border border-white/30 shadow-2xl max-w-4xl mx-4">
+            <h1 class="text-5xl font-bold text-white mb-4">Colegio San Patricio</h1>
+            <p class="text-white/90 text-xl mb-6">Educación de Excelencia</p>
+            <button class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-8 py-3 rounded-lg border border-white/30 transition-all">
+                Conoce Más
+            </button>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: CON PARALLAX SUAVE -->
+    <section class="relative min-h-screen flex items-center py-20">
+        <!-- FONDO CON PARALLAX MÁS LENTO -->
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed opacity-80"
+             style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://www.infobae.com/resizer/v2/H6ECXZLE4NGY7BEVZMWTGVURYE.jpg?auth=5bf98d60563270aa9abd7b98f915f39c549815738d590f11e18bdfd26a778902&smart=true&width=1024&height=512&quality=85');">
+        </div>
+
+        <!-- CONTENIDO CON GLASSMORPHISM OSCURO -->
+        <div class="relative z-10 max-w-6xl mx-auto px-8 w-full">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- TARJETA 1 -->
+                <div class="backdrop-blur-lg bg-gray-900/40 p-8 rounded-xl border border-gray-700/50 shadow-xl">
+                    <h3 class="text-2xl font-bold text-white mb-4">Instalaciones Modernas</h3>
+                    <p class="text-white/90">
+                        backdrop-blur-lg + bg-gray-900/40 + border border-gray-700/50
+                    </p>
+                    <div class="mt-4 h-32 bg-white/10 rounded-lg backdrop-blur-sm"></div>
+                </div>
+
+                <!-- TARJETA 2 -->
+                <div class="backdrop-blur-lg bg-gray-900/40 p-8 rounded-xl border border-gray-700/50 shadow-xl">
+                    <h3 class="text-2xl font-bold text-white mb-4">Tecnología Avanzada</h3>
+                    <p class="text-white/90">
+                        Mismas clases para consistencia visual
+                    </p>
+                    <div class="mt-4 h-32 bg-white/10 rounded-lg backdrop-blur-sm"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: CON OVERLAY PARALLAX -->
+    <section class="relative h-screen flex items-center justify-center">
+        <!-- FONDO BASE -->
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+             style="background-image: url('https://www.infobae.com/resizer/v2/H6ECXZLE4NGY7BEVZMWTGVURYE.jpg?auth=5bf98d60563270aa9abd7b98f915f39c549815738d590f11e18bdfd26a778902&smart=true&width=1024&height=512&quality=85');">
+        </div>
+
+        <!-- OVERLAY OSCURO -->
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <!-- CONTENIDO GRADIENTE -->
+        <div class="relative z-10 backdrop-blur-xl bg-gradient-to-r from-blue-500/30 to-purple-500/30 p-10 rounded-2xl border border-white/20 shadow-2xl max-w-3xl mx-4">
+            <h2 class="text-4xl font-bold text-white mb-4">Metodología Innovadora</h2>
+            <p class="text-white/90 text-lg mb-6">
+                backdrop-blur-xl + bg-gradient-to-r from-blue-500/30 to-purple-500/30
+            </p>
+            <div class="grid grid-cols-3 gap-4 mt-6">
+                <div class="h-20 bg-white/10 rounded-lg backdrop-blur-sm"></div>
+                <div class="h-20 bg-white/10 rounded-lg backdrop-blur-sm"></div>
+                <div class="h-20 bg-white/10 rounded-lg backdrop-blur-sm"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: TARJETAS FLOTANTES -->
+    <section class="relative min-h-screen py-20">
+        <!-- FONDO CON PARALLAX -->
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed opacity-60"
+             style="background-image: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('https://www.infobae.com/resizer/v2/H6ECXZLE4NGY7BEVZMWTGVURYE.jpg?auth=5bf98d60563270aa9abd7b98f915f39c549815738d590f11e18bdfd26a778902&smart=true&width=1024&height=512&quality=85');">
+        </div>
+
+        <!-- GRID DE TARJETAS CON GLASSMORPHISM -->
+        <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Nuestros Programas</h2>
+                <div class="backdrop-blur-sm bg-white/10 p-4 rounded-lg border border-white/20 inline-block">
+                    <p class="text-white/90">backdrop-blur-sm + bg-white/10 + border border-white/20</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- TARJETA 1 -->
+                <div class="backdrop-blur-lg bg-white/15 p-8 rounded-xl border border-white/25 shadow-xl hover:bg-white/20 transition-all">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mb-6 mx-auto backdrop-blur-sm"></div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Primaria</h3>
+                    <p class="text-white/90 text-center">Educación fundamental con enfoque integral</p>
+                </div>
+
+                <!-- TARJETA 2 -->
+                <div class="backdrop-blur-lg bg-white/15 p-8 rounded-xl border border-white/25 shadow-xl hover:bg-white/20 transition-all">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mb-6 mx-auto backdrop-blur-sm"></div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Secundaria</h3>
+                    <p class="text-white/90 text-center">Preparamos para la universidad y la vida</p>
+                </div>
+
+                <!-- TARJETA 3 -->
+                <div class="backdrop-blur-lg bg-white/15 p-8 rounded-xl border border-white/25 shadow-xl hover:bg-white/20 transition-all">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full mb-6 mx-auto backdrop-blur-sm"></div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Programas Especiales</h3>
+                    <p class="text-white/90 text-center">Actividades extracurriculares y talleres</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FINAL -->
+    <section class="relative h-96 flex items-center justify-center">
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed opacity-50"
+             style="background-image: url('https://www.infobae.com/resizer/v2/H6ECXZLE4NGY7BEVZMWTGVURYE.jpg?auth=5bf98d60563270aa9abd7b98f915f39c549815738d590f11e18bdfd26a778902&smart=true&width=1024&height=512&quality=85');">
+        </div>
+
+        <div class="relative z-10 backdrop-blur-xl bg-black/50 p-12 rounded-2xl border border-white/30 shadow-2xl text-center max-w-2xl mx-4">
+            <h2 class="text-3xl font-bold text-white mb-4">¡Gracias por visitarnos!</h2>
+            <p class="text-white/90 mb-6">backdrop-blur-xl + bg-black/50 + border border-white/30</p>
+            <button class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg transition-all">
+                Contactanos
+            </button>
+        </div>
+    </section>
+
+    <!-- CÓDIGO DE REFERENCIA -->
+    <div class="bg-black/80 backdrop-blur-md p-8">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-white font-mono text-lg mb-6">Solo Tailwind CSS - Clases Utilizadas:</h3>
+
+            <div class="grid md:grid-cols-2 gap-6 text-sm">
+                <!-- COLUMNA 1 -->
+                <div class="space-y-4">
+                    <div class="bg-gray-900/50 p-4 rounded-lg">
+                        <h4 class="text-green-400 font-bold mb-2">Parallax Simple:</h4>
+                        <code class="text-yellow-300">absolute inset-0<br>
+                        bg-cover bg-center<br>
+                        bg-fixed<br>
+                        (sin CSS adicional)</code>
+                    </div>
+
+                    <div class="bg-gray-900/50 p-4 rounded-lg">
+                        <h4 class="text-green-400 font-bold mb-2">Contenedores:</h4>
+                        <code class="text-yellow-300">relative h-screen<br>
+                        flex items-center<br>
+                        justify-center<br>
+                        overflow-hidden</code>
+                    </div>
+
+                    <div class="bg-gray-900/50 p-4 rounded-lg">
+                        <h4 class="text-green-400 font-bold mb-2">Overlays:</h4>
+                        <code class="text-yellow-300">absolute inset-0<br>
+                        bg-black/60<br>
+                        bg-black/50<br>
+                        opacity-80</code>
+                    </div>
+                </div>
+
+                <!-- COLUMNA 2 -->
+                <div class="space-y-4">
+                    <div class="bg-gray-900/50 p-4 rounded-lg">
+                        <h4 class="text-blue-400 font-bold mb-2">Glassmorphism Claro:</h4>
+                        <code class="text-yellow-300">backdrop-blur-md<br>
+                        bg-white/20<br>
+                        border border-white/30<br>
+                        rounded-xl<br>
+                        shadow-xl</code>
+                    </div>
+
+                    <div class="bg-gray-900/50 p-4 rounded-lg">
+                        <h4 class="text-blue-400 font-bold mb-2">Glassmorphism Oscuro:</h4>
+                        <code class="text-yellow-300">backdrop-blur-lg<br>
+                        bg-gray-900/40<br>
+                        border border-gray-700/50</code>
+                    </div>
+
+                    <div class="bg-gray-900/50 p-4 rounded-lg">
+                        <h4 class="text-blue-400 font-bold mb-2">Glassmorphism Intenso:</h4>
+                        <code class="text-yellow-300">backdrop-blur-xl<br>
+                        bg-gradient-to-r<br>
+                        from-blue-500/30<br>
+                        to-purple-500/30</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

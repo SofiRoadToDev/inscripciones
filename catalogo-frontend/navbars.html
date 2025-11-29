@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Estilos de Navbars con Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Para el navbar fijo, solo si necesitas JavaScript */
+        .navbar-scroll {
+            transition: all 0.3s ease;
+        }
+        .navbar-scroll.scrolled {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- NAVBAR 1: SIMPLE Y TRANSPARENTE -->
+    <nav class="bg-transparent absolute top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-white text-2xl font-bold">Logo</h1>
+                </div>
+
+                <!-- Navegación Desktop -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Inicio</a>
+                        <a href="#" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Servicios</a>
+                        <a href="#" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Nosotros</a>
+                        <a href="#" class="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
+                    </div>
+                </div>
+
+                <!-- Botón CTA -->
+                <div class="hidden md:block">
+                    <button class="bg-white text-gray-900 hover:bg-gray-100 px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                        Contactar
+                    </button>
+                </div>
+
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="text-white hover:text-gray-300">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de ejemplo para el navbar transparente -->
+    <div class="h-screen bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center">
+        <div class="text-center text-white">
+            <h1 class="text-5xl font-bold mb-4">Navbar Simple Transparente</h1>
+            <p class="text-xl">Con fondo de imagen y navegación elegante</p>
+        </div>
+    </div>
+
+    <!-- NAVBAR 2: OSCURO SÓLIDO -->
+    <nav class="bg-gray-900 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <svg class="h-8 w-8 text-blue-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="text-white text-xl font-bold">Empresa</span>
+                </div>
+
+                <!-- Navegación Desktop -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" class="bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Servicios</a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfolio</a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
+                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
+                    </div>
+                </div>
+
+                <!-- Acciones -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="text-gray-300 hover:text-white p-2 rounded-md transition-colors">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                        Comenzar
+                    </button>
+                </div>
+
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="text-gray-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de ejemplo para navbar oscuro -->
+    <div class="min-h-screen bg-gray-800 flex items-center justify-center">
+        <div class="text-center text-white">
+            <h1 class="text-5xl font-bold mb-4">Navbar Oscuro Sólido</h1>
+            <p class="text-xl">Con navegación activa y elementos interactivos</p>
+        </div>
+    </div>
+
+    <!-- NAVBAR 3: GLASSMORPHISM -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg mr-3"></div>
+                        <h1 class="text-white text-xl font-bold">Studio</h1>
+                    </div>
+                </div>
+
+                <!-- Navegación Desktop -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="text-white/90 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-all">Inicio</a>
+                        <a href="#" class="text-white/90 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-all">Proyectos</a>
+                        <a href="#" class="text-white/90 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-all">Equipo</a>
+                        <a href="#" class="text-white/90 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-all">Contacto</a>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <button class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-medium transition-all border border-white/30">
+                        Login
+                    </button>
+                    <button class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-all shadow-lg">
+                        Registrarse
+                    </button>
+                </div>
+
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="text-white/90 hover:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de ejemplo para navbar glassmorphism -->
+    <div class="h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 flex items-center justify-center pt-16">
+        <div class="text-center text-white">
+            <h1 class="text-5xl font-bold mb-4">Navbar Glassmorphism</h1>
+            <p class="text-xl">Con efecto de vidrio esmerilado y gradientes</p>
+        </div>
+    </div>
+
+    <!-- NAVBAR 4: STICKY CON EFECTOS -->
+    <nav id="sticky-navbar" class="navbar-scroll sticky top-0 bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-lg">A</span>
+                        </div>
+                        <span class="text-gray-900 text-xl font-semibold">AppName</span>
+                    </div>
+                </div>
+
+                <!-- Navegación Desktop -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6">
+                        <a href="#" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium">Dashboard</a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700 hover:border-b-2 hover:border-gray-300 pb-1 text-sm font-medium transition-all">Analytics</a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700 hover:border-b-2 hover:border-gray-300 pb-1 text-sm font-medium transition-all">Settings</a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700 hover:border-b-2 hover:border-gray-300 pb-1 text-sm font-medium transition-all">Reports</a>
+                    </div>
+                </div>
+
+                <!-- Perfil de usuario -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <button class="flex items-center text-sm text-gray-500 hover:text-gray-700">
+                            <div class="w-8 h-8 bg-gray-300 rounded-full mr-2"></div>
+                            <span>Usuario</span>
+                            <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menú móvil -->
+                <div class="md:hidden">
+                    <button class="text-gray-500 hover:text-gray-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de ejemplo para navbar sticky -->
+    <div class="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold text-gray-900 mb-4">Navbar Sticky con Efectos</h1>
+            <p class="text-xl text-gray-600">Con scroll effects y estados activos</p>
+            <div class="mt-8 space-y-4">
+                <div class="w-20 h-20 bg-blue-200 rounded-lg mx-auto"></div>
+                <div class="w-32 h-32 bg-green-200 rounded-lg mx-auto"></div>
+                <div class="w-24 h-24 bg-purple-200 rounded-lg mx-auto"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR 5: MOBILE FIRST CON HAMBURGER -->
+    <nav class="bg-white shadow-lg border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-8 h-8 bg-gradient-to-br from-red-400 to-red-600 rounded-lg mr-3"></div>
+                    <h1 class="text-gray-900 text-xl font-bold">MenuApp</h1>
+                </div>
+
+                <!-- Botón Hamburger (solo visible en móvil) -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Navegación Desktop (oculta en móvil) -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-red-600 px-3 py-2 text-sm font-medium transition-colors">Inicio</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 px-3 py-2 text-sm font-medium transition-colors">Productos</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 px-3 py-2 text-sm font-medium transition-colors">Servicios</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 px-3 py-2 text-sm font-medium transition-colors">Nosotros</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 px-3 py-2 text-sm font-medium transition-colors">Contacto</a>
+                </div>
+
+                <!-- CTA Desktop -->
+                <div class="hidden md:block">
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                        Comprar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menú móvil desplegable -->
+            <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#" class="text-gray-600 hover:text-red-600 block px-3 py-2 text-base font-medium transition-colors">Inicio</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 block px-3 py-2 text-base font-medium transition-colors">Productos</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 block px-3 py-2 text-base font-medium transition-colors">Servicios</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 block px-3 py-2 text-base font-medium transition-colors">Nosotros</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 block px-3 py-2 text-base font-medium transition-colors">Contacto</a>
+                    <div class="pt-2">
+                        <button class="w-full bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors">
+                            Comprar Ahora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de ejemplo para navbar mobile -->
+    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div class="text-center text-gray-800">
+            <h1 class="text-5xl font-bold mb-4">Navbar Mobile First</h1>
+            <p class="text-xl mb-8">Con menú hamburger y navegación adaptable</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="w-12 h-12 bg-red-200 rounded-lg mx-auto mb-4"></div>
+                    <h3 class="font-semibold mb-2">Responsive</h3>
+                    <p class="text-sm text-gray-600">Se adapta a todos los dispositivos</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="w-12 h-12 bg-blue-200 rounded-lg mx-auto mb-4"></div>
+                    <h3 class="font-semibold mb-2">Interactivo</h3>
+                    <p class="text-sm text-gray-600">Menús desplegables funcionales</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="w-12 h-12 bg-green-200 rounded-lg mx-auto mb-4"></div>
+                    <h3 class="font-semibold mb-2">Accesible</h3>
+                    <p class="text-sm text-gray-600">Fácil navegación para todos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOCUMENTACIÓN DE NAVBARS -->
+    <div class="bg-gray-900 text-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Guía de Navbars con Tailwind CSS</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Navbar 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-blue-400">1. Navbar Transparente</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded">bg-transparent</code>
+                        <code class="block bg-gray-900 p-2 rounded">absolute top-0</code>
+                        <code class="block bg-gray-900 p-2 rounded">text-white</code>
+                        <code class="block bg-gray-900 p-2 rounded">hover:text-gray-300</code>
+                    </div>
+                </div>
+
+                <!-- Navbar 2 -->
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-gray-400">2. Navbar Oscuro</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded">bg-gray-900</code>
+                        <code class="block bg-gray-900 p-2 rounded">sticky top-0</code>
+                        <code class="block bg-gray-900 p-2 rounded">shadow-lg</code>
+                        <code class="block bg-gray-900 p-2 rounded">text-gray-300</code>
+                    </div>
+                </div>
+
+                <!-- Navbar 3 -->
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400">3. Glassmorphism</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded">bg-white/10</code>
+                        <code class="block bg-gray-900 p-2 rounded">backdrop-blur-md</code>
+                        <code class="block bg-gray-900 p-2 rounded">border border-white/20</code>
+                        <code class="block bg-gray-900 p-2 rounded">fixed top-0</code>
+                    </div>
+                </div>
+
+                <!-- Navbar 4 -->
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-green-400">4. Sticky Effects</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded">sticky top-0</code>
+                        <code class="block bg-gray-900 p-2 rounded">navbar-scroll</code>
+                        <code class="block bg-gray-900 p-2 rounded">border-b-2</code>
+                        <code class="block bg-gray-900 p-2 rounded">transition-all</code>
+                    </div>
+                </div>
+
+                <!-- Navbar 5 -->
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-red-400">5. Mobile First</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <code class="block bg-gray-900 p-2 rounded">md:hidden</code>
+                        <code class="block bg-gray-900 p-2 rounded">hidden md:flex</code>
+                        <code class="block bg-gray-900 p-2 rounded">border-t</code>
+                        <code class="block bg-gray-900 p-2 rounded">space-y-1</code>
+                    </div>
+                </div>
+
+                <!-- Consejos -->
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-yellow-400">Consejos</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <p>• Usa <code>sticky</code> para mantener visible</p>
+                        <p>• <code>fixed</code> para overlay completo</p>
+                        <p>• <code>z-50</code> para estar encima</p>
+                        <p>• <code>backdrop-blur</code> para efectos glass</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para el navbar sticky
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('sticky-navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // JavaScript para el menú móvil
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const hamburger = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            menu.classList.toggle('hidden');
+            hamburger.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

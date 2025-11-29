@@ -87,19 +87,19 @@ export const DomicilioFields = function DomicilioFields({
 
     return (
         <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground">Domicilio</h3>
+            <h3 className="text-lg font-semibold text-white">Domicilio</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Calle */}
                 <div className="md:col-span-1">
-                    <label htmlFor="calle" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="calle" className="block text-sm font-medium text-white mb-1">
                         Calle <span className="text-red-500">*</span>
                     </label>
                     <input id="calle"
                         type="text"
                         value={domicilio.calle}
                         onChange={(e) => handleChange('calle', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: San Martín"
                     />
                     {errors[`${prefix}.calle`] && (
@@ -109,14 +109,14 @@ export const DomicilioFields = function DomicilioFields({
 
                 {/* Número */}
                 <div>
-                    <label htmlFor="numero" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="numero" className="block text-sm font-medium text-white mb-1">
                         Número <span className="text-red-500">*</span>
                     </label>
                     <input id="numero"
                         type="text"
                         value={domicilio.numero}
                         onChange={(e) => handleChange('numero', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: 123"
                     />
                     {errors[`${prefix}.numero`] && (
@@ -126,94 +126,94 @@ export const DomicilioFields = function DomicilioFields({
 
                 {/* Piso */}
                 <div>
-                    <label htmlFor="piso" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="piso" className="block text-sm font-medium text-white mb-1">
                         Piso
                     </label>
                     <input id="piso"
                         type="text"
                         value={domicilio.piso}
                         onChange={(e) => handleChange('piso', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: 2"
                     />
                 </div>
                 {/* Manzana */}
                 <div>
-                    <label htmlFor="manzana" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="manzana" className="block text-sm font-medium text-white mb-1">
                         Manzana
                     </label>
                     <input id="manzana"
                         type="text"
                         value={domicilio.manzana}
                         onChange={(e) => handleChange('manzana', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: 2"
                     />
                 </div>
                 {/* Casa */}
                 <div>
-                    <label htmlFor="casa" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="casa" className="block text-sm font-medium text-white mb-1">
                         Casa
                     </label>
                     <input id="casa"
                         type="text"
                         value={domicilio.casa}
                         onChange={(e) => handleChange('casa', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: 2"
                     />
                 </div>
                 {/* Lote */}
                 <div>
-                    <label htmlFor="lote" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="lote" className="block text-sm font-medium text-white mb-1">
                         Lote
                     </label>
                     <input id="lote"
                         type="text"
                         value={domicilio.lote}
                         onChange={(e) => handleChange('lote', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: M"
                     />
                 </div>
 
                 {/* Barrio */}
                 <div>
-                    <label htmlFor="barrio" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="barrio" className="block text-sm font-medium text-white mb-1">
                         Barrio
                     </label>
                     <input id="barrio"
                         type="text"
                         value={domicilio.barrio}
                         onChange={(e) => handleChange('barrio', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: Villa Soledad"
                     />
                 </div>
 
                 {/* Departamento/Depto */}
                 <div>
-                    <label htmlFor="depto" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="depto" className="block text-sm font-medium text-white mb-1">
                         Depto
                     </label>
                     <input id="depto"
                         type="text"
                         value={domicilio.depto}
                         onChange={(e) => handleChange('depto', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                         placeholder="Ej: A"
                     />
                 </div>
 
                 {/* Provincia */}
                 <div>
-                    <label htmlFor="provincia_id" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="provincia_id" className="block text-sm font-medium text-white mb-1">
                         Provincia <span className="text-red-500">*</span>
                     </label>
                     <select id="provincia_id"
                         value={domicilio.provincia_id}
                         onChange={(e) => handleChange('provincia_id', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring"
                     >
                         <option value="">Seleccione...</option>
                         {provincias.map((prov) => (
@@ -229,14 +229,14 @@ export const DomicilioFields = function DomicilioFields({
 
                 {/* Departamento */}
                 <div>
-                    <label htmlFor="departamento_id" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="departamento_id" className="block text-sm font-medium text-white mb-1">
                         Departamento <span className="text-red-500">*</span>
                     </label>
                     <select id="departamento_id"
                         value={domicilio.departamento_id}
                         onChange={(e) => handleChange('departamento_id', e.target.value)}
                         disabled={!domicilio.provincia_id}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring disabled:bg-slate-600/50 disabled:text-white/60"
                     >
                         <option value="">
                             {loadingDepartamentos ? 'Cargando...' : 'Seleccione...'}
@@ -254,14 +254,14 @@ export const DomicilioFields = function DomicilioFields({
 
                 {/* Localidad */}
                 <div>
-                    <label htmlFor="localidad_id" className="block text-sm font-medium text-foreground mb-1">
+                    <label htmlFor="localidad_id" className="block text-sm font-medium text-white mb-1">
                         Localidad <span className="text-red-500">*</span>
                     </label>
                     <select id="localidad_id"
                         value={domicilio.localidad_id}
                         onChange={(e) => handleChange('localidad_id', e.target.value)}
                         disabled={!domicilio.departamento_id}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md text-foreground focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
+                        className="w-full px-3 py-2 border border-white/20 rounded-md bg-slate-700/50 text-white placeholder:text-white/50 focus:ring-1 focus:ring-ring focus:border-ring disabled:bg-slate-600/50 disabled:text-white/60"
                     >
                         <option value="">
                             {loadingLocalidades ? 'Cargando...' : 'Seleccione...'}

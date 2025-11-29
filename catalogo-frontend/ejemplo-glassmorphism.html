@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efecto Glassmorphism</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-cover bg-center bg-no-repeat  p-8" style="background-image: url('https://www.infobae.com/resizer/v2/H6ECXZLE4NGY7BEVZMWTGVURYE.jpg?auth=5bf98d60563270aa9abd7b98f915f39c549815738d590f11e18bdfd26a778902&smart=true&width=1024&height=512&quality=85');">
+    <!-- Fondo de ejemplo -->
+    <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-white">Efecto Glassmorphism</h1>
+        <p class="text-white/80 mt-2">Ejemplo con backdrop-filter blur</p>
+    </div>
+
+    <!-- CONTAINER PRINCIPAL CON EFECTO VIDRIO -->
+    <div class="max-w-4xl mx-auto space-y-6">
+
+        <!-- Ejemplo 1: Básico -->
+        <div class="backdrop-blur-sm bg-white/30 p-8 rounded-xl border border-white/20">
+            <h2 class="text-2xl font-bold text-white mb-2">Ejemplo 1: Blur Suave</h2>
+            <p class="text-white/90">
+                backdrop-blur-sm + bg-white/30 + border border-white/20
+            </p>
+        </div>
+
+        <!-- Ejemplo 2: Medio -->
+        <div class="backdrop-blur-md bg-white/20 p-8 rounded-xl border border-white/30">
+            <h2 class="text-2xl font-bold text-white mb-2">Ejemplo 2: Blur Medio</h2>
+            <p class="text-white/90">
+                backdrop-blur-md + bg-white/20 + border border-white/30
+            </p>
+        </div>
+
+        <!-- Ejemplo 3: Intenso -->
+        <div class="backdrop-blur-lg bg-white/10 p-8 rounded-xl border border-white/40 shadow-2xl">
+            <h2 class="text-2xl font-bold text-white mb-2">Ejemplo 3: Blur Intenso</h2>
+            <p class="text-white/90">
+                backdrop-blur-lg + bg-white/10 + border border-white/40
+            </p>
+        </div>
+
+        <!-- Ejemplo 4: Oscuro -->
+        <div class="backdrop-blur-md bg-gray-900/40 p-8 rounded-xl border border-gray-700/50">
+            <h2 class="text-2xl font-bold text-white mb-2">Ejemplo 4: Fondo Oscuro</h2>
+            <p class="text-white/90">
+                backdrop-blur-md + bg-gray-900/40 + border border-gray-700/50
+            </p>
+        </div>
+
+        <!-- Ejemplo 5: Completo con gradiente -->
+        <div class="backdrop-blur-xl bg-gradient-to-r from-pink-500/30 to-violet-500/30 p-8 rounded-xl border border-white/20 shadow-xl">
+            <h2 class="text-2xl font-bold text-white mb-2">Ejemplo 5: Con Gradiente</h2>
+            <p class="text-white/90">
+                backdrop-blur-xl + bg-gradient + border + shadow
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Código de ejemplo -->
+    <div class="max-w-4xl mx-auto mt-12">
+        <div class="backdrop-blur-md bg-black/50 p-6 rounded-xl border border-white/10">
+            <h3 class="text-white font-mono text-sm mb-4">Código base:</h3>
+            <pre class="text-green-400 text-xs overflow-x-auto">
+&lt;div class="backdrop-blur-md bg-white/20 p-8 rounded-xl border border-white/30"&gt;
+  Contenido del elemento
+&lt;/div&gt;
+            </pre>
+        </div>
+    </div>
+
+</body>
+</html>
