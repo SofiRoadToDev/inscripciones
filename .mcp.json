@@ -4,9 +4,9 @@
       "type": "stdio",
       "command": "node",
       "args": [
-        "/mnt/d/mcp-debug-specialist/dist/index.js"
+        "/mnt/d/PROYECTOS_2025/mcp-debug-specialist/dist/index.js"
       ],
-      "cwd": "/mnt/d/mcp-debug-specialist"
+      "cwd": "/mnt/d/PROYECTOS_2025/mcp-debug-specialist"
     },
     "env":{}
   }
